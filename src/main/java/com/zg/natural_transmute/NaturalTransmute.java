@@ -1,4 +1,4 @@
-package com.zj_gly.natural_transmute;
+package com.zg.natural_transmute;
 
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
