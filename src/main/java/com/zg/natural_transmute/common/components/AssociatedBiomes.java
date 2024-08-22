@@ -21,8 +21,9 @@ public record AssociatedBiomes(List<ResourceKey<Biome>> biomes) implements Toolt
 
     public static final Codec<AssociatedBiomes> CODEC = ResourceKey.codec(Registries.BIOME)
             .listOf().xmap(AssociatedBiomes::new, AssociatedBiomes::biomes);
-    public static final StreamCodec<ByteBuf, AssociatedBiomes> STREAM_CODEC = ResourceKey.streamCodec(Registries.BIOME)
-            .apply(ByteBufCodecs.list()).map(AssociatedBiomes::new, AssociatedBiomes::biomes);
+    public static final StreamCodec<ByteBuf, AssociatedBiomes> STREAM_CODEC =
+            ResourceKey.streamCodec(Registries.BIOME).apply(ByteBufCodecs.list())
+            .map(AssociatedBiomes::new, AssociatedBiomes::biomes);
 
     @Override
     public void addToTooltip(Item.TooltipContext context, Consumer<Component> tooltipAdder, TooltipFlag tooltipFlag) {

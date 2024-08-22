@@ -3,12 +3,14 @@ package com.zg.natural_transmute.common.data.provider;
 import com.google.gson.JsonObject;
 import com.zg.natural_transmute.NaturalTransmute;
 import com.zg.natural_transmute.registry.NTItems;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -35,11 +37,67 @@ public class NTLanguageProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         this.add("itemGroup." + NaturalTransmute.MOD_ID, "Natural Transmute", "自然通路");
+        this.addItem(NTItems.BERYL, "绿柱石");
+        this.addItem(NTItems.BLUE_BERRIES, "蓝莓");
+        this.addItem(NTItems.CHLORITE, "绿泥石");
+        this.addItem(NTItems.COCONUT, "椰子");
+        this.addItem(NTItems.COCONUT_SHELL, "椰子壳");
+        this.addItem(NTItems.DRYAS_OCTOPETALA, "仙女木");
+        this.addItem(NTItems.GANODERMA_LUCIDUM, "灵芝");
+        this.addItem(NTItems.GREEN_GHOST_CRYSTAL, "幽绿水晶");
+        this.addItem(NTItems.HAIR_CRYSTAL, "发晶");
+        this.addItem(NTItems.HELIODOR, "金绿柱石");
+        this.addItem(NTItems.HETEROGENEOUS_STONE, "异质石");
+        this.addItem(NTItems.ICELAND_SPAR, "冰洲石");
+        this.addItem(NTItems.MALACHITE, "孔雀石");
+        this.addItem(NTItems.PAPYRUS, "纸莎草");
+        this.addItem(NTItems.PITAYA, "火龙果");
+        this.addItem(NTItems.RED_BERYL, "红绿柱石");
+        this.addItem(NTItems.SCULK_BONE, "幽匿骨头");
+        this.addItem(NTItems.SILVERFISH_PUPA, "蠹虫蛹");
+        this.addItem(NTItems.TRANSPARENT_CRYSTAL, "透明水晶");
+        this.addItem(NTItems.TRUFFLE, "松露");
+        this.addItem(NTItems.TRUFFLE_SOUP, "松露羹");
+        this.addItem(NTItems.WARPED_WART, "诡异疣");
+        this.addItem(NTItems.CAT_FOOD_BLACK, "黑猫奇异猫粮");
+        this.addItem(NTItems.CAT_FOOD_BRITISH_SHORTHAIR, "英国短毛猫奇异猫粮");
+        this.addItem(NTItems.CAT_FOOD_CALICO, "花猫奇异猫粮");
+        this.addItem(NTItems.CAT_FOOD_JELLIE, "Jellie奇异猫粮");
+        this.addItem(NTItems.CAT_FOOD_PERSIAN, "波斯猫奇异猫粮");
+        this.addItem(NTItems.CAT_FOOD_RAGDOLL, "布偶猫奇异猫粮");
+        this.addItem(NTItems.CAT_FOOD_RED, "红虎斑猫奇异猫粮");
+        this.addItem(NTItems.CAT_FOOD_SIAMESE, "暹罗猫奇异猫粮");
+        this.addItem(NTItems.CAT_FOOD_TABBY, "虎斑猫奇异猫粮");
+        this.addItem(NTItems.CAT_FOOD_TUXEDO, "西服猫奇异猫粮");
+        this.addItem(NTItems.CAT_FOOD_WHITE, "白猫奇异猫粮");
+        this.addItem(NTItems.CAT_FOOD_OCELOT, "豹猫奇异猫粮");
+        this.addItem(NTItems.DOGFOOD_ASHEN, "灰狼奇异狗粮");
+        this.addItem(NTItems.DOGFOOD_BLACK, "黑狼奇异狗粮");
+        this.addItem(NTItems.DOGFOOD_CHESTNUT, "栗色狼奇异狗粮");
+        this.addItem(NTItems.DOGFOOD_CLASSICS, "苍狼奇异狗粮");
+        this.addItem(NTItems.DOGFOOD_RUSTY, "赭红狼奇异狗粮");
+        this.addItem(NTItems.DOGFOOD_SNOWY, "雪狼奇异狗粮");
+        this.addItem(NTItems.DOGFOOD_SPOTTED, "斑点狼奇异狗粮");
+        this.addItem(NTItems.DOGFOOD_STRIPED, "条纹狼奇异狗粮");
+        this.addItem(NTItems.DOGFOOD_WOODS, "森林狼奇异狗粮");
+        this.addItem(NTItems.ANDESITE_SLAG, "安山岩熔渣");
+        this.addItem(NTItems.BASALT_SLAG, "玄武岩熔渣");
+        this.addItem(NTItems.DEEPSLATE_SLAG, "深板岩熔渣");
+        this.addItem(NTItems.DIORITE_SLAG, "闪长岩熔渣");
+        this.addItem(NTItems.GRANITE_SLAG, "花岗岩熔渣");
+        this.addItem(NTItems.MUD_SLAG, "泥巴熔渣");
+        this.addItem(NTItems.SANDSTONE_SLAG, "砂岩熔渣");
+        this.addItem(NTItems.TUFF_SLAG, "凝灰岩熔渣");
+        this.addItem(NTItems.SCULK_BONE_SWORD, "幽匿石剑");
+        this.addItem(NTItems.SCULK_BONE_SHOVEL, "幽匿石锹");
+        this.addItem(NTItems.SCULK_BONE_PICKAXE, "幽匿石镐");
+        this.addItem(NTItems.SCULK_BONE_AXE, "幽匿石斧");
+        this.addItem(NTItems.SCULK_BONE_HOE, "幽匿石锄");
         this.addItem(NTItems.H_BADLANDS, "Withered", "枯槁缚相");
         this.addItem(NTItems.H_BASALT_DELTAS, "Melting", "熔裂缚相");
         this.addItem(NTItems.H_BEACH, "Sea Bore", "涌潮缚相");
         this.addItem(NTItems.H_BIRCH_FOREST, "Green Leaf", "苍叶缚相");
-        this.addItem(NTItems.H_CHERRY_GROVE, "", "");
+        this.addItem(NTItems.H_CHERRY_GROVE, "Lush Cherry Blossom", "繁樱缚相");
         this.addItem(NTItems.H_CRIMSON_FOREST, "Red Fungus", "赤菌缚相");
         this.addItem(NTItems.H_DARK_FOREST, "Deep Forest", "深林缚相");
         this.addItem(NTItems.H_DEEPSLATE, "Deep Slate", "深岩缚相");
@@ -104,6 +162,19 @@ public class NTLanguageProvider extends LanguageProvider {
     }
 
     private void addItem(Supplier<? extends Item> key, String en, String cn) {
+        this.add(key.get().getDescriptionId(), en, cn);
+    }
+
+    private void addItem(DeferredHolder<Item, Item> key, String cn) {
+        String path = BuiltInRegistries.ITEM.getKey(key.get()).getPath();
+        String[] words = path.split("_");
+        for (int i = 0; i < words.length; i++) {
+            String firstLetter = words[i].substring(0, 1);
+            String remainingLetters = words[i].substring((1));
+            words[i] = firstLetter.toUpperCase() + remainingLetters;
+        }
+
+        String en = String.join(" ", words);
         this.add(key.get().getDescriptionId(), en, cn);
     }
 

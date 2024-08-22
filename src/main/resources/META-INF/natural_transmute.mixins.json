@@ -1,0 +1,15 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "com.zg.natural_transmute.common.mixin",
+    "compatibilityLevel": "JAVA_21",
+    "refmap": "natural_transmute.refmap.json",
+    "mixins": [
+        "MixinLevel"
+    ],
+    "client": [
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

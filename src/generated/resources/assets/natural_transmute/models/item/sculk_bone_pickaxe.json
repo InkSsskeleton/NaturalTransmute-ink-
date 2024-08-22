@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "natural_transmute:item/sculk_bone_pickaxe"
+  }
+}

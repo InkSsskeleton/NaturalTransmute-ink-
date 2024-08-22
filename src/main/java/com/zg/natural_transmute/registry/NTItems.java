@@ -1,18 +1,92 @@
 package com.zg.natural_transmute.registry;
 
 import com.zg.natural_transmute.NaturalTransmute;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.entity.animal.CatVariant;
+import net.minecraft.world.entity.animal.WolfVariants;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.biome.Biomes;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.List;
 
-import static com.zg.natural_transmute.utils.NTItemRegUtils.fx;
+import static com.zg.natural_transmute.utils.NTItemRegUtils.*;
 
 public class NTItems {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.createItems(NaturalTransmute.MOD_ID);
+    public static final DeferredHolder<Item, Item> BERYL = normal("beryl");
+    public static final DeferredHolder<Item, Item> BLUE_BERRIES = normal("blue_berries");
+    public static final DeferredHolder<Item, Item> CHLORITE = normal("chlorite");
+    public static final DeferredHolder<Item, Item> COCONUT = normal("coconut");
+    public static final DeferredHolder<Item, Item> COCONUT_SHELL = normal("coconut_shell");
+    public static final DeferredHolder<Item, Item> DRYAS_OCTOPETALA = normal("dryas_octopetala");
+    public static final DeferredHolder<Item, Item> GANODERMA_LUCIDUM = normal("ganoderma_lucidum");
+    public static final DeferredHolder<Item, Item> GREEN_GHOST_CRYSTAL = normal("green_ghost_crystal");
+    public static final DeferredHolder<Item, Item> HAIR_CRYSTAL = normal("hair_crystal");
+    public static final DeferredHolder<Item, Item> HELIODOR = normal("heliodor");
+    public static final DeferredHolder<Item, Item> HETEROGENEOUS_STONE = normal("heterogeneous_stone");
+    public static final DeferredHolder<Item, Item> ICELAND_SPAR = normal("iceland_spar");
+    public static final DeferredHolder<Item, Item> MALACHITE = normal("malachite");
+    public static final DeferredHolder<Item, Item> PAPYRUS = normal("papyrus");
+    public static final DeferredHolder<Item, Item> PITAYA = normal("pitaya");
+    public static final DeferredHolder<Item, Item> RED_BERYL = normal("red_beryl");
+    public static final DeferredHolder<Item, Item> SCULK_BONE = normal("sculk_bone");
+    public static final DeferredHolder<Item, Item> SILVERFISH_PUPA = normal("silverfish_pupa");
+    public static final DeferredHolder<Item, Item> TRANSPARENT_CRYSTAL = normal("transparent_crystal");
+    public static final DeferredHolder<Item, Item> TRUFFLE = normal("truffle");
+    public static final DeferredHolder<Item, Item> TRUFFLE_SOUP = normal("truffle_soup");
+    public static final DeferredHolder<Item, Item> WARPED_WART = normal("warped_wart");
+    // 猫粮
+    public static final DeferredHolder<Item, Item> CAT_FOOD_BLACK = catFood("cat_food_black", CatVariant.BLACK);
+    public static final DeferredHolder<Item, Item> CAT_FOOD_BRITISH_SHORTHAIR =
+            catFood("cat_food_british_shorthair", CatVariant.BRITISH_SHORTHAIR);
+    public static final DeferredHolder<Item, Item> CAT_FOOD_CALICO = catFood("cat_food_calico", CatVariant.CALICO);
+    public static final DeferredHolder<Item, Item> CAT_FOOD_JELLIE = catFood("cat_food_jellie", CatVariant.JELLIE);
+    public static final DeferredHolder<Item, Item> CAT_FOOD_PERSIAN = catFood("cat_food_persian", CatVariant.PERSIAN);
+    public static final DeferredHolder<Item, Item> CAT_FOOD_RAGDOLL = catFood("cat_food_ragdoll", CatVariant.RAGDOLL);
+    public static final DeferredHolder<Item, Item> CAT_FOOD_RED = catFood("cat_food_red", CatVariant.RED);
+    public static final DeferredHolder<Item, Item> CAT_FOOD_SIAMESE = catFood("cat_food_siamese", CatVariant.SIAMESE);
+    public static final DeferredHolder<Item, Item> CAT_FOOD_TABBY = catFood("cat_food_tabby", CatVariant.TABBY);
+    public static final DeferredHolder<Item, Item> CAT_FOOD_TUXEDO = catFood("cat_food_tuxedo", CatVariant.ALL_BLACK);
+    public static final DeferredHolder<Item, Item> CAT_FOOD_WHITE = catFood("cat_food_white", CatVariant.WHITE);
+    public static final DeferredHolder<Item, Item> CAT_FOOD_OCELOT = catFood("cat_food_ocelot", null);
+    // 狗粮
+    public static final DeferredHolder<Item, Item> DOGFOOD_ASHEN = dogFood("dogfood_ashen", WolfVariants.ASHEN);
+    public static final DeferredHolder<Item, Item> DOGFOOD_BLACK = dogFood("dogfood_black", WolfVariants.BLACK);
+    public static final DeferredHolder<Item, Item> DOGFOOD_CHESTNUT = dogFood("dogfood_chestnut", WolfVariants.CHESTNUT);
+    public static final DeferredHolder<Item, Item> DOGFOOD_CLASSICS = dogFood("dogfood_classics", WolfVariants.PALE);
+    public static final DeferredHolder<Item, Item> DOGFOOD_RUSTY = dogFood("dogfood_rusty", WolfVariants.RUSTY);
+    public static final DeferredHolder<Item, Item> DOGFOOD_SNOWY = dogFood("dogfood_snowy", WolfVariants.SNOWY);
+    public static final DeferredHolder<Item, Item> DOGFOOD_SPOTTED = dogFood("dogfood_spotted", WolfVariants.SPOTTED);
+    public static final DeferredHolder<Item, Item> DOGFOOD_STRIPED = dogFood("dogfood_striped", WolfVariants.STRIPED);
+    public static final DeferredHolder<Item, Item> DOGFOOD_WOODS = dogFood("dogfood_woods", WolfVariants.WOODS);
+    // 熔渣
+    public static final DeferredHolder<Item, Item> ANDESITE_SLAG = normal("andesite_slag");
+    public static final DeferredHolder<Item, Item> BASALT_SLAG = normal("basalt_slag");
+    public static final DeferredHolder<Item, Item> DEEPSLATE_SLAG = normal("deepslate_slag");
+    public static final DeferredHolder<Item, Item> DIORITE_SLAG = normal("diorite_slag");
+    public static final DeferredHolder<Item, Item> GRANITE_SLAG = normal("granite_slag");
+    public static final DeferredHolder<Item, Item> MUD_SLAG = normal("mud_slag");
+    public static final DeferredHolder<Item, Item> SANDSTONE_SLAG = normal("sandstone_slag");
+    public static final DeferredHolder<Item, Item> TUFF_SLAG = normal("tuff_slag");
+    // 工具和装备
+    public static final DeferredHolder<Item, Item> SCULK_BONE_SWORD = ITEMS.register("sculk_bone_sword",
+            () -> new SwordItem(Tiers.IRON, new Item.Properties().component(NTDataComponents.SCULK_EQUIPMENT, Boolean.TRUE)
+                    .attributes(SwordItem.createAttributes(Tiers.IRON, (3.0F), (-2.4F)))));
+    public static final DeferredHolder<Item, Item> SCULK_BONE_SHOVEL = ITEMS.register("sculk_bone_shovel",
+            () -> new ShovelItem(Tiers.IRON, new Item.Properties().component(NTDataComponents.SCULK_EQUIPMENT, Boolean.TRUE)
+                    .attributes(ShovelItem.createAttributes(Tiers.IRON, (1.5F), (-3.0F)))));
+    public static final DeferredHolder<Item, Item> SCULK_BONE_PICKAXE = ITEMS.register("sculk_bone_pickaxe",
+            () -> new PickaxeItem(Tiers.IRON, new Item.Properties().component(NTDataComponents.SCULK_EQUIPMENT, Boolean.TRUE)
+                    .attributes(PickaxeItem.createAttributes(Tiers.IRON, (1.0F), (-2.8F)))));
+    public static final DeferredHolder<Item, Item> SCULK_BONE_AXE = ITEMS.register("sculk_bone_axe",
+            () -> new AxeItem(Tiers.IRON, new Item.Properties().component(NTDataComponents.SCULK_EQUIPMENT, Boolean.TRUE)
+                    .attributes(AxeItem.createAttributes(Tiers.IRON, (6.0F), (-3.1F)))));
+    public static final DeferredHolder<Item, Item> SCULK_BONE_HOE = ITEMS.register("sculk_bone_hoe",
+            () -> new HoeItem(Tiers.IRON, new Item.Properties().component(NTDataComponents.SCULK_EQUIPMENT, Boolean.TRUE)
+                    .attributes(HoeItem.createAttributes(Tiers.IRON, (-2.0F), (-1.0F)))));
+    // 缚相
     public static final DeferredHolder<Item, Item> H_BADLANDS = fx("h_badlands", List.of(Biomes.BADLANDS));
     public static final DeferredHolder<Item, Item> H_BASALT_DELTAS = fx("h_basalt_deltas", List.of(Biomes.BASALT_DELTAS));
     public static final DeferredHolder<Item, Item> H_BEACH = fx("h_beach", List.of(Biomes.BEACH));
@@ -30,8 +104,7 @@ public class NTItems {
             List.of(Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS, Biomes.END_MIDLANDS, Biomes.END_HIGHLANDS));
     public static final DeferredHolder<Item, Item> H_FLOWER_FOREST = fx("h_flower_forest", List.of(Biomes.FLOWER_FOREST));
     public static final DeferredHolder<Item, Item> H_FOREST = fx("h_forest", List.of(Biomes.FOREST));
-    public static final DeferredHolder<Item, Item> H_FROZEN_OCEAN = fx("h_frozen_ocean",
-            List.of(Biomes.FROZEN_OCEAN, Biomes.DEEP_FROZEN_OCEAN));
+    public static final DeferredHolder<Item, Item> H_FROZEN_OCEAN = fx("h_frozen_ocean", List.of(Biomes.FROZEN_OCEAN, Biomes.DEEP_FROZEN_OCEAN));
     public static final DeferredHolder<Item, Item> H_GIANT_TREE_TAIGA = fx("h_giant_tree_taiga",
             List.of(Biomes.OLD_GROWTH_SPRUCE_TAIGA, Biomes.OLD_GROWTH_PINE_TAIGA));
     public static final DeferredHolder<Item, Item> H_ICE_SPIKES = fx("h_ice_spikes", List.of(Biomes.ICE_SPIKES));
@@ -44,22 +117,17 @@ public class NTItems {
     public static final DeferredHolder<Item, Item> H_MUSHROOM = fx("h_mushroom", List.of(Biomes.MUSHROOM_FIELDS));
     public static final DeferredHolder<Item, Item> H_NETHER = fx("h_nether", List.of(Biomes.NETHER_WASTES));
     public static final DeferredHolder<Item, Item> H_OCEAN = fx("h_ocean",
-            List.of(Biomes.OCEAN, Biomes.LUKEWARM_OCEAN, Biomes.COLD_OCEAN,
-                    Biomes.DEEP_OCEAN, Biomes.DEEP_LUKEWARM_OCEAN, Biomes.DEEP_COLD_OCEAN));
-    public static final DeferredHolder<Item, Item> H_PLAINS = fx("h_plains",
-            List.of(Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS));
-    public static final DeferredHolder<Item, Item> H_RIVER = fx("h_river",
-            List.of(Biomes.RIVER, Biomes.FROZEN_RIVER));
-    public static final DeferredHolder<Item, Item> H_SAVANNA = fx("h_savanna",
-            List.of(Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU));
+            List.of(Biomes.OCEAN, Biomes.LUKEWARM_OCEAN, Biomes.COLD_OCEAN, Biomes.DEEP_OCEAN, Biomes.DEEP_LUKEWARM_OCEAN, Biomes.DEEP_COLD_OCEAN));
+    public static final DeferredHolder<Item, Item> H_PLAINS = fx("h_plains", List.of(Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS));
+    public static final DeferredHolder<Item, Item> H_RIVER = fx("h_river", List.of(Biomes.RIVER, Biomes.FROZEN_RIVER));
+    public static final DeferredHolder<Item, Item> H_SAVANNA = fx("h_savanna", List.of(Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU));
     public static final DeferredHolder<Item, Item> H_SNOWY_SLOPES = fx("h_snowy_slopes",
             List.of(Biomes.SNOWY_SLOPES, Biomes.JAGGED_PEAKS, Biomes.FROZEN_PEAKS));
     public static final DeferredHolder<Item, Item> H_SNOWY_TUNDRA = fx("h_snowy_tundra", List.of(Biomes.SNOWY_PLAINS));
     public static final DeferredHolder<Item, Item> H_SOUL_SAND_VALLEY = fx("h_soul_sand_valley", List.of(Biomes.SOUL_SAND_VALLEY));
     public static final DeferredHolder<Item, Item> H_STONE_SHORE = fx("h_stone_shore", List.of(Biomes.STONY_SHORE));
     public static final DeferredHolder<Item, Item> H_SWAMP = fx("h_swamp", List.of(Biomes.SWAMP));
-    public static final DeferredHolder<Item, Item> H_TAIGA = fx("h_taiga",
-            List.of(Biomes.TAIGA, Biomes.SNOWY_TAIGA));
+    public static final DeferredHolder<Item, Item> H_TAIGA = fx("h_taiga", List.of(Biomes.TAIGA, Biomes.SNOWY_TAIGA));
     public static final DeferredHolder<Item, Item> H_WARM_OCEAN = fx("h_warm_ocean", List.of(Biomes.WARM_OCEAN));
     public static final DeferredHolder<Item, Item> H_WARPED_FOREST = fx("h_warped_forest", List.of(Biomes.WARPED_FOREST));
     public static final DeferredHolder<Item, Item> H_WIND = fx("h_wind",
