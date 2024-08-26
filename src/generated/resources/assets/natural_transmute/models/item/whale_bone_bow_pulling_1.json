@@ -1,0 +1,6 @@
+{
+  "parent": "natural_transmute:item/whale_bone_bow",
+  "textures": {
+    "layer0": "natural_transmute:item/whale_bone_bow_pulling_1"
+  }
+}

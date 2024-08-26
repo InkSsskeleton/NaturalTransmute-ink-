@@ -1,0 +1,11 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "natural_transmute:ore_turquoise_upper",
+    "natural_transmute:ore_turquoise_lower",
+    "natural_transmute:ore_corundum_upper",
+    "natural_transmute:ore_corundum_lower"
+  ],
+  "step": "underground_ores"
+}

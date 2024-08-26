@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "natural_transmute:duck"
+  },
+  "result": {
+    "count": 1,
+    "id": "natural_transmute:cooked_duck"
+  }
+}

@@ -5,6 +5,7 @@
     "compatibilityLevel": "JAVA_21",
     "refmap": "natural_transmute.refmap.json",
     "mixins": [
+        "MixinAbstractArrow",
         "MixinLevel"
     ],
     "client": [

@@ -10,7 +10,9 @@ import net.minecraft.world.entity.animal.CatVariant;
 import net.minecraft.world.entity.animal.WolfVariant;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.Nullable;
 
@@ -20,6 +22,10 @@ public class NTItemRegUtils {
 
     public static DeferredHolder<Item, Item> normal(String name) {
         return NTItems.ITEMS.register(name, () -> new Item(new Item.Properties()));
+    }
+
+    public static DeferredHolder<Item, Item> alias(String name, DeferredHolder<Block, Block> block, Item.Properties properties) {
+        return NTItems.ITEMS.register(name, () -> new ItemNameBlockItem(block.get(), properties));
     }
 
     public static DeferredHolder<Item, Item> catFood(String name, @Nullable ResourceKey<CatVariant> variant) {

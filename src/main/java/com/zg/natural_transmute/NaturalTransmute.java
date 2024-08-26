@@ -15,7 +15,10 @@ public class NaturalTransmute {
     public NaturalTransmute(IEventBus modEventBus) {
         NTItems.ITEMS.register(modEventBus);
         NTBlocks.BLOCKS.register(modEventBus);
+        NTMenus.MENUS.register(modEventBus);
         NTEntityTypes.ENTITY_TYPES.register(modEventBus);
+        NTAttachmentTypes.ATTACHMENT_TYPES.register(modEventBus);
+        NTBlockEntityTypes.BLOCK_ENTITY_TYPES.register(modEventBus);
         NTDataComponents.DATA_COMPONENT_TYPE.register(modEventBus);
         NTCreativeModeTabs.CREATIVE_MODE_TABS.register(modEventBus);
     }

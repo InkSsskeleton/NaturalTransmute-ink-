@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "bonemeal",
+  "ingredients": [
+    {
+      "item": "natural_transmute:whale_bone"
+    }
+  ],
+  "result": {
+    "count": 6,
+    "id": "minecraft:bone_meal"
+  }
+}

@@ -1,8 +1,7 @@
 package com.zg.natural_transmute.common.data;
 
 import com.zg.natural_transmute.NaturalTransmute;
-import com.zg.natural_transmute.common.data.provider.NTItemModelProvider;
-import com.zg.natural_transmute.common.data.provider.NTLanguageProvider;
+import com.zg.natural_transmute.common.data.provider.*;
 import com.zg.natural_transmute.common.data.provider.tag.NTBlockTagsProvider;
 import com.zg.natural_transmute.common.data.provider.tag.NTItemTagProvider;
 import net.minecraft.core.HolderLookup;
@@ -10,6 +9,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
@@ -25,12 +25,18 @@ public class NTDataGenerator {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
         NTBlockTagsProvider blockTagsProvider = new NTBlockTagsProvider(output, provider, existingFileHelper);
+        DatapackBuiltinEntriesProvider dataPackProvider = new RegistryDataGenerator(output, provider);
+        CompletableFuture<HolderLookup.Provider> registryProvider = dataPackProvider.getRegistryProvider();
         generator.addProvider(event.includeServer(), blockTagsProvider);
         generator.addProvider(event.includeServer(), new NTItemTagProvider(
                 output, provider, blockTagsProvider.contentsGetter(), existingFileHelper));
+        generator.addProvider(event.includeServer(), dataPackProvider);
+        generator.addProvider(event.includeServer(), new NTBlockStateProvider(output, existingFileHelper));
         generator.addProvider(event.includeServer(), new NTItemModelProvider(output, existingFileHelper));
         generator.addProvider(event.includeServer(), new NTLanguageProvider(output, "en_us"));
         generator.addProvider(event.includeServer(), new NTLanguageProvider(output, "zh_cn"));
+        generator.addProvider(event.includeServer(), new NTLootTableProvider(output, provider));
+        generator.addProvider(event.includeServer(), new NTRecipeProvider(output, provider));
     }
 
 }

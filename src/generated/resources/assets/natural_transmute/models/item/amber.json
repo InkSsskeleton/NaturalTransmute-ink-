@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "natural_transmute:item/blue_berries"
+    "layer0": "natural_transmute:item/amber"
   }
 }

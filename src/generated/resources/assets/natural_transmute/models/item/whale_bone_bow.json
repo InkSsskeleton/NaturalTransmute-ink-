@@ -1,0 +1,28 @@
+{
+  "parent": "natural_transmute:item/nt_bow",
+  "overrides": [
+    {
+      "model": "natural_transmute:item/whale_bone_bow_pulling_0",
+      "predicate": {
+        "natural_transmute:pulling": 1.0
+      }
+    },
+    {
+      "model": "natural_transmute:item/whale_bone_bow_pulling_1",
+      "predicate": {
+        "natural_transmute:pull": 0.65,
+        "natural_transmute:pulling": 1.0
+      }
+    },
+    {
+      "model": "natural_transmute:item/whale_bone_bow_pulling_2",
+      "predicate": {
+        "natural_transmute:pull": 0.9,
+        "natural_transmute:pulling": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "natural_transmute:item/whale_bone_bow"
+  }
+}

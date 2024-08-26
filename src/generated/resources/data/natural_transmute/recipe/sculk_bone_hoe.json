@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "natural_transmute:sculk_bone"
+    },
+    "X": {
+      "item": "minecraft:deepslate"
+    }
+  },
+  "pattern": [
+    "XX",
+    " #",
+    " #"
+  ],
+  "result": {
+    "count": 1,
+    "id": "natural_transmute:sculk_bone_hoe"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "top=false": {
+      "model": "natural_transmute:block/papyrus_plant"
+    },
+    "top=true": {
+      "model": "natural_transmute:block/papyrus_top"
+    }
+  }
+}

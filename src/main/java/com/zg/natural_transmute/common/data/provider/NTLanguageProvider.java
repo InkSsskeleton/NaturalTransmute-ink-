@@ -2,6 +2,7 @@ package com.zg.natural_transmute.common.data.provider;
 
 import com.google.gson.JsonObject;
 import com.zg.natural_transmute.NaturalTransmute;
+import com.zg.natural_transmute.registry.NTBlocks;
 import com.zg.natural_transmute.registry.NTItems;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
@@ -37,14 +38,18 @@ public class NTLanguageProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         this.add("itemGroup." + NaturalTransmute.MOD_ID, "Natural Transmute", "自然通路");
+        this.addTooltips("associated_biomes", "Associated Biomes: ", "关联的生物群系：");
+        this.addBlock(NTBlocks.TURQUOISE, "Turquoise", "绿松石");
+        this.addBlock(NTBlocks.CORUNDUM, "Corundum", "刚玉");
+        this.addBlock(NTBlocks.GATHERING_PLATFORM, "Gathering Platform", "聚相台");
+        this.addItem(NTItems.AMBER, "琥珀");
         this.addItem(NTItems.BERYL, "绿柱石");
-        this.addItem(NTItems.BLUE_BERRIES, "蓝莓");
+        this.addItem(NTItems.BLUEBERRIES, "蓝莓");
         this.addItem(NTItems.CHLORITE, "绿泥石");
-        this.addItem(NTItems.COCONUT, "椰子");
         this.addItem(NTItems.COCONUT_SHELL, "椰子壳");
         this.addItem(NTItems.DRYAS_OCTOPETALA, "仙女木");
         this.addItem(NTItems.GANODERMA_LUCIDUM, "灵芝");
-        this.addItem(NTItems.GREEN_GHOST_CRYSTAL, "幽绿水晶");
+        this.addItem(NTItems.GREEN_GHOST_CRYSTAL, "绿魂水晶");
         this.addItem(NTItems.HAIR_CRYSTAL, "发晶");
         this.addItem(NTItems.HELIODOR, "金绿柱石");
         this.addItem(NTItems.HETEROGENEOUS_STONE, "异质石");
@@ -57,8 +62,14 @@ public class NTLanguageProvider extends LanguageProvider {
         this.addItem(NTItems.SILVERFISH_PUPA, "蠹虫蛹");
         this.addItem(NTItems.TRANSPARENT_CRYSTAL, "透明水晶");
         this.addItem(NTItems.TRUFFLE, "松露");
-        this.addItem(NTItems.TRUFFLE_SOUP, "松露羹");
         this.addItem(NTItems.WARPED_WART, "诡异疣");
+        this.addItem(NTItems.WHALE_BONE, "鲸骨");
+        this.addItem(NTItems.BOTTLE_OF_TEA, "茶瓶");
+        this.addItem(NTItems.COCONUT, "椰子");
+        this.addItem(NTItems.TRUFFLE_SOUP, "松露羹");
+        this.addItem(NTItems.PLANTAIN, "芭蕉");
+        this.addItem(NTItems.DUCK, "生鸭肉");
+        this.addItem(NTItems.COOKED_DUCK, "熟鸭肉");
         this.addItem(NTItems.CAT_FOOD_BLACK, "黑猫奇异猫粮");
         this.addItem(NTItems.CAT_FOOD_BRITISH_SHORTHAIR, "英国短毛猫奇异猫粮");
         this.addItem(NTItems.CAT_FOOD_CALICO, "花猫奇异猫粮");
@@ -93,6 +104,7 @@ public class NTLanguageProvider extends LanguageProvider {
         this.addItem(NTItems.SCULK_BONE_PICKAXE, "幽匿石镐");
         this.addItem(NTItems.SCULK_BONE_AXE, "幽匿石斧");
         this.addItem(NTItems.SCULK_BONE_HOE, "幽匿石锄");
+        this.addItem(NTItems.WHALE_BONE_BOW, "鲸骨弓");
         this.addItem(NTItems.H_BADLANDS, "Withered", "枯槁缚相");
         this.addItem(NTItems.H_BASALT_DELTAS, "Melting", "熔裂缚相");
         this.addItem(NTItems.H_BEACH, "Sea Bore", "涌潮缚相");
@@ -132,7 +144,6 @@ public class NTLanguageProvider extends LanguageProvider {
         this.addItem(NTItems.H_WARPED_FOREST, "", "影染缚相");
         this.addItem(NTItems.H_WIND, "Wind", "浩风缚相");
         this.addItem(NTItems.H_WOODED_BADLANDS, "Nature Wakes", "复苏缚相");
-        this.addTooltips("associated_biomes", "Associated Biomes: ", "关联的生物群系：");
     }
 
     @Override
