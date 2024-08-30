@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
-public abstract class SimpleContainerBlockEntity extends BaseContainerBlockEntity{
+public abstract class SimpleContainerBlockEntity extends BaseContainerBlockEntity {
 
     protected Handler handler;
 
