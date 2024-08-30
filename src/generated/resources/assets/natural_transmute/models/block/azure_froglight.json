@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "natural_transmute:block/azure_froglight_top",
+    "side": "natural_transmute:block/azure_froglight"
+  }
+}

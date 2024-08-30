@@ -2,9 +2,12 @@ package com.zg.natural_transmute.common.event;
 
 import com.zg.natural_transmute.NaturalTransmute;
 import com.zg.natural_transmute.client.gui.GatheringPlatformScreen;
+import com.zg.natural_transmute.client.gui.HarmoniousChangeStoveScreen;
+import com.zg.natural_transmute.client.renderer.block.AmberBlockRenderer;
 import com.zg.natural_transmute.client.renderer.block.GatheringPlatformRenderer;
 import com.zg.natural_transmute.registry.*;
 import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.world.level.block.DispenserBlock;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -22,16 +25,23 @@ public class ModBusEventHandler {
 
     }
 
+    @SubscribeEvent
+    public static void registerDispenserBehavior(FMLCommonSetupEvent event) {
+        DispenserBlock.registerProjectileBehavior(NTItems.BREEZE_ARROW.get());
+    }
+
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void registerMenuScreens(RegisterMenuScreensEvent event) {
         event.register(NTMenus.GATHERING_PLATFORM.get(), GatheringPlatformScreen::new);
+        event.register(NTMenus.HARMONIOUS_CHANGE_STOVE.get(), HarmoniousChangeStoveScreen::new);
     }
 
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(NTBlockEntityTypes.GATHERING_PLATFORM.get(), GatheringPlatformRenderer::new);
+        event.registerBlockEntityRenderer(NTBlockEntityTypes.AMBER_BLOCK.get(), AmberBlockRenderer::new);
     }
 
     @OnlyIn(Dist.CLIENT)
