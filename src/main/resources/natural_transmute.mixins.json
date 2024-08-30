@@ -6,6 +6,9 @@
     "refmap": "natural_transmute.refmap.json",
     "mixins": [
         "MixinAbstractArrow",
+        "MixinBaseCoralPlantTypeBlock",
+        "MixinBlock",
+        "MixinCoralBlock",
         "MixinLevel"
     ],
     "client": [
