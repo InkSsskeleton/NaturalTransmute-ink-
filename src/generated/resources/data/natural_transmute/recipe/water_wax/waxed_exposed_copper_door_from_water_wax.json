@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "waxed_exposed_copper_door",
+  "ingredients": [
+    {
+      "item": "minecraft:exposed_copper_door"
+    },
+    {
+      "item": "natural_transmute:water_wax"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:waxed_exposed_copper_door"
+  }
+}

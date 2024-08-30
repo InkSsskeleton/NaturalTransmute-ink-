@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_oxidized_copper_door": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:oxidized_copper_door"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "natural_transmute:water_wax/waxed_oxidized_copper_door_from_water_wax"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_oxidized_copper_door"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "natural_transmute:water_wax/waxed_oxidized_copper_door_from_water_wax"
+    ]
+  }
+}

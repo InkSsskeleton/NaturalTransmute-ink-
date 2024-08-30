@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dead_brain_coral": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:dead_brain_coral"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "natural_transmute:water_wax/brain_coral_from_water_wax"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dead_brain_coral"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "natural_transmute:water_wax/brain_coral_from_water_wax"
+    ]
+  }
+}

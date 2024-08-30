@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "bubble_coral",
+  "ingredients": [
+    {
+      "item": "minecraft:dead_bubble_coral"
+    },
+    {
+      "item": "natural_transmute:water_wax"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:bubble_coral"
+  }
+}

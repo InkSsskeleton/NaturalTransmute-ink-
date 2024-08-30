@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "waxed_copper_block",
+  "ingredients": [
+    {
+      "item": "minecraft:copper_block"
+    },
+    {
+      "item": "natural_transmute:water_wax"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:waxed_copper_block"
+  }
+}

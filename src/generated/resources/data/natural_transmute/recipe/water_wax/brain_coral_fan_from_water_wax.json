@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "brain_coral_fan",
+  "ingredients": [
+    {
+      "item": "minecraft:dead_brain_coral_fan"
+    },
+    {
+      "item": "natural_transmute:water_wax"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:brain_coral_fan"
+  }
+}

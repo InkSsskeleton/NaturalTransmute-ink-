@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chiseled_copper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:chiseled_copper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "natural_transmute:water_wax/waxed_chiseled_copper_from_water_wax"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_chiseled_copper"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "natural_transmute:water_wax/waxed_chiseled_copper_from_water_wax"
+    ]
+  }
+}

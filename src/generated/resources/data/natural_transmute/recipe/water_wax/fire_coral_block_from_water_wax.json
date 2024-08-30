@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "fire_coral_block",
+  "ingredients": [
+    {
+      "item": "minecraft:dead_fire_coral_block"
+    },
+    {
+      "item": "natural_transmute:water_wax"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:fire_coral_block"
+  }
+}

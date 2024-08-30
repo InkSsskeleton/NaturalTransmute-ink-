@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "waxed_oxidized_chiseled_copper",
+  "ingredients": [
+    {
+      "item": "minecraft:oxidized_chiseled_copper"
+    },
+    {
+      "item": "natural_transmute:water_wax"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:waxed_oxidized_chiseled_copper"
+  }
+}
