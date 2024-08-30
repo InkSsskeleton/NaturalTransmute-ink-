@@ -31,9 +31,10 @@ public class Papyrus extends SugarCaneBlock {
                 int j = state.getValue(AGE);
                 if (j == 10) {
                     level.setBlockAndUpdate(pos.above(), this.defaultBlockState().setValue(TOP, Boolean.TRUE));
+                    level.setBlockAndUpdate(pos, this.defaultBlockState().setValue(TOP, Boolean.FALSE));
                     level.setBlock(pos, state.setValue(AGE, 0), 4);
                 } else {
-                    level.setBlock(pos, state.setValue(AGE, j + 1), 4);
+                    level.setBlock(pos, state.setValue(AGE, j + 1).setValue(TOP, Boolean.FALSE), 4);
                 }
             }
         }
