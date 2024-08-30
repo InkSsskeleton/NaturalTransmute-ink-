@@ -34,6 +34,8 @@ public class NTItemModelProvider extends ItemModelProvider {
         this.simpleBlockItem(NTBlocks.DEATH_EARTH.get());
         this.simpleBlockItem(NTBlocks.GRASSLAND_EARTH.get());
         this.simpleBlockItem(NTBlocks.OCEAN_EARTH.get());
+        this.simpleBlockItem(NTBlocks.HETEROGENEOUS_STONE_ORE.get());
+        this.simpleBlockItem(NTBlocks.DEEPSLATE_HETEROGENEOUS_STONE_ORE.get());
         for (Item item : NTCommonUtils.getKnownItems()) {
             ResourceLocation key = BuiltInRegistries.ITEM.getKey(item);
             if (item instanceof TieredItem) {

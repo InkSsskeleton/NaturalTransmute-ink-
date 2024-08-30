@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "natural_transmute:block/heterogeneous_stone_ore"
+  }
+}

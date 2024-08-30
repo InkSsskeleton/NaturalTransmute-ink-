@@ -44,6 +44,8 @@ public class NTBlockStateProvider extends BlockStateProvider {
         this.simpleBlock(NTBlocks.DEATH_EARTH.get());
         this.simpleBlock(NTBlocks.GRASSLAND_EARTH.get());
         this.simpleBlock(NTBlocks.OCEAN_EARTH.get());
+        this.simpleBlock(NTBlocks.HETEROGENEOUS_STONE_ORE.get());
+        this.simpleBlock(NTBlocks.DEEPSLATE_HETEROGENEOUS_STONE_ORE.get());
         this.simpleBlockWithRenderType(NTBlocks.AMBER_BLOCK.get(), TRANSLUCENT);
         this.logBlock((RotatedPillarBlock) NTBlocks.CORUNDUM.get());
         this.logBlock((RotatedPillarBlock) NTBlocks.AZURE_FROGLIGHT.get());
