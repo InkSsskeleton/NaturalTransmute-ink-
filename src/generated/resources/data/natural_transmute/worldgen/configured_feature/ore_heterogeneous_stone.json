@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:ore",
+  "config": {
+    "discard_chance_on_air_exposure": 0.0,
+    "size": 7,
+    "targets": [
+      {
+        "state": {
+          "Name": "natural_transmute:harmonious_change_stove",
+          "Properties": {
+            "facing": "north",
+            "half": "lower",
+            "lit": "false",
+            "stove_part": "main"
+          }
+        },
+        "target": {
+          "predicate_type": "minecraft:tag_match",
+          "tag": "minecraft:stone_ore_replaceables"
+        }
+      },
+      {
+        "state": {
+          "Name": "natural_transmute:deepslate_heterogeneous_stone_ore"
+        },
+        "target": {
+          "predicate_type": "minecraft:tag_match",
+          "tag": "minecraft:deepslate_ore_replaceables"
+        }
+      }
+    ]
+  }
+}

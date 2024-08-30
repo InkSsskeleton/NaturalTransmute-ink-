@@ -1,5 +1,5 @@
 {
-  "feature": "minecraft:ore_heterogeneous_stone",
+  "feature": "natural_transmute:ore_heterogeneous_stone",
   "placement": [
     {
       "type": "minecraft:count",

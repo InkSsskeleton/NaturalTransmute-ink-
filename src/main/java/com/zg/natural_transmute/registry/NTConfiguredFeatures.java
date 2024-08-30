@@ -18,8 +18,8 @@ public class NTConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_TURQUOISE = createKey("ore_turquoise");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_CORUNDUM = createKey("ore_corundum");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_HETEROGENEOUS_STONE = FeatureUtils.createKey("ore_heterogeneous_stone");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_HETEROGENEOUS_STONE_BURIED = FeatureUtils.createKey("ore_heterogeneous_stone_buried");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_HETEROGENEOUS_STONE = createKey("ore_heterogeneous_stone");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_HETEROGENEOUS_STONE_BURIED = createKey("ore_heterogeneous_stone_buried");
 
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, NaturalTransmute.prefix(name));
