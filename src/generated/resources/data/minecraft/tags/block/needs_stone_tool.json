@@ -1,5 +1,7 @@
 {
   "values": [
-    "natural_transmute:turquoise"
+    "natural_transmute:turquoise",
+    "natural_transmute:heterogeneous_stone_ore",
+    "natural_transmute:deepslate_heterogeneous_stone_ore"
   ]
 }

@@ -1,13 +1,13 @@
 {
   "values": [
-    "natural_transmute:dogfood_woods",
-    "natural_transmute:dogfood_spotted",
-    "natural_transmute:dogfood_striped",
-    "natural_transmute:dogfood_black",
-    "natural_transmute:dogfood_rusty",
-    "natural_transmute:dogfood_chestnut",
-    "natural_transmute:dogfood_classics",
     "natural_transmute:dogfood_ashen",
-    "natural_transmute:dogfood_snowy"
+    "natural_transmute:dogfood_rusty",
+    "natural_transmute:dogfood_classics",
+    "natural_transmute:dogfood_chestnut",
+    "natural_transmute:dogfood_spotted",
+    "natural_transmute:dogfood_black",
+    "natural_transmute:dogfood_snowy",
+    "natural_transmute:dogfood_striped",
+    "natural_transmute:dogfood_woods"
   ]
 }

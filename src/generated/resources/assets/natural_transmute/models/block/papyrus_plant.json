@@ -2,6 +2,6 @@
   "parent": "minecraft:block/tinted_cross",
   "render_type": "minecraft:cutout",
   "textures": {
-    "texture": "natural_transmute:block/papyrus_plant"
+    "cross": "natural_transmute:block/papyrus_plant"
   }
 }

@@ -11,6 +11,7 @@ import net.minecraft.data.loot.packs.VanillaBlockLoot;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -28,11 +29,20 @@ public class NTBlockLoot extends VanillaBlockLoot {
 
     @Override
     protected void generate() {
-        HolderLookup.RegistryLookup<Enchantment> registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+        this.dropSelf(NTBlocks.PAPYRUS.get());
         this.dropSelf(NTBlocks.TURQUOISE.get());
         this.dropSelf(NTBlocks.CORUNDUM.get());
+        this.dropSelf(NTBlocks.AMBER_BLOCK.get());
+        this.dropSelf(NTBlocks.AZURE_FROGLIGHT.get());
         this.dropSelf(NTBlocks.GATHERING_PLATFORM.get());
-        this.dropSelf(NTBlocks.PAPYRUS.get());
+        this.dropSelf(NTBlocks.HARMONIOUS_CHANGE_STOVE.get());
+        this.dropOther(NTBlocks.HETEROGENEOUS_STONE_ORE.get(), NTItems.HETEROGENEOUS_STONE.get());
+        this.dropOther(NTBlocks.DEEPSLATE_HETEROGENEOUS_STONE_ORE.get(), NTItems.HETEROGENEOUS_STONE.get());
+        HolderLookup.RegistryLookup<Enchantment> registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+        this.add(NTBlocks.CAVE_EARTH.get(), block -> this.createSingleItemTableWithSilkTouch(block, Blocks.DIRT));
+        this.add(NTBlocks.DEATH_EARTH.get(), block -> this.createSingleItemTableWithSilkTouch(block, Blocks.DIRT));
+        this.add(NTBlocks.GRASSLAND_EARTH.get(), block -> this.createSingleItemTableWithSilkTouch(block, Blocks.DIRT));
+        this.add(NTBlocks.OCEAN_EARTH.get(), block -> this.createSingleItemTableWithSilkTouch(block, Blocks.DIRT));
         this.add(NTBlocks.BLUEBERRY_BUSH.get(), block -> this.applyExplosionDecay(block, LootTable.lootTable()
                 .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition
                                 .hasBlockStateProperties(NTBlocks.BLUEBERRY_BUSH.get())

@@ -25,7 +25,15 @@ public class NTItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         this.simpleItem(NTItems.BLUEBERRIES.get());
+        this.simpleItem(NTItems.PAPYRUS.get());
+        this.simpleBlockItem(NTBlocks.TURQUOISE.get());
         this.simpleBlockItem(NTBlocks.CORUNDUM.get());
+        this.simpleBlockItem(NTBlocks.AMBER_BLOCK.get());
+        this.simpleBlockItem(NTBlocks.AZURE_FROGLIGHT.get());
+        this.simpleBlockItem(NTBlocks.CAVE_EARTH.get());
+        this.simpleBlockItem(NTBlocks.DEATH_EARTH.get());
+        this.simpleBlockItem(NTBlocks.GRASSLAND_EARTH.get());
+        this.simpleBlockItem(NTBlocks.OCEAN_EARTH.get());
         for (Item item : NTCommonUtils.getKnownItems()) {
             ResourceLocation key = BuiltInRegistries.ITEM.getKey(item);
             if (item instanceof TieredItem) {

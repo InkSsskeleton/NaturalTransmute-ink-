@@ -5,7 +5,9 @@ import com.zg.natural_transmute.client.gui.GatheringPlatformScreen;
 import com.zg.natural_transmute.client.gui.HarmoniousChangeStoveScreen;
 import com.zg.natural_transmute.client.renderer.block.AmberBlockRenderer;
 import com.zg.natural_transmute.client.renderer.block.GatheringPlatformRenderer;
+import com.zg.natural_transmute.client.renderer.entity.BreezeArrowRenderer;
 import com.zg.natural_transmute.registry.*;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.neoforged.api.distmarker.Dist;
@@ -42,6 +44,8 @@ public class ModBusEventHandler {
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(NTBlockEntityTypes.GATHERING_PLATFORM.get(), GatheringPlatformRenderer::new);
         event.registerBlockEntityRenderer(NTBlockEntityTypes.AMBER_BLOCK.get(), AmberBlockRenderer::new);
+        event.registerEntityRenderer(NTEntityTypes.BREEZE_ARROW.get(), BreezeArrowRenderer::new);
+        event.registerEntityRenderer(NTEntityTypes.SILVERFISH_PUPA.get(), ThrownItemRenderer::new);
     }
 
     @OnlyIn(Dist.CLIENT)

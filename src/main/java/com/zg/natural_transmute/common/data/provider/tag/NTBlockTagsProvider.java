@@ -20,9 +20,15 @@ public class NTBlockTagsProvider extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(NTBlocks.GATHERING_PLATFORM.get(),
-                NTBlocks.PAPYRUS.get(), NTBlocks.CORUNDUM.get());
-        this.tag(BlockTags.NEEDS_STONE_TOOL).add(NTBlocks.TURQUOISE.get());
+                NTBlocks.PAPYRUS.get(), NTBlocks.CORUNDUM.get(),
+                NTBlocks.HETEROGENEOUS_STONE_ORE.get(),
+                NTBlocks.DEEPSLATE_HETEROGENEOUS_STONE_ORE.get());
+        this.tag(BlockTags.NEEDS_STONE_TOOL).add(NTBlocks.TURQUOISE.get(),
+                NTBlocks.HETEROGENEOUS_STONE_ORE.get(),
+                NTBlocks.DEEPSLATE_HETEROGENEOUS_STONE_ORE.get());
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(NTBlocks.CORUNDUM.get());
+        this.tag(BlockTags.DIRT).add(NTBlocks.CAVE_EARTH.get(),
+                NTBlocks.GRASSLAND_EARTH.get(), NTBlocks.OCEAN_EARTH.get());
     }
 
 }

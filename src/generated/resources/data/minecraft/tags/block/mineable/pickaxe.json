@@ -2,6 +2,8 @@
   "values": [
     "natural_transmute:gathering_platform",
     "natural_transmute:papyrus",
-    "natural_transmute:corundum"
+    "natural_transmute:corundum",
+    "natural_transmute:heterogeneous_stone_ore",
+    "natural_transmute:deepslate_heterogeneous_stone_ore"
   ]
 }

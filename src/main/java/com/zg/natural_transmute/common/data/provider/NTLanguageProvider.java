@@ -39,20 +39,33 @@ public class NTLanguageProvider extends LanguageProvider {
     protected void addTranslations() {
         this.add("itemGroup." + NaturalTransmute.MOD_ID, "Natural Transmute", "自然通路");
         this.addTooltips("associated_biomes", "Associated Biomes: ", "关联的生物群系：");
-        this.addBlock(NTBlocks.TURQUOISE, "Turquoise", "绿松石");
-        this.addBlock(NTBlocks.CORUNDUM, "Corundum", "刚玉");
-        this.addBlock(NTBlocks.GATHERING_PLATFORM, "Gathering Platform", "聚相台");
+        this.addBlock(NTBlocks.TURQUOISE, "绿松石");
+        this.addBlock(NTBlocks.CORUNDUM, "刚玉");
+        this.addBlock(NTBlocks.AMBER_BLOCK, "琥珀块");
+        this.addBlock(NTBlocks.AZURE_FROGLIGHT, "蔚蓝蛙明灯");
+        this.addBlock(NTBlocks.CAVE_EARTH, "洞窟丰壤");
+        this.addBlock(NTBlocks.DEATH_EARTH, "死灵丰壤");
+        this.addBlock(NTBlocks.GRASSLAND_EARTH, "草原丰壤");
+        this.addBlock(NTBlocks.OCEAN_EARTH, "海洋丰壤");
+        this.addBlock(NTBlocks.HETEROGENEOUS_STONE_ORE, "异相石矿石");
+        this.addBlock(NTBlocks.DEEPSLATE_HETEROGENEOUS_STONE_ORE, "深层异相石矿石");
+        this.addBlock(NTBlocks.GATHERING_PLATFORM, "聚相台");
+        this.addBlock(NTBlocks.HARMONIOUS_CHANGE_STOVE, "谐变炉");
         this.addItem(NTItems.AMBER, "琥珀");
         this.addItem(NTItems.BERYL, "绿柱石");
+        this.addItem(NTItems.BREEZE_ARROW, "风爆箭");
         this.addItem(NTItems.BLUEBERRIES, "蓝莓");
         this.addItem(NTItems.CHLORITE, "绿泥石");
         this.addItem(NTItems.COCONUT_SHELL, "椰子壳");
+        this.addItem(NTItems.CORUNDUM_IRON_PLATE, "刚玉铁板");
         this.addItem(NTItems.DRYAS_OCTOPETALA, "仙女木");
         this.addItem(NTItems.GANODERMA_LUCIDUM, "灵芝");
         this.addItem(NTItems.GREEN_GHOST_CRYSTAL, "绿魂水晶");
         this.addItem(NTItems.HAIR_CRYSTAL, "发晶");
+        this.addItem(NTItems.HARMONIOUS_CHANGE_CORE, "谐变核心");
+        this.addItem(NTItems.HARMONIOUS_CHANGE_FUEL, "谐变燃料");
         this.addItem(NTItems.HELIODOR, "金绿柱石");
-        this.addItem(NTItems.HETEROGENEOUS_STONE, "异质石");
+        this.addItem(NTItems.HETEROGENEOUS_STONE, "异相石");
         this.addItem(NTItems.ICELAND_SPAR, "冰洲石");
         this.addItem(NTItems.MALACHITE, "孔雀石");
         this.addItem(NTItems.PAPYRUS, "纸莎草");
@@ -70,6 +83,8 @@ public class NTLanguageProvider extends LanguageProvider {
         this.addItem(NTItems.PLANTAIN, "芭蕉");
         this.addItem(NTItems.DUCK, "生鸭肉");
         this.addItem(NTItems.COOKED_DUCK, "熟鸭肉");
+        this.addItem(NTItems.VODKA, "伏特加");
+        this.addItem(NTItems.WATER_WAX, "水蜡");
         this.addItem(NTItems.CAT_FOOD_BLACK, "黑猫奇异猫粮");
         this.addItem(NTItems.CAT_FOOD_BRITISH_SHORTHAIR, "英国短毛猫奇异猫粮");
         this.addItem(NTItems.CAT_FOOD_CALICO, "花猫奇异猫粮");
@@ -105,6 +120,7 @@ public class NTLanguageProvider extends LanguageProvider {
         this.addItem(NTItems.SCULK_BONE_AXE, "幽匿石斧");
         this.addItem(NTItems.SCULK_BONE_HOE, "幽匿石锄");
         this.addItem(NTItems.WHALE_BONE_BOW, "鲸骨弓");
+        this.addItem(NTItems.KATANA, "太刀");
         this.addItem(NTItems.H_BADLANDS, "Withered", "枯槁缚相");
         this.addItem(NTItems.H_BASALT_DELTAS, "Melting", "熔裂缚相");
         this.addItem(NTItems.H_BEACH, "Sea Bore", "涌潮缚相");
@@ -168,8 +184,24 @@ public class NTLanguageProvider extends LanguageProvider {
         return DataProvider.saveStable(cache, json, target);
     }
 
+    private String getEnglishName(String path) {
+        String[] words = path.split("_");
+        for (int i = 0; i < words.length; i++) {
+            String firstLetter = words[i].substring(0, 1);
+            String remainingLetters = words[i].substring((1));
+            words[i] = firstLetter.toUpperCase() + remainingLetters;
+        }
+
+        return String.join(" ", words);
+    }
+
     private void addBlock(Supplier<? extends Block> key, String en, String cn) {
         this.add(key.get().getDescriptionId(), en, cn);
+    }
+
+    private void addBlock(DeferredHolder<Block, Block> key, String cn) {
+        String path = BuiltInRegistries.BLOCK.getKey(key.get()).getPath();
+        this.add(key.get().getDescriptionId(), this.getEnglishName(path), cn);
     }
 
     private void addItem(Supplier<? extends Item> key, String en, String cn) {
@@ -178,15 +210,7 @@ public class NTLanguageProvider extends LanguageProvider {
 
     private void addItem(DeferredHolder<Item, Item> key, String cn) {
         String path = BuiltInRegistries.ITEM.getKey(key.get()).getPath();
-        String[] words = path.split("_");
-        for (int i = 0; i < words.length; i++) {
-            String firstLetter = words[i].substring(0, 1);
-            String remainingLetters = words[i].substring((1));
-            words[i] = firstLetter.toUpperCase() + remainingLetters;
-        }
-
-        String en = String.join(" ", words);
-        this.add(key.get().getDescriptionId(), en, cn);
+        this.add(key.get().getDescriptionId(), this.getEnglishName(path), cn);
     }
 
     private void addTooltips(String key, String en, String cn) {

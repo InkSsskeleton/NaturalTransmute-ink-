@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "H": {
+      "item": "natural_transmute:heterogeneous_stone"
+    },
+    "I": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    " H ",
+    "HIH",
+    " H "
+  ],
+  "result": {
+    "count": 1,
+    "id": "natural_transmute:harmonious_change_core"
+  }
+}
