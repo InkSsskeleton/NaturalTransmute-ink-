@@ -1,7 +1,12 @@
 package com.zg.natural_transmute.common.blocks.entity;
 
 import com.zg.natural_transmute.client.inventory.GatheringPlatformMenu;
+import com.zg.natural_transmute.common.items.crafting.GatheringPlatformRecipe;
+import com.zg.natural_transmute.common.items.crafting.GatheringPlatformRecipeInput;
 import com.zg.natural_transmute.registry.NTBlockEntityTypes;
+import com.zg.natural_transmute.registry.NTDataComponents;
+import com.zg.natural_transmute.registry.NTItems;
+import com.zg.natural_transmute.registry.NTRecipes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -10,17 +15,79 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.Nullable;
 
 public class GatheringPlatformBlockEntity extends SimpleContainerBlockEntity {
 
-    public int gatheringTime;
-    public int currentState;
+    private int gatheringTime;
+    private int maxGatheringTime;
+    private int currentState;
     private final ContainerData containerData = new Data();
+    private final RecipeManager.CachedCheck<GatheringPlatformRecipeInput, ? extends GatheringPlatformRecipe> quickCheck;
 
     public GatheringPlatformBlockEntity(BlockPos pos, BlockState blockState) {
         super(NTBlockEntityTypes.GATHERING_PLATFORM.get(), pos, blockState);
-        this.handler = new Handler(3);
+        this.quickCheck = RecipeManager.createCheck(NTRecipes.GATHERING_PLATFORM_RECIPE.get());
+        this.handler = new Handler(4);
+    }
+
+    public static void serverTick(Level level, BlockPos pos, BlockState state, GatheringPlatformBlockEntity blockEntity) {
+        ItemStack coreIngredient = blockEntity.handler.getStackInSlot(1);
+        GatheringPlatformRecipe recipe = blockEntity.checkGatheringRecipe();
+        if (recipe != null) {
+            blockEntity.gathering(recipe, pos, state);
+        } else {
+            blockEntity.maxGatheringTime = 0;
+            blockEntity.gatheringTime = 0;
+            setChanged(level, pos, state);
+        }
+
+        if (coreIngredient.has(NTDataComponents.ASSOCIATED_BIOMES)) {
+            blockEntity.currentState = 2;
+            setChanged(level, pos, state);
+        } else if (coreIngredient.is(NTItems.HETEROGENEOUS_STONE)) {
+            blockEntity.currentState = 1;
+            setChanged(level, pos, state);
+        } else {
+            blockEntity.currentState = 0;
+            setChanged(level, pos, state);
+        }
+    }
+
+    private void gathering(GatheringPlatformRecipe recipe, BlockPos pos, BlockState state) {
+        if (this.level != null) {
+            this.maxGatheringTime = this.gatheringTime;
+            this.gatheringTime++;
+            if (this.gatheringTime > recipe.gatheringTime) {
+                this.handler.insertItem(3, recipe.assemble(this.getRecipeInput(), level.registryAccess()), false);
+                recipe.consumeIngredients(this);
+                this.maxGatheringTime = 0;
+                this.gatheringTime = 0;
+            }
+
+            setChanged(this.level, pos, state);
+        }
+    }
+
+    @Nullable
+    protected GatheringPlatformRecipe checkGatheringRecipe() {
+        if (this.level != null) {
+            RecipeHolder<? extends GatheringPlatformRecipe> holder = this.quickCheck.getRecipeFor(this.getRecipeInput(), this.level).orElse(null);
+            return holder != null ? holder.value() : null;
+        }
+
+        return null;
+    }
+
+    private GatheringPlatformRecipeInput getRecipeInput() {
+        ItemStack input1 = this.getItem(0);
+        ItemStack input2 = this.getItem(2);
+        return new GatheringPlatformRecipeInput(input1, input2);
     }
 
     @Override
@@ -32,6 +99,7 @@ public class GatheringPlatformBlockEntity extends SimpleContainerBlockEntity {
     public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
         this.gatheringTime = tag.getInt("GatheringTime");
+        this.maxGatheringTime = tag.getInt("MaxGatheringTime");
         this.currentState = tag.getInt("CurrentState");
     }
 
@@ -39,6 +107,7 @@ public class GatheringPlatformBlockEntity extends SimpleContainerBlockEntity {
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
         tag.putInt("GatheringTime", this.gatheringTime);
+        tag.putInt("MaxGatheringTime", this.maxGatheringTime);
         tag.putInt("CurrentState", this.currentState);
     }
 

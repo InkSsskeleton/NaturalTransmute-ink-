@@ -23,16 +23,17 @@ public class GatheringPlatformMenu extends AbstractSimpleMenu {
     }
 
     public GatheringPlatformMenu(int containerId, Inventory inventory, ContainerLevelAccess access) {
-        this(containerId, inventory, access, new ItemStackHandler(3), new SimpleContainerData(2));
+        this(containerId, inventory, access, new ItemStackHandler(4), new SimpleContainerData(2));
     }
 
     public GatheringPlatformMenu(int containerId, Inventory inventory, ContainerLevelAccess access, IItemHandler itemHandler, ContainerData containerData) {
         super(NTMenus.GATHERING_PLATFORM.get(), containerId, inventory, access);
-        checkContainerSize(inventory, 3);
+        checkContainerSize(inventory, 4);
         this.containerData = containerData;
         this.addSlot(new SlotItemHandler(itemHandler, 0, 31, 23));
-        this.addSlot(new SlotItemHandler(itemHandler, 1, 81, 22));
+        this.addSlot(new SlotItemHandler(itemHandler, 1, 81, 5));
         this.addSlot(new SlotItemHandler(itemHandler, 2, 131, 23));
+        this.addSlot(new NTResultSlot(itemHandler, 3, 81, 35));
         this.addDataSlots(containerData);
     }
 

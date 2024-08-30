@@ -2,16 +2,18 @@ package com.zg.natural_transmute.common.blocks;
 
 import com.mojang.serialization.MapCodec;
 import com.zg.natural_transmute.common.blocks.entity.GatheringPlatformBlockEntity;
+import com.zg.natural_transmute.registry.NTBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.phys.BlockHitResult;
@@ -23,7 +25,7 @@ public class GatheringPlatform extends BaseEntityBlock {
     public GatheringPlatform() {
         super(Properties.of().strength((5.0F), (1200.0F))
                 .instrument(NoteBlockInstrument.BASEDRUM)
-                .requiresCorrectToolForDrops());
+                .requiresCorrectToolForDrops().noOcclusion());
     }
 
     @Override
@@ -46,12 +48,6 @@ public class GatheringPlatform extends BaseEntityBlock {
     }
 
     @Override
-    public MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {
-        BlockEntity blockEntity = level.getBlockEntity(pos);
-        return blockEntity instanceof MenuProvider menuProvider ? menuProvider : null;
-    }
-
-    @Override
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
         if (!state.is(newState.getBlock())) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
@@ -67,6 +63,11 @@ public class GatheringPlatform extends BaseEntityBlock {
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new GatheringPlatformBlockEntity(pos, state);
+    }
+
+    @Nullable @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
+        return level.isClientSide ? null : createTickerHelper(blockEntityType, NTBlockEntityTypes.GATHERING_PLATFORM.get(), GatheringPlatformBlockEntity::serverTick);
     }
 
 }

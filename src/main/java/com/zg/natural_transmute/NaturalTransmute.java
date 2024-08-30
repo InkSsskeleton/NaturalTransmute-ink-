@@ -16,6 +16,8 @@ public class NaturalTransmute {
         NTItems.ITEMS.register(modEventBus);
         NTBlocks.BLOCKS.register(modEventBus);
         NTMenus.MENUS.register(modEventBus);
+        NTRecipes.RECIPE_TYPES.register(modEventBus);
+        NTRecipes.RECIPE_SERIALIZERS.register(modEventBus);
         NTEntityTypes.ENTITY_TYPES.register(modEventBus);
         NTAttachmentTypes.ATTACHMENT_TYPES.register(modEventBus);
         NTBlockEntityTypes.BLOCK_ENTITY_TYPES.register(modEventBus);
