@@ -28,10 +28,12 @@ public class NTBiomeModifiers {
         HolderSet.Named<Biome> overworldBiomes = biome.getOrThrow(BiomeTags.IS_OVERWORLD);
         context.register(NT_ORE, new BiomeModifiers.AddFeaturesBiomeModifier(
                 overworldBiomes, HolderSet.direct(
-                        placedFeature.getOrThrow(NTPlacedFeatures.ORE_TURQUOISE_UPPER),
-                        placedFeature.getOrThrow(NTPlacedFeatures.ORE_TURQUOISE_LOWER),
-                        placedFeature.getOrThrow(NTPlacedFeatures.ORE_CORUNDUM_UPPER),
-                        placedFeature.getOrThrow(NTPlacedFeatures.ORE_CORUNDUM_LOWER)),
+                    placedFeature.getOrThrow(NTPlacedFeatures.ORE_TURQUOISE_UPPER),
+                    placedFeature.getOrThrow(NTPlacedFeatures.ORE_TURQUOISE_LOWER),
+                    placedFeature.getOrThrow(NTPlacedFeatures.ORE_CORUNDUM_UPPER),
+                    placedFeature.getOrThrow(NTPlacedFeatures.ORE_CORUNDUM_LOWER),
+                    placedFeature.getOrThrow(NTPlacedFeatures.ORE_HETEROGENEOUS_STONE_UPPER),
+                    placedFeature.getOrThrow(NTPlacedFeatures.ORE_HETEROGENEOUS_STONE_LOWER)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
     }
 
