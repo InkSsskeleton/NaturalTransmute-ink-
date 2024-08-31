@@ -4,7 +4,7 @@ import com.zg.natural_transmute.NaturalTransmute;
 import com.zg.natural_transmute.common.blocks.AmberBlock;
 import com.zg.natural_transmute.common.blocks.BlueberryBush;
 import com.zg.natural_transmute.common.blocks.GatheringPlatform;
-import com.zg.natural_transmute.common.blocks.stove.HarmoniousChangeStove;
+import com.zg.natural_transmute.common.blocks.HarmoniousChangeStove;
 import com.zg.natural_transmute.common.blocks.Papyrus;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;

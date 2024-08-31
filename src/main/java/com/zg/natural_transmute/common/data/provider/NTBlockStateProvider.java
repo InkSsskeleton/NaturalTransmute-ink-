@@ -2,8 +2,7 @@ package com.zg.natural_transmute.common.data.provider;
 
 import com.zg.natural_transmute.NaturalTransmute;
 import com.zg.natural_transmute.common.blocks.state.properties.HCStovePart;
-import com.zg.natural_transmute.common.blocks.stove.HCStoveBase;
-import com.zg.natural_transmute.common.blocks.stove.HarmoniousChangeStove;
+import com.zg.natural_transmute.common.blocks.HarmoniousChangeStove;
 import com.zg.natural_transmute.common.blocks.Papyrus;
 import com.zg.natural_transmute.registry.NTBlocks;
 import net.minecraft.client.renderer.RenderType;
@@ -81,7 +80,7 @@ public class NTBlockStateProvider extends BlockStateProvider {
 
     private void registerHarmoniousChangeStoveStates(Block block) {
         VariantBlockStateBuilder builder = this.getVariantBuilder(block);
-        for (HCStovePart part : HCStoveBase.PART.getPossibleValues()) {
+        for (HCStovePart part : HarmoniousChangeStove.PART.getPossibleValues()) {
             for (DoubleBlockHalf half : HarmoniousChangeStove.HALF.getPossibleValues()) {
                 for (Direction direction : HarmoniousChangeStove.FACING.getPossibleValues()) {
                     for (Boolean lit : HarmoniousChangeStove.LIT.getPossibleValues()) {
@@ -90,7 +89,7 @@ public class NTBlockStateProvider extends BlockStateProvider {
                         ResourceLocation texture = this.modLoc("block/" + name);
                         ModelFile modelFile = this.models().withExistingParent(name, parent)
                                 .texture("0", texture).texture("particle", texture).renderType(CUTOUT);
-                        builder.partialState().with(HCStoveBase.PART, part)
+                        builder.partialState().with(HarmoniousChangeStove.PART, part)
                                 .with(HarmoniousChangeStove.HALF, half)
                                 .with(HarmoniousChangeStove.FACING, direction)
                                 .with(HarmoniousChangeStove.LIT, lit).modelForState()

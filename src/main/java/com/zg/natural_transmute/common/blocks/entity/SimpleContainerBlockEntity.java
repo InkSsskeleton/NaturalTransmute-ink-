@@ -87,9 +87,7 @@ public abstract class SimpleContainerBlockEntity extends BaseContainerBlockEntit
     @Override
     public void setItem(int index, ItemStack stack) {
         this.handler.getStacks().set(index, stack);
-        if (stack.getCount() > this.getMaxStackSize()) {
-            stack.setCount(this.getMaxStackSize());
-        }
+        stack.limitSize(1);
     }
 
     @Override
