@@ -11,6 +11,16 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "natural_transmute:harmonious_change_stove",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "half": "lower",
+                "stove_part": "main"
+              }
+            }
+          ],
           "name": "natural_transmute:harmonious_change_stove"
         }
       ],

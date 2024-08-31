@@ -2,6 +2,8 @@ package com.zg.natural_transmute.common.data.loot;
 
 import com.google.common.collect.Iterables;
 import com.zg.natural_transmute.common.blocks.BlueberryBush;
+import com.zg.natural_transmute.common.blocks.HarmoniousChangeStove;
+import com.zg.natural_transmute.common.blocks.state.properties.HCStovePart;
 import com.zg.natural_transmute.registry.NTBlocks;
 import com.zg.natural_transmute.registry.NTItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
@@ -12,12 +14,14 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
@@ -38,6 +42,12 @@ public class NTBlockLoot extends VanillaBlockLoot {
         this.dropSelf(NTBlocks.HARMONIOUS_CHANGE_STOVE.get());
         this.dropOther(NTBlocks.HETEROGENEOUS_STONE_ORE.get(), NTItems.HETEROGENEOUS_STONE.get());
         this.dropOther(NTBlocks.DEEPSLATE_HETEROGENEOUS_STONE_ORE.get(), NTItems.HETEROGENEOUS_STONE.get());
+        this.add(NTBlocks.HARMONIOUS_CHANGE_STOVE.get(), block -> LootTable.lootTable().withPool(
+                this.applyExplosionCondition(block, LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+                        .add(LootItem.lootTableItem(block).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder.properties()
+                                        .hasProperty(HarmoniousChangeStove.PART, HCStovePart.MAIN)
+                                        .hasProperty(HarmoniousChangeStove.HALF, DoubleBlockHalf.LOWER)))))));
         HolderLookup.RegistryLookup<Enchantment> registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
         this.add(NTBlocks.CAVE_EARTH.get(), block -> this.createSingleItemTableWithSilkTouch(block, Blocks.DIRT));
         this.add(NTBlocks.DEATH_EARTH.get(), block -> this.createSingleItemTableWithSilkTouch(block, Blocks.DIRT));
