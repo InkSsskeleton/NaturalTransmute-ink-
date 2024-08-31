@@ -25,6 +25,7 @@ public class NTItemTagProvider extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         this.tag(Tags.Items.TOOLS_BOW).add(NTItems.WHALE_BONE_BOW.get());
+        this.tag(ItemTags.ARROWS).add(NTItems.BREEZE_ARROW.get());
         NTCommonUtils.getKnownItems().forEach(item -> {
             ItemStack stack = item.getDefaultInstance();
             if (stack.has(NTDataComponents.CAT_FOODS)) {
