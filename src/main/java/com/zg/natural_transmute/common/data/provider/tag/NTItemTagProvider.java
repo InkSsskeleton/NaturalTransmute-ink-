@@ -1,6 +1,7 @@
 package com.zg.natural_transmute.common.data.provider.tag;
 
 import com.zg.natural_transmute.NaturalTransmute;
+import com.zg.natural_transmute.common.data.tags.NTItemTags;
 import com.zg.natural_transmute.registry.NTDataComponents;
 import com.zg.natural_transmute.registry.NTItems;
 import com.zg.natural_transmute.utils.NTCommonUtils;
@@ -28,6 +29,10 @@ public class NTItemTagProvider extends ItemTagsProvider {
         this.tag(ItemTags.ARROWS).add(NTItems.BREEZE_ARROW.get());
         NTCommonUtils.getKnownItems().forEach(item -> {
             ItemStack stack = item.getDefaultInstance();
+            if (stack.has(NTDataComponents.ASSOCIATED_BIOMES)) {
+                this.tag(NTItemTags.FU_XIANG).add(item);
+            }
+
             if (stack.has(NTDataComponents.CAT_FOODS)) {
                 this.tag(ItemTags.CAT_FOOD).add(item);
             }
