@@ -7,6 +7,7 @@ import com.zg.natural_transmute.registry.NTBlockEntityTypes;
 import com.zg.natural_transmute.registry.NTDataComponents;
 import com.zg.natural_transmute.registry.NTItems;
 import com.zg.natural_transmute.registry.NTRecipes;
+import com.zg.natural_transmute.utils.NTCommonUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -25,7 +26,7 @@ import org.jetbrains.annotations.Nullable;
 public class GatheringPlatformBlockEntity extends SimpleContainerBlockEntity {
 
     private int gatheringTime;
-    private int maxGatheringTime;
+    private int totalGatheringTime;
     private int currentState;
     private final ContainerData containerData = new Data();
     private final RecipeManager.CachedCheck<GatheringPlatformRecipeInput, ? extends GatheringPlatformRecipe> quickCheck;
@@ -37,12 +38,12 @@ public class GatheringPlatformBlockEntity extends SimpleContainerBlockEntity {
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, GatheringPlatformBlockEntity blockEntity) {
-        ItemStack coreIngredient = blockEntity.handler.getStackInSlot(1);
+        ItemStack coreIngredient = blockEntity.handler.getStackInSlot(2);
         GatheringPlatformRecipe recipe = blockEntity.checkGatheringRecipe();
         if (recipe != null) {
             blockEntity.gathering(recipe, pos, state);
         } else {
-            blockEntity.maxGatheringTime = 0;
+            blockEntity.totalGatheringTime = 0;
             blockEntity.gatheringTime = 0;
             setChanged(level, pos, state);
         }
@@ -61,12 +62,12 @@ public class GatheringPlatformBlockEntity extends SimpleContainerBlockEntity {
 
     private void gathering(GatheringPlatformRecipe recipe, BlockPos pos, BlockState state) {
         if (this.level != null) {
-            this.maxGatheringTime = this.gatheringTime;
+            this.totalGatheringTime = this.gatheringTime;
             this.gatheringTime++;
             if (this.gatheringTime > recipe.gatheringTime) {
                 this.handler.insertItem(3, recipe.assemble(this.getRecipeInput(), level.registryAccess()), false);
-                recipe.consumeIngredients(this);
-                this.maxGatheringTime = 0;
+                NTCommonUtils.consumeIngredients(this);
+                this.totalGatheringTime = 0;
                 this.gatheringTime = 0;
             }
 
@@ -86,8 +87,9 @@ public class GatheringPlatformBlockEntity extends SimpleContainerBlockEntity {
 
     private GatheringPlatformRecipeInput getRecipeInput() {
         ItemStack input1 = this.getItem(0);
-        ItemStack input2 = this.getItem(2);
-        return new GatheringPlatformRecipeInput(input1, input2);
+        ItemStack input2 = this.getItem(1);
+        ItemStack core = this.getItem(2);
+        return new GatheringPlatformRecipeInput(input1, input2, core);
     }
 
     @Override
@@ -99,7 +101,7 @@ public class GatheringPlatformBlockEntity extends SimpleContainerBlockEntity {
     public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
         this.gatheringTime = tag.getInt("GatheringTime");
-        this.maxGatheringTime = tag.getInt("MaxGatheringTime");
+        this.totalGatheringTime = tag.getInt("TotalGatheringTime");
         this.currentState = tag.getInt("CurrentState");
     }
 
@@ -107,7 +109,7 @@ public class GatheringPlatformBlockEntity extends SimpleContainerBlockEntity {
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
         tag.putInt("GatheringTime", this.gatheringTime);
-        tag.putInt("MaxGatheringTime", this.maxGatheringTime);
+        tag.putInt("TotalGatheringTime", this.totalGatheringTime);
         tag.putInt("CurrentState", this.currentState);
     }
 
@@ -124,6 +126,8 @@ public class GatheringPlatformBlockEntity extends SimpleContainerBlockEntity {
             if (index == 0) {
                 return gatheringTime;
             } else if (index == 1) {
+                return totalGatheringTime;
+            } else if (index == 2) {
                 return currentState;
             } else {
                 return 0;
@@ -135,13 +139,15 @@ public class GatheringPlatformBlockEntity extends SimpleContainerBlockEntity {
             if (index == 0) {
                 gatheringTime = value;
             } else if (index == 1) {
+                totalGatheringTime = value;
+            } else if (index == 2) {
                 currentState = value;
             }
         }
 
         @Override
         public int getCount() {
-            return 2;
+            return 3;
         }
 
     }

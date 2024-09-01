@@ -15,7 +15,7 @@ import net.neoforged.api.distmarker.OnlyIn;
 public class GatheringPlatformScreen extends AbstractContainerScreen<GatheringPlatformMenu> {
 
     private static final String PATH = "textures/gui/gathering_platform_";
-    private static final ResourceLocation PROGRESS_BAR = NaturalTransmute.prefix("textures/gui/gathering_bar");
+    private static final ResourceLocation PROGRESS_BAR = NaturalTransmute.prefix("textures/gui/gathering_bar.png");
 
     public GatheringPlatformScreen(GatheringPlatformMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
@@ -23,7 +23,7 @@ public class GatheringPlatformScreen extends AbstractContainerScreen<GatheringPl
 
     @Override
     public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
-        this.renderBackground(guiGraphics, mouseX, mouseY, partialTick);
+        this.renderBg(guiGraphics, partialTick, mouseX, mouseY);
         super.render(guiGraphics, mouseX, mouseY, partialTick);
         this.renderTooltip(guiGraphics, mouseX, mouseY);
     }
@@ -32,7 +32,7 @@ public class GatheringPlatformScreen extends AbstractContainerScreen<GatheringPl
     protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
-        int time = Mth.ceil((1.0F / this.menu.getGatheringTime()) * 27.0F);
+        int time = Mth.ceil(this.menu.getGatheringTime() * 27.0F);
         ResourceLocation texture = NaturalTransmute.prefix(PATH + this.menu.getCurrentState() + ".png");
         guiGraphics.blit(texture, i, j, 0, 0, this.imageWidth, this.imageHeight);
         guiGraphics.blitSprite(PROGRESS_BAR, (27), (3), (0), (0), i + 76, j + 27, time, (3));
