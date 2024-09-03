@@ -40,6 +40,26 @@ public class NTBlockLoot extends VanillaBlockLoot {
         this.dropSelf(NTBlocks.AZURE_FROGLIGHT.get());
         this.dropSelf(NTBlocks.GATHERING_PLATFORM.get());
         this.dropSelf(NTBlocks.HARMONIOUS_CHANGE_STOVE.get());
+        this.add(NTBlocks.ACTIVATED_TUBE_CORAL_BLOCK.get(), block -> this.createSingleItemTableWithSilkTouch(Blocks.TUBE_CORAL_BLOCK, Blocks.DEAD_TUBE_CORAL_BLOCK));
+        this.add(NTBlocks.ACTIVATED_BRAIN_CORAL_BLOCK.get(), block -> this.createSingleItemTableWithSilkTouch(Blocks.BRAIN_CORAL_BLOCK, Blocks.DEAD_BRAIN_CORAL_BLOCK));
+        this.add(NTBlocks.ACTIVATED_BUBBLE_CORAL_BLOCK.get(), block -> this.createSingleItemTableWithSilkTouch(Blocks.BUBBLE_CORAL_BLOCK, Blocks.DEAD_BUBBLE_CORAL_BLOCK));
+        this.add(NTBlocks.ACTIVATED_FIRE_CORAL_BLOCK.get(), block -> this.createSingleItemTableWithSilkTouch(Blocks.FIRE_CORAL_BLOCK, Blocks.DEAD_FIRE_CORAL_BLOCK));
+        this.add(NTBlocks.ACTIVATED_HORN_CORAL_BLOCK.get(), block -> this.createSingleItemTableWithSilkTouch(Blocks.HORN_CORAL_BLOCK, Blocks.DEAD_HORN_CORAL_BLOCK));
+        this.otherWhenSilkTouch(NTBlocks.ACTIVATED_TUBE_CORAL_FAN.get(), Blocks.TUBE_CORAL_FAN);
+        this.otherWhenSilkTouch(NTBlocks.ACTIVATED_BRAIN_CORAL_FAN.get(), Blocks.BRAIN_CORAL_FAN);
+        this.otherWhenSilkTouch(NTBlocks.ACTIVATED_BUBBLE_CORAL_FAN.get(), Blocks.BUBBLE_CORAL_FAN);
+        this.otherWhenSilkTouch(NTBlocks.ACTIVATED_FIRE_CORAL_FAN.get(), Blocks.FIRE_CORAL_FAN);
+        this.otherWhenSilkTouch(NTBlocks.ACTIVATED_HORN_CORAL_FAN.get(), Blocks.HORN_CORAL_FAN);
+        this.otherWhenSilkTouch(NTBlocks.ACTIVATED_TUBE_CORAL.get(), Blocks.TUBE_CORAL);
+        this.otherWhenSilkTouch(NTBlocks.ACTIVATED_BRAIN_CORAL.get(), Blocks.BRAIN_CORAL);
+        this.otherWhenSilkTouch(NTBlocks.ACTIVATED_BUBBLE_CORAL.get(), Blocks.BUBBLE_CORAL);
+        this.otherWhenSilkTouch(NTBlocks.ACTIVATED_FIRE_CORAL.get(), Blocks.FIRE_CORAL);
+        this.otherWhenSilkTouch(NTBlocks.ACTIVATED_HORN_CORAL.get(), Blocks.HORN_CORAL);
+        this.otherWhenSilkTouch(NTBlocks.ACTIVATED_TUBE_CORAL_WALL_FAN.get(), Blocks.TUBE_CORAL_FAN);
+        this.otherWhenSilkTouch(NTBlocks.ACTIVATED_BRAIN_CORAL_WALL_FAN.get(), Blocks.BRAIN_CORAL_FAN);
+        this.otherWhenSilkTouch(NTBlocks.ACTIVATED_BUBBLE_CORAL_WALL_FAN.get(), Blocks.BUBBLE_CORAL_FAN);
+        this.otherWhenSilkTouch(NTBlocks.ACTIVATED_FIRE_CORAL_WALL_FAN.get(), Blocks.FIRE_CORAL_FAN);
+        this.otherWhenSilkTouch(NTBlocks.ACTIVATED_HORN_CORAL_WALL_FAN.get(), Blocks.HORN_CORAL_FAN);
         this.dropOther(NTBlocks.HETEROGENEOUS_STONE_ORE.get(), NTItems.HETEROGENEOUS_STONE.get());
         this.dropOther(NTBlocks.DEEPSLATE_HETEROGENEOUS_STONE_ORE.get(), NTItems.HETEROGENEOUS_STONE.get());
         this.add(NTBlocks.HARMONIOUS_CHANGE_STOVE.get(), block -> LootTable.lootTable().withPool(

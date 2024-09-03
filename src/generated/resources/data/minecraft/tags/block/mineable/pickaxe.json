@@ -1,9 +1,25 @@
 {
   "values": [
     "natural_transmute:gathering_platform",
+    "natural_transmute:harmonious_change_stove",
     "natural_transmute:papyrus",
     "natural_transmute:corundum",
     "natural_transmute:heterogeneous_stone_ore",
-    "natural_transmute:deepslate_heterogeneous_stone_ore"
+    "natural_transmute:deepslate_heterogeneous_stone_ore",
+    "natural_transmute:activated_tube_coral_fan",
+    "natural_transmute:activated_brain_coral_fan",
+    "natural_transmute:activated_bubble_coral_fan",
+    "natural_transmute:activated_fire_coral_fan",
+    "natural_transmute:activated_horn_coral_fan",
+    "natural_transmute:activated_tube_coral",
+    "natural_transmute:activated_brain_coral",
+    "natural_transmute:activated_bubble_coral",
+    "natural_transmute:activated_fire_coral",
+    "natural_transmute:activated_horn_coral",
+    "natural_transmute:activated_tube_coral_wall_fan",
+    "natural_transmute:activated_brain_coral_wall_fan",
+    "natural_transmute:activated_bubble_coral_wall_fan",
+    "natural_transmute:activated_fire_coral_wall_fan",
+    "natural_transmute:activated_horn_coral_wall_fan"
   ]
 }

@@ -1,15 +1,13 @@
 package com.zg.natural_transmute.registry;
 
 import com.zg.natural_transmute.NaturalTransmute;
-import com.zg.natural_transmute.common.blocks.AmberBlock;
-import com.zg.natural_transmute.common.blocks.BlueberryBush;
-import com.zg.natural_transmute.common.blocks.GatheringPlatform;
-import com.zg.natural_transmute.common.blocks.HarmoniousChangeStove;
-import com.zg.natural_transmute.common.blocks.Papyrus;
+import com.zg.natural_transmute.common.blocks.*;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -37,5 +35,45 @@ public class NTBlocks {
     public static final DeferredHolder<Block, Block> HARMONIOUS_CHANGE_STOVE = BLOCKS.register("harmonious_change_stove", HarmoniousChangeStove::new);
     public static final DeferredHolder<Block, Block> BLUEBERRY_BUSH = BLOCKS.register("blueberry_bush", BlueberryBush::new);
     public static final DeferredHolder<Block, Block> PAPYRUS = BLOCKS.register("papyrus", Papyrus::new);
+    public static final DeferredHolder<Block, Block> ACTIVATED_TUBE_CORAL_BLOCK = BLOCKS.register("activated_tube_coral_block",
+            () -> new ActivatedCoralBlock(Blocks.DEAD_TUBE_CORAL_BLOCK, MapColor.COLOR_BLUE, Items.TUBE_CORAL_BLOCK));
+    public static final DeferredHolder<Block, Block> ACTIVATED_BRAIN_CORAL_BLOCK = BLOCKS.register("activated_brain_coral_block",
+            () -> new ActivatedCoralBlock(Blocks.DEAD_BRAIN_CORAL_BLOCK, MapColor.COLOR_PINK, Items.BRAIN_CORAL_BLOCK));
+    public static final DeferredHolder<Block, Block> ACTIVATED_BUBBLE_CORAL_BLOCK = BLOCKS.register("activated_bubble_coral_block",
+            () -> new ActivatedCoralBlock(Blocks.DEAD_BUBBLE_CORAL_BLOCK, MapColor.COLOR_PURPLE, Items.BUBBLE_CORAL_BLOCK));
+    public static final DeferredHolder<Block, Block> ACTIVATED_FIRE_CORAL_BLOCK = BLOCKS.register("activated_fire_coral_block",
+            () -> new ActivatedCoralBlock(Blocks.DEAD_FIRE_CORAL_BLOCK, MapColor.COLOR_RED, Items.FIRE_CORAL_BLOCK));
+    public static final DeferredHolder<Block, Block> ACTIVATED_HORN_CORAL_BLOCK = BLOCKS.register("activated_horn_coral_block",
+            () -> new ActivatedCoralBlock(Blocks.DEAD_HORN_CORAL_BLOCK, MapColor.COLOR_YELLOW, Items.HORN_CORAL_BLOCK));
+    public static final DeferredHolder<Block, Block> ACTIVATED_TUBE_CORAL_FAN = BLOCKS.register("activated_tube_coral_fan",
+            () -> new ActivatedCoralFan(Blocks.DEAD_TUBE_CORAL_FAN, MapColor.COLOR_BLUE, Items.TUBE_CORAL_FAN));
+    public static final DeferredHolder<Block, Block> ACTIVATED_BRAIN_CORAL_FAN = BLOCKS.register("activated_brain_coral_fan",
+            () -> new ActivatedCoralFan(Blocks.DEAD_BRAIN_CORAL_FAN, MapColor.COLOR_PINK, Items.BRAIN_CORAL_FAN));
+    public static final DeferredHolder<Block, Block> ACTIVATED_BUBBLE_CORAL_FAN = BLOCKS.register("activated_bubble_coral_fan",
+            () -> new ActivatedCoralFan(Blocks.DEAD_BUBBLE_CORAL_FAN, MapColor.COLOR_PURPLE, Items.BUBBLE_CORAL_FAN));
+    public static final DeferredHolder<Block, Block> ACTIVATED_FIRE_CORAL_FAN = BLOCKS.register("activated_fire_coral_fan",
+            () -> new ActivatedCoralFan(Blocks.DEAD_FIRE_CORAL_FAN, MapColor.COLOR_RED, Items.FIRE_CORAL_FAN));
+    public static final DeferredHolder<Block, Block> ACTIVATED_HORN_CORAL_FAN = BLOCKS.register("activated_horn_coral_fan",
+            () -> new ActivatedCoralFan(Blocks.DEAD_HORN_CORAL_FAN, MapColor.COLOR_YELLOW, Items.HORN_CORAL_FAN));
+    public static final DeferredHolder<Block, Block> ACTIVATED_TUBE_CORAL = BLOCKS.register("activated_tube_coral",
+            () -> new ActivatedCoralPlant(Blocks.DEAD_TUBE_CORAL, MapColor.COLOR_BLUE, Items.TUBE_CORAL));
+    public static final DeferredHolder<Block, Block> ACTIVATED_BRAIN_CORAL = BLOCKS.register("activated_brain_coral",
+            () -> new ActivatedCoralPlant(Blocks.DEAD_BRAIN_CORAL, MapColor.COLOR_PINK, Items.BRAIN_CORAL));
+    public static final DeferredHolder<Block, Block> ACTIVATED_BUBBLE_CORAL = BLOCKS.register("activated_bubble_coral",
+            () -> new ActivatedCoralPlant(Blocks.DEAD_BUBBLE_CORAL, MapColor.COLOR_PURPLE, Items.BUBBLE_CORAL));
+    public static final DeferredHolder<Block, Block> ACTIVATED_FIRE_CORAL = BLOCKS.register("activated_fire_coral",
+            () -> new ActivatedCoralPlant(Blocks.DEAD_FIRE_CORAL, MapColor.COLOR_RED, Items.FIRE_CORAL));
+    public static final DeferredHolder<Block, Block> ACTIVATED_HORN_CORAL = BLOCKS.register("activated_horn_coral",
+            () -> new ActivatedCoralPlant(Blocks.DEAD_HORN_CORAL, MapColor.COLOR_YELLOW, Items.HORN_CORAL));
+    public static final DeferredHolder<Block, Block> ACTIVATED_TUBE_CORAL_WALL_FAN = BLOCKS.register("activated_tube_coral_wall_fan",
+            () -> new ActivatedCoralWallFan(Blocks.DEAD_TUBE_CORAL_WALL_FAN, MapColor.COLOR_BLUE, Items.TUBE_CORAL_FAN));
+    public static final DeferredHolder<Block, Block> ACTIVATED_BRAIN_CORAL_WALL_FAN = BLOCKS.register("activated_brain_coral_wall_fan",
+            () -> new ActivatedCoralWallFan(Blocks.DEAD_BRAIN_CORAL_WALL_FAN, MapColor.COLOR_PINK, Items.BRAIN_CORAL_FAN));
+    public static final DeferredHolder<Block, Block> ACTIVATED_BUBBLE_CORAL_WALL_FAN = BLOCKS.register("activated_bubble_coral_wall_fan",
+            () -> new ActivatedCoralWallFan(Blocks.DEAD_BUBBLE_CORAL_WALL_FAN, MapColor.COLOR_PURPLE, Items.BUBBLE_CORAL_FAN));
+    public static final DeferredHolder<Block, Block> ACTIVATED_FIRE_CORAL_WALL_FAN = BLOCKS.register("activated_fire_coral_wall_fan",
+            () -> new ActivatedCoralWallFan(Blocks.DEAD_FIRE_CORAL_WALL_FAN, MapColor.COLOR_RED, Items.FIRE_CORAL_FAN));
+    public static final DeferredHolder<Block, Block> ACTIVATED_HORN_CORAL_WALL_FAN = BLOCKS.register("activated_horn_coral_wall_fan",
+            () -> new ActivatedCoralWallFan(Blocks.DEAD_HORN_CORAL_WALL_FAN, MapColor.COLOR_YELLOW, Items.HORN_CORAL_FAN));
 
 }

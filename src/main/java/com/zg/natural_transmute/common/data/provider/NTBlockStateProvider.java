@@ -11,6 +11,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
@@ -46,6 +47,26 @@ public class NTBlockStateProvider extends BlockStateProvider {
         this.simpleBlock(NTBlocks.HETEROGENEOUS_STONE_ORE.get());
         this.simpleBlock(NTBlocks.DEEPSLATE_HETEROGENEOUS_STONE_ORE.get());
         this.simpleBlockWithRenderType(NTBlocks.AMBER_BLOCK.get(), TRANSLUCENT);
+        this.registerCoralBlockStates(NTBlocks.ACTIVATED_TUBE_CORAL_BLOCK.get(), Blocks.TUBE_CORAL_BLOCK);
+        this.registerCoralBlockStates(NTBlocks.ACTIVATED_BRAIN_CORAL_BLOCK.get(), Blocks.BRAIN_CORAL_BLOCK);
+        this.registerCoralBlockStates(NTBlocks.ACTIVATED_BUBBLE_CORAL_BLOCK.get(), Blocks.BUBBLE_CORAL_BLOCK);
+        this.registerCoralBlockStates(NTBlocks.ACTIVATED_FIRE_CORAL_BLOCK.get(), Blocks.FIRE_CORAL_BLOCK);
+        this.registerCoralBlockStates(NTBlocks.ACTIVATED_HORN_CORAL_BLOCK.get(), Blocks.HORN_CORAL_BLOCK);
+        this.registerCoralFanStates(NTBlocks.ACTIVATED_TUBE_CORAL_FAN.get(), Blocks.TUBE_CORAL_FAN, "coral_fan");
+        this.registerCoralFanStates(NTBlocks.ACTIVATED_BRAIN_CORAL_FAN.get(), Blocks.BRAIN_CORAL_FAN, "coral_fan");
+        this.registerCoralFanStates(NTBlocks.ACTIVATED_BUBBLE_CORAL_FAN.get(), Blocks.BUBBLE_CORAL_FAN, "coral_fan");
+        this.registerCoralFanStates(NTBlocks.ACTIVATED_FIRE_CORAL_FAN.get(), Blocks.FIRE_CORAL_FAN, "coral_fan");
+        this.registerCoralFanStates(NTBlocks.ACTIVATED_HORN_CORAL_FAN.get(), Blocks.HORN_CORAL_FAN, "coral_fan");
+        this.registerCoralStates(NTBlocks.ACTIVATED_TUBE_CORAL.get(), Blocks.TUBE_CORAL);
+        this.registerCoralStates(NTBlocks.ACTIVATED_BRAIN_CORAL.get(), Blocks.BRAIN_CORAL);
+        this.registerCoralStates(NTBlocks.ACTIVATED_BUBBLE_CORAL.get(), Blocks.BUBBLE_CORAL);
+        this.registerCoralStates(NTBlocks.ACTIVATED_FIRE_CORAL.get(), Blocks.FIRE_CORAL);
+        this.registerCoralStates(NTBlocks.ACTIVATED_HORN_CORAL.get(), Blocks.HORN_CORAL);
+        this.registerCoralFanStates(NTBlocks.ACTIVATED_TUBE_CORAL_WALL_FAN.get(), Blocks.TUBE_CORAL_FAN, "coral_wall_fan");
+        this.registerCoralFanStates(NTBlocks.ACTIVATED_BRAIN_CORAL_WALL_FAN.get(), Blocks.BRAIN_CORAL_FAN, "coral_wall_fan");
+        this.registerCoralFanStates(NTBlocks.ACTIVATED_BUBBLE_CORAL_WALL_FAN.get(), Blocks.BUBBLE_CORAL_FAN, "coral_wall_fan");
+        this.registerCoralFanStates(NTBlocks.ACTIVATED_FIRE_CORAL_WALL_FAN.get(), Blocks.FIRE_CORAL_FAN, "coral_wall_fan");
+        this.registerCoralFanStates(NTBlocks.ACTIVATED_HORN_CORAL_WALL_FAN.get(), Blocks.HORN_CORAL_FAN, "coral_wall_fan");
         this.logBlock((RotatedPillarBlock) NTBlocks.CORUNDUM.get());
         this.logBlock((RotatedPillarBlock) NTBlocks.AZURE_FROGLIGHT.get());
         this.registerCropStates(NTBlocks.BLUEBERRY_BUSH.get(), BlockStateProperties.AGE_3);
@@ -55,6 +76,25 @@ public class NTBlockStateProvider extends BlockStateProvider {
 
     private void simpleBlockWithRenderType(Block block, ResourceLocation type) {
         simpleBlock(block, models().cubeAll(this.name(block), this.blockTexture(block)).renderType(type));
+    }
+
+    private void registerCoralBlockStates(Block currentBlock, Block originalBlock) {
+        ResourceLocation texture = this.mcLoc("block/" + this.name(originalBlock));
+        ModelFile modelFile = this.models().cubeAll(this.name(currentBlock), texture);
+        this.getVariantBuilder(currentBlock).partialState().modelForState().modelFile(modelFile).addModel();
+    }
+
+    private void registerCoralStates(Block currentBlock, Block originalBlock) {
+        ResourceLocation texture = this.mcLoc("block/" + this.name(originalBlock));
+        ModelFile modelFile = this.models().cross(this.name(currentBlock), texture).renderType(CUTOUT);
+        this.getVariantBuilder(currentBlock).partialState().modelForState().modelFile(modelFile).addModel();
+    }
+
+    private void registerCoralFanStates(Block currentBlock, Block originalBlock, String parent) {
+        ResourceLocation texture = this.mcLoc("block/" + this.name(originalBlock));
+        ModelFile modelFile = this.models().singleTexture(this.name(currentBlock),
+                this.mcLoc("block/" + parent), ("fan"), texture).renderType(CUTOUT);
+        this.getVariantBuilder(currentBlock).partialState().modelForState().modelFile(modelFile).addModel();
     }
 
     private void registerCropStates(Block block, IntegerProperty property) {

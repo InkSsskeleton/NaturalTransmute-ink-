@@ -3,9 +3,13 @@ package com.zg.natural_transmute.common.items;
 import com.google.common.base.Suppliers;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
+import com.zg.natural_transmute.common.blocks.ActivatedCoralBlock;
+import com.zg.natural_transmute.common.blocks.ActivatedCoralFan;
+import com.zg.natural_transmute.common.blocks.ActivatedCoralPlant;
+import com.zg.natural_transmute.common.blocks.ActivatedCoralWallFan;
+import com.zg.natural_transmute.utils.NTCommonUtils;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -60,14 +64,14 @@ public class WaterWax extends HoneycombItem {
 
     private static ImmutableBiMap<Block, Block> putCoralAndDeadCoral() {
         ImmutableBiMap.Builder<Block, Block> builder = ImmutableBiMap.builder();
-        BuiltInRegistries.BLOCK.forEach(block -> {
-            if (block instanceof CoralBlock coral) {
+        NTCommonUtils.getKnownBlocks().forEach(block -> {
+            if (block instanceof ActivatedCoralBlock coral) {
                 builder.put(coral.deadBlock, coral);
-            } else if (block instanceof CoralFanBlock coralFan) {
+            } else if (block instanceof ActivatedCoralFan coralFan) {
                 builder.put(coralFan.deadBlock, coralFan);
-            } else if (block instanceof CoralPlantBlock coralPlant) {
+            } else if (block instanceof ActivatedCoralPlant coralPlant) {
                 builder.put(coralPlant.deadBlock, coralPlant);
-            } else if (block instanceof CoralWallFanBlock coralWallFan) {
+            } else if (block instanceof ActivatedCoralWallFan coralWallFan) {
                 builder.put(coralWallFan.deadBlock, coralWallFan);
             }
         });
