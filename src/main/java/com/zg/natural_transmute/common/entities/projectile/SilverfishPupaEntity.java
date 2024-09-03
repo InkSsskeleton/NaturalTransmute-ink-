@@ -54,6 +54,7 @@ public class SilverfishPupaEntity extends ThrowableItemProjectile {
         if (!level.isClientSide) {
             level.broadcastEntityEvent(this, (byte)3);
             Silverfish silverfish = new Silverfish(EntityType.SILVERFISH, level);
+            silverfish.setPos(result.getLocation());
             level.addFreshEntity(silverfish);
             this.playSound(SoundEvents.SILVERFISH_HURT);
             this.discard();
