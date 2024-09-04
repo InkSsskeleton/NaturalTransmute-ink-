@@ -60,8 +60,23 @@ configurations {
     runtimeClasspath.extendsFrom localRuntime
 }
 
+repositories {
+
+    maven {
+        name "Jared\'s Maven" // JEI
+        url "https://maven.blamejared.com/"
+    }
+
+}
+
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
+
+    // compile against the JEI API but do not include it at runtime
+    compileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
+    // at runtime, use the full JEI jar for NeoForge
+    runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
 }
 
 tasks.withType(ProcessResources).configureEach {
