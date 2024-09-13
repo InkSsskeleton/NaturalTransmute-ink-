@@ -1,0 +1,33 @@
+{
+  "criteria": {
+    "heterogeneous_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "natural_transmute:heterogeneous_stone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "natural_transmute:textures/block/turquoise.png",
+    "description": {
+      "translate": "advancements.natural_transmute.get_heterogeneous_stone.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "natural_transmute:heterogeneous_stone"
+    },
+    "title": {
+      "translate": "advancements.natural_transmute.heterogeneous_stone.title"
+    }
+  },
+  "requirements": [
+    [
+      "heterogeneous_stone"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

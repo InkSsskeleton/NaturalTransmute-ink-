@@ -22,5 +22,7 @@ public class NTDataComponents {
             () -> DataComponentType.<DogFoods>builder().persistent(DogFoods.CODEC).networkSynchronized(DogFoods.STREAM_CODEC).cacheEncoding().build());
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> SCULK_EQUIPMENT = DATA_COMPONENT_TYPE.register("sculk_equipment",
             () -> DataComponentType.<Boolean>builder().persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL).cacheEncoding().build());
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> CAN_SPAWN_DRAGON_BREATHE = DATA_COMPONENT_TYPE.register("can_spawn_dragon_breathe",
+            () -> DataComponentType.<Boolean>builder().persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL).cacheEncoding().build());
 
 }

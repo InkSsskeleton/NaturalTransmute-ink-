@@ -25,9 +25,11 @@ public class AmberBlockRenderer implements BlockEntityRenderer<AmberBlockBlockEn
         poseStack.pushPose();
         ItemStack stack = blockEntity.getItem(0);
         if (!stack.isEmpty()) {
-            int i = (int) blockEntity.getBlockPos().asLong();
+            poseStack.pushPose();
+            poseStack.translate(0.5F, 1.0F, 0.5F);
             this.itemRenderer.renderStatic(stack, ItemDisplayContext.FIXED, packedLight,
-                    packedOverlay, poseStack, bufferSource, blockEntity.getLevel(), i);
+                    packedOverlay, poseStack, bufferSource, blockEntity.getLevel(), 0);
+            poseStack.popPose();
         }
 
         poseStack.popPose();

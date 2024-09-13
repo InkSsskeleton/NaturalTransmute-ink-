@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "natural_transmute:warped_wart"
+    },
+    {
+      "item": "natural_transmute:warped_wart"
+    },
+    {
+      "item": "minecraft:nether_brick"
+    },
+    {
+      "item": "minecraft:nether_brick"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "natural_transmute:blue_nether_bricks"
+  }
+}

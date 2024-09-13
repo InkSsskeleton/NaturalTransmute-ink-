@@ -1,6 +1,7 @@
 package com.zg.natural_transmute.common.data.provider.tag;
 
 import com.zg.natural_transmute.NaturalTransmute;
+import com.zg.natural_transmute.common.data.tags.NTBlockTags;
 import com.zg.natural_transmute.common.data.tags.NTItemTags;
 import com.zg.natural_transmute.registry.NTDataComponents;
 import com.zg.natural_transmute.registry.NTItems;
@@ -10,6 +11,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -25,8 +27,17 @@ public class NTItemTagProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+        this.copy(NTBlockTags.END_ALSOPHILA_LOGS, NTItemTags.END_ALSOPHILA_LOGS);
+        this.copy(NTBlockTags.END_ALSOPHILA_SAPLING_PLACEABLE,
+                NTItemTags.END_ALSOPHILA_SAPLING_PLACEABLE);
         this.tag(Tags.Items.TOOLS_BOW).add(NTItems.WHALE_BONE_BOW.get());
         this.tag(ItemTags.ARROWS).add(NTItems.BREEZE_ARROW.get());
+        this.tag(NTItemTags.GRASS).add(Items.SHORT_GRASS,
+                Items.TALL_GRASS, Items.FERN, Items.LARGE_FERN);
+        this.tag(NTItemTags.COOKED_MEAT).add(
+                Items.COOKED_BEEF, Items.COOKED_CHICKEN, Items.COOKED_MUTTON,
+                Items.COOKED_PORKCHOP, Items.COOKED_RABBIT, NTItems.COOKED_DUCK.get());
+        this.tag(NTItemTags.COOKED_FISH).add(Items.COOKED_COD, Items.COOKED_SALMON);
         NTCommonUtils.getKnownItems().forEach(item -> {
             ItemStack stack = item.getDefaultInstance();
             if (stack.has(NTDataComponents.ASSOCIATED_BIOMES)) {

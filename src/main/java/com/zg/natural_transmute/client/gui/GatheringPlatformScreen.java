@@ -15,7 +15,7 @@ import net.neoforged.api.distmarker.OnlyIn;
 public class GatheringPlatformScreen extends AbstractContainerScreen<GatheringPlatformMenu> {
 
     private static final String PATH = "textures/gui/gathering_platform_";
-    private static final ResourceLocation PROGRESS_BAR = NaturalTransmute.prefix("textures/gui/gathering_bar.png");
+    private static final ResourceLocation PROGRESS_BAR = NaturalTransmute.prefix("gathering_bar");
 
     public GatheringPlatformScreen(GatheringPlatformMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);

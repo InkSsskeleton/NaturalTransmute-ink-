@@ -4,6 +4,7 @@ import com.google.common.collect.Iterables;
 import com.zg.natural_transmute.common.blocks.BlueberryBush;
 import com.zg.natural_transmute.common.blocks.HarmoniousChangeStove;
 import com.zg.natural_transmute.common.blocks.state.properties.HCStovePart;
+import com.zg.natural_transmute.common.data.NTBlockFamilies;
 import com.zg.natural_transmute.registry.NTBlocks;
 import com.zg.natural_transmute.registry.NTItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
@@ -39,7 +40,16 @@ public class NTBlockLoot extends VanillaBlockLoot {
         this.dropSelf(NTBlocks.AMBER_BLOCK.get());
         this.dropSelf(NTBlocks.AZURE_FROGLIGHT.get());
         this.dropSelf(NTBlocks.GATHERING_PLATFORM.get());
+        this.dropSelf(NTBlocks.BLUE_NETHER_BRICKS.get());
+        this.dropSelf(NTBlocks.END_ALSOPHILA_LEAVES.get());
         this.dropSelf(NTBlocks.HARMONIOUS_CHANGE_STOVE.get());
+        this.dropSelf(NTBlocks.END_ALSOPHILA_LOG.get());
+        this.dropSelf(NTBlocks.END_ALSOPHILA_WOOD.get());
+        this.dropSelf(NTBlocks.END_ALSOPHILA_PLANKS.get());
+        this.dropSelf(NTBlocks.END_ALSOPHILA_SAPLING.get());
+        this.dropSelf(NTBlocks.STRIPPED_END_ALSOPHILA_LOG.get());
+        this.dropSelf(NTBlocks.STRIPPED_END_ALSOPHILA_WOOD.get());
+        this.add(NTBlocks.END_ALSOPHILA_LEAVES.get(), block -> LootTable.lootTable());
         this.add(NTBlocks.ACTIVATED_TUBE_CORAL_BLOCK.get(), block -> this.createSingleItemTableWithSilkTouch(Blocks.TUBE_CORAL_BLOCK, Blocks.DEAD_TUBE_CORAL_BLOCK));
         this.add(NTBlocks.ACTIVATED_BRAIN_CORAL_BLOCK.get(), block -> this.createSingleItemTableWithSilkTouch(Blocks.BRAIN_CORAL_BLOCK, Blocks.DEAD_BRAIN_CORAL_BLOCK));
         this.add(NTBlocks.ACTIVATED_BUBBLE_CORAL_BLOCK.get(), block -> this.createSingleItemTableWithSilkTouch(Blocks.BUBBLE_CORAL_BLOCK, Blocks.DEAD_BUBBLE_CORAL_BLOCK));
@@ -69,6 +79,7 @@ public class NTBlockLoot extends VanillaBlockLoot {
                                         .hasProperty(HarmoniousChangeStove.PART, HCStovePart.MAIN)
                                         .hasProperty(HarmoniousChangeStove.HALF, DoubleBlockHalf.LOWER)))))));
         HolderLookup.RegistryLookup<Enchantment> registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+        this.add(NTBlocks.ALGAL_END_STONE.get(), block -> this.createSingleItemTableWithSilkTouch(block, Blocks.END_STONE));
         this.add(NTBlocks.CAVE_EARTH.get(), block -> this.createSingleItemTableWithSilkTouch(block, Blocks.DIRT));
         this.add(NTBlocks.DEATH_EARTH.get(), block -> this.createSingleItemTableWithSilkTouch(block, Blocks.DIRT));
         this.add(NTBlocks.GRASSLAND_EARTH.get(), block -> this.createSingleItemTableWithSilkTouch(block, Blocks.DIRT));
@@ -88,6 +99,10 @@ public class NTBlockLoot extends VanillaBlockLoot {
                         .add(LootItem.lootTableItem(NTItems.BLUEBERRIES.get()))
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
                         .apply(ApplyBonusCount.addUniformBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE))))));
+        NTBlockFamilies.getAllFamilies().forEach(blockFamily -> {
+            blockFamily.getVariants().forEach((variant, block) -> this.dropSelf(block));
+            this.dropSelf(blockFamily.getBaseBlock());
+        });
     }
 
     @Override

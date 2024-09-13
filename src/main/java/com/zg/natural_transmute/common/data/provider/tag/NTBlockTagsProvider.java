@@ -1,11 +1,12 @@
 package com.zg.natural_transmute.common.data.provider.tag;
 
 import com.zg.natural_transmute.NaturalTransmute;
+import com.zg.natural_transmute.common.data.tags.NTBlockTags;
 import com.zg.natural_transmute.registry.NTBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.block.BaseCoralPlantTypeBlock;
+import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -26,7 +27,9 @@ public class NTBlockTagsProvider extends BlockTagsProvider {
                 NTBlocks.HARMONIOUS_CHANGE_STOVE.get(),
                 NTBlocks.PAPYRUS.get(), NTBlocks.CORUNDUM.get(),
                 NTBlocks.HETEROGENEOUS_STONE_ORE.get(),
-                NTBlocks.DEEPSLATE_HETEROGENEOUS_STONE_ORE.get());
+                NTBlocks.DEEPSLATE_HETEROGENEOUS_STONE_ORE.get(),
+                NTBlocks.BLUE_NETHER_BRICKS.get(),
+                NTBlocks.ALGAL_END_STONE.get());
         this.tag(BlockTags.NEEDS_STONE_TOOL).add(NTBlocks.TURQUOISE.get(),
                 NTBlocks.HETEROGENEOUS_STONE_ORE.get(),
                 NTBlocks.DEEPSLATE_HETEROGENEOUS_STONE_ORE.get());
@@ -34,6 +37,23 @@ public class NTBlockTagsProvider extends BlockTagsProvider {
                 NTBlocks.HARMONIOUS_CHANGE_STOVE.get());
         this.tag(BlockTags.DIRT).add(NTBlocks.CAVE_EARTH.get(),
                 NTBlocks.GRASSLAND_EARTH.get(), NTBlocks.OCEAN_EARTH.get());
+        this.tag(BlockTags.LOGS).addTag(NTBlockTags.END_ALSOPHILA_LOGS);
+        this.tag(BlockTags.PLANKS).add(NTBlocks.END_ALSOPHILA_PLANKS.get());
+        this.tag(BlockTags.LEAVES).add(NTBlocks.END_ALSOPHILA_LEAVES.get());
+        this.tag(BlockTags.SAPLINGS).add(NTBlocks.END_ALSOPHILA_SAPLING.get());
+        this.tag(BlockTags.SWORD_EFFICIENT).add(NTBlocks.BLUEBERRY_BUSH.get());
+        this.tag(BlockTags.FALL_DAMAGE_RESETTING).add(NTBlocks.BLUEBERRY_BUSH.get());
+        this.tag(BlockTags.WOODEN_PRESSURE_PLATES).add(NTBlocks.END_ALSOPHILA_FAMILY.getFirst().get());
+        this.tag(BlockTags.FENCE_GATES).add(NTBlocks.END_ALSOPHILA_FAMILY.get(1).get());
+        this.tag(BlockTags.WOODEN_TRAPDOORS).add(NTBlocks.END_ALSOPHILA_FAMILY.get(2).get());
+        this.tag(BlockTags.WOODEN_BUTTONS).add(NTBlocks.END_ALSOPHILA_FAMILY.get(3).get());
+        this.tag(BlockTags.WOODEN_DOORS).add(NTBlocks.END_ALSOPHILA_FAMILY.get(4).get());
+        this.tag(BlockTags.WOODEN_STAIRS).add(NTBlocks.END_ALSOPHILA_FAMILY.get(5).get());
+        this.tag(BlockTags.WOODEN_FENCES).add(NTBlocks.END_ALSOPHILA_FAMILY.get(6).get());
+        this.tag(BlockTags.WOODEN_SLABS).add(NTBlocks.END_ALSOPHILA_FAMILY.getLast().get());
+        this.tag(NTBlockTags.END_ALSOPHILA_LOGS).add(NTBlocks.STRIPPED_END_ALSOPHILA_WOOD.get(),
+                NTBlocks.STRIPPED_END_ALSOPHILA_LOG.get(), NTBlocks.END_ALSOPHILA_WOOD.get(), NTBlocks.END_ALSOPHILA_LOG.get());
+        this.tag(NTBlockTags.END_ALSOPHILA_SAPLING_PLACEABLE).add(Blocks.END_STONE, NTBlocks.ALGAL_END_STONE.get());
         NTBlocks.BLOCKS.getEntries().stream().map(DeferredHolder::get)
                 .filter(block -> block instanceof BaseCoralPlantTypeBlock).toList()
                 .forEach(block -> this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(block));

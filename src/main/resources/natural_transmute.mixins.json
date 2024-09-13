@@ -6,7 +6,10 @@
     "refmap": "natural_transmute.refmap.json",
     "mixins": [
         "MixinAbstractArrow",
-        "MixinBaseCoralPlantTypeBlock"
+        "MixinBaseCoralPlantTypeBlock",
+        "MixinCrossbowItem",
+        "MixinJukeboxSong",
+        "MixinPlayer"
     ],
     "client": [
     ],

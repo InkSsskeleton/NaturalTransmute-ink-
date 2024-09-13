@@ -1,8 +1,9 @@
 package com.zg.natural_transmute.common.blocks.entity;
 
 import com.zg.natural_transmute.client.inventory.GatheringPlatformMenu;
-import com.zg.natural_transmute.common.items.crafting.GatheringPlatformRecipe;
-import com.zg.natural_transmute.common.items.crafting.GatheringPlatformRecipeInput;
+import com.zg.natural_transmute.common.components.AssociatedBiomes;
+import com.zg.natural_transmute.common.items.crafting.GatheringRecipe;
+import com.zg.natural_transmute.common.items.crafting.GatheringRecipeInput;
 import com.zg.natural_transmute.registry.NTBlockEntityTypes;
 import com.zg.natural_transmute.registry.NTDataComponents;
 import com.zg.natural_transmute.registry.NTItems;
@@ -29,17 +30,17 @@ public class GatheringPlatformBlockEntity extends SimpleContainerBlockEntity {
     private int totalGatheringTime;
     private int currentState;
     private final ContainerData containerData = new Data();
-    private final RecipeManager.CachedCheck<GatheringPlatformRecipeInput, ? extends GatheringPlatformRecipe> quickCheck;
+    private final RecipeManager.CachedCheck<GatheringRecipeInput, ? extends GatheringRecipe> quickCheck;
 
     public GatheringPlatformBlockEntity(BlockPos pos, BlockState blockState) {
         super(NTBlockEntityTypes.GATHERING_PLATFORM.get(), pos, blockState);
-        this.quickCheck = RecipeManager.createCheck(NTRecipes.GATHERING_PLATFORM_RECIPE.get());
+        this.quickCheck = RecipeManager.createCheck(NTRecipes.GATHERING_RECIPE.get());
         this.handler = new Handler(4);
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, GatheringPlatformBlockEntity blockEntity) {
         ItemStack coreIngredient = blockEntity.handler.getStackInSlot(2);
-        GatheringPlatformRecipe recipe = blockEntity.checkGatheringRecipe();
+        GatheringRecipe recipe = blockEntity.checkGatheringRecipe();
         if (recipe != null) {
             blockEntity.gathering(recipe, pos, state);
         } else {
@@ -60,15 +61,19 @@ public class GatheringPlatformBlockEntity extends SimpleContainerBlockEntity {
         }
     }
 
-    private void gathering(GatheringPlatformRecipe recipe, BlockPos pos, BlockState state) {
+    private void gathering(GatheringRecipe recipe, BlockPos pos, BlockState state) {
         if (this.level != null) {
-            this.totalGatheringTime = this.gatheringTime;
-            this.gatheringTime++;
-            if (this.gatheringTime > recipe.gatheringTime) {
-                this.handler.insertItem(3, recipe.assemble(this.getRecipeInput(), level.registryAccess()), false);
-                NTCommonUtils.consumeIngredients(this);
-                this.totalGatheringTime = 0;
-                this.gatheringTime = 0;
+            AssociatedBiomes biomes = recipe.result.get(NTDataComponents.ASSOCIATED_BIOMES);
+            if (biomes != null && biomes.biomes().contains(this.level.getBiome(pos).getKey())) {
+                ItemStack assemble = recipe.assemble(this.getRecipeInput(), level.registryAccess());
+                this.totalGatheringTime = this.gatheringTime;
+                this.gatheringTime++;
+                if (this.gatheringTime > recipe.gatheringTime) {
+                    this.handler.insertItem(3, assemble, false);
+                    NTCommonUtils.consumeIngredients(this);
+                    this.totalGatheringTime = 0;
+                    this.gatheringTime = 0;
+                }
             }
 
             setChanged(this.level, pos, state);
@@ -76,20 +81,21 @@ public class GatheringPlatformBlockEntity extends SimpleContainerBlockEntity {
     }
 
     @Nullable
-    protected GatheringPlatformRecipe checkGatheringRecipe() {
+    private GatheringRecipe checkGatheringRecipe() {
         if (this.level != null) {
-            RecipeHolder<? extends GatheringPlatformRecipe> holder = this.quickCheck.getRecipeFor(this.getRecipeInput(), this.level).orElse(null);
+            RecipeHolder<? extends GatheringRecipe> holder =
+                    this.quickCheck.getRecipeFor(this.getRecipeInput(), this.level).orElse(null);
             return holder != null ? holder.value() : null;
         }
 
         return null;
     }
 
-    private GatheringPlatformRecipeInput getRecipeInput() {
+    private GatheringRecipeInput getRecipeInput() {
         ItemStack input1 = this.getItem(0);
         ItemStack input2 = this.getItem(1);
         ItemStack core = this.getItem(2);
-        return new GatheringPlatformRecipeInput(input1, input2, core);
+        return new GatheringRecipeInput(input1, input2, core);
     }
 
     @Override

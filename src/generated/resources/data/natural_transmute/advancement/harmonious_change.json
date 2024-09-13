@@ -1,0 +1,25 @@
+{
+  "criteria": {
+    "harmonious_change": {
+      "trigger": "natural_transmute:harmonious_change"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.natural_transmute.harmonious_change.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "natural_transmute:harmonious_change_core"
+    },
+    "title": {
+      "translate": "advancements.natural_transmute.harmonious_change.title"
+    }
+  },
+  "requirements": [
+    [
+      "harmonious_change"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "natural_transmute:block/end_alsophila_planks"
+  }
+}

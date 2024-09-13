@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 public class AmberBlock extends HalfTransparentBlock implements EntityBlock {
 
     public AmberBlock() {
-        super(Properties.ofFullCopy(Blocks.STONE).lightLevel(l -> 4));
+        super(Properties.ofFullCopy(Blocks.STONE).noOcclusion().lightLevel(l -> 4));
     }
 
     @Override

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "natural_transmute:block/end_alsophila_pressure_plate"
+    },
+    "powered=true": {
+      "model": "natural_transmute:block/end_alsophila_pressure_plate_down"
+    }
+  }
+}

@@ -1,14 +1,21 @@
 package com.zg.natural_transmute.registry;
 
 import com.zg.natural_transmute.NaturalTransmute;
+import com.zg.natural_transmute.common.level.feature.tree.foliage.EndAlsophilaPlacer;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
@@ -16,6 +23,7 @@ import java.util.List;
 
 public class NTConfiguredFeatures {
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> END_ALSOPHILA = createKey("end_alsophila");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_TURQUOISE = createKey("ore_turquoise");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_CORUNDUM = createKey("ore_corundum");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_HETEROGENEOUS_STONE = createKey("ore_heterogeneous_stone");
@@ -32,6 +40,10 @@ public class NTConfiguredFeatures {
         List<OreConfiguration.TargetBlockState> lapisOres = List.of(
                 OreConfiguration.target(ruleTest1, NTBlocks.HARMONIOUS_CHANGE_STOVE.get().defaultBlockState()),
                 OreConfiguration.target(ruleTest2, NTBlocks.DEEPSLATE_HETEROGENEOUS_STONE_ORE.get().defaultBlockState()));
+        FeatureUtils.register(context, END_ALSOPHILA, Feature.TREE, (new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(NTBlocks.END_ALSOPHILA_LOG.get()), new StraightTrunkPlacer((6), (4), (0)),
+                BlockStateProvider.simple(NTBlocks.END_ALSOPHILA_LEAVES.get().defaultBlockState().setValue(LeavesBlock.PERSISTENT, true)),
+                new EndAlsophilaPlacer(ConstantInt.ZERO, ConstantInt.ZERO), new TwoLayersFeatureSize((1), (0), (2))).build()));
         FeatureUtils.register(context, ORE_TURQUOISE, Feature.ORE, new OreConfiguration(ruleTest, NTBlocks.TURQUOISE.get().defaultBlockState(), 64));
         FeatureUtils.register(context, ORE_CORUNDUM, Feature.ORE, new OreConfiguration(ruleTest, NTBlocks.CORUNDUM.get().defaultBlockState(), 64));
         FeatureUtils.register(context, ORE_HETEROGENEOUS_STONE, Feature.ORE, new OreConfiguration(lapisOres, 7));

@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:copper_ingot"
+    },
+    "B": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "C": {
+      "item": "natural_transmute:corundum_iron_plate"
+    },
+    "D": {
+      "item": "minecraft:hopper"
+    },
+    "E": {
+      "item": "natural_transmute:harmonious_change_core"
+    },
+    "F": {
+      "item": "minecraft:blast_furnace"
+    }
+  },
+  "pattern": [
+    "ADA",
+    "BEB",
+    "CFC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "natural_transmute:harmonious_change_stove"
+  }
+}

@@ -64,7 +64,7 @@ public class GatheringPlatformMenu extends AbstractSimpleMenu {
                 }
 
                 slot.onQuickCraft(sourceStack, copyOfSourceStack);
-            } else if (index > 38 || index < 36) {
+            } else if (index < 36) {
                 if (sourceStack.is(NTItems.HETEROGENEOUS_STONE) || sourceStack.is(NTItemTags.FU_XIANG)) {
                     if (!this.moveItemStackTo(sourceStack, 38, 39, Boolean.FALSE)) {
                         return ItemStack.EMPTY;
@@ -75,7 +75,7 @@ public class GatheringPlatformMenu extends AbstractSimpleMenu {
                     if (!this.moveItemStackTo(sourceStack, 26, 35, Boolean.FALSE)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (index >= 27 && index < 36 && !this.moveItemStackTo(sourceStack, 0, 27, Boolean.FALSE)) {
+                } else if (index >= 27 && !this.moveItemStackTo(sourceStack, 0, 27, Boolean.FALSE)) {
                     return ItemStack.EMPTY;
                 }
             } else if (!this.moveItemStackTo(sourceStack, 0, 35, Boolean.FALSE)) {

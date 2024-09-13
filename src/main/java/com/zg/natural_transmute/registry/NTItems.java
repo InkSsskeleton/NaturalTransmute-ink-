@@ -2,6 +2,8 @@ package com.zg.natural_transmute.registry;
 
 import com.zg.natural_transmute.NaturalTransmute;
 import com.zg.natural_transmute.common.items.*;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.animal.CatVariant;
@@ -9,7 +11,9 @@ import net.minecraft.world.entity.animal.WolfVariants;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -25,7 +29,10 @@ public class NTItems {
     public static final DeferredHolder<Item, Item> CHLORITE = normal("chlorite");
     public static final DeferredHolder<Item, Item> COCONUT_SHELL = normal("coconut_shell");
     public static final DeferredHolder<Item, Item> CORUNDUM_IRON_PLATE = normal("corundum_iron_plate");
+    public static final DeferredHolder<Item, Item> DRAGONCAST_STEEL_BILLET = normal("dragoncast_steel_billet");
+    public static final DeferredHolder<Item, Item> DRAGONCAST_STEEL_INGOT = normal("dragoncast_steel_ingot");
     public static final DeferredHolder<Item, Item> DRYAS_OCTOPETALA = normal("dryas_octopetala");
+    public static final DeferredHolder<Item, Item> FANGS = normal("fangs");
     public static final DeferredHolder<Item, Item> GANODERMA_LUCIDUM = normal("ganoderma_lucidum");
     public static final DeferredHolder<Item, Item> GREEN_GHOST_CRYSTAL = normal("green_ghost_crystal");
     public static final DeferredHolder<Item, Item> HAIR_CRYSTAL = normal("hair_crystal");
@@ -45,6 +52,14 @@ public class NTItems {
     public static final DeferredHolder<Item, Item> WATER_WAX = ITEMS.register("water_wax", WaterWax::new);
     public static final DeferredHolder<Item, Item> BREEZE_ARROW = ITEMS.register("breeze_arrow", BreezeArrow::new);
     public static final DeferredHolder<Item, Item> SILVERFISH_PUPA = ITEMS.register("silverfish_pupa", SilverfishPupa::new);
+    public static final DeferredHolder<Item, Item> REFRIGERATED_ROCKET = ITEMS.register("refrigerated_rocket", RefrigeratedRocket::new);
+    public static final DeferredHolder<Item, Item> MINE_WATER_BUCKET = ITEMS.register("mine_water_bucket",
+            () -> new BucketItem(NTFluids.MINE_WATER_STILL.get(), new Item.Properties().stacksTo((1))));
+    public static final DeferredHolder<Item, Item> MELODIOUS_DISC = ITEMS.register("melodious_disc",
+            () -> new Item(new Item.Properties().stacksTo((1)).rarity(Rarity.RARE).jukeboxPlayable(NTJukeboxSongs.EMPTY)));
+    public static final DeferredHolder<Item, Item> LAVA_AXOLOTL_BUCKET = ITEMS.register("lava_axolotl_bucket",
+            () -> new MobBucketItem(NTEntityTypes.LAVA_AXOLOTL.get(), Fluids.LAVA, SoundEvents.BUCKET_EMPTY_AXOLOTL,
+                    new Item.Properties().stacksTo((1)).component(DataComponents.BUCKET_ENTITY_DATA, CustomData.EMPTY)));
     // 方块
     public static final DeferredHolder<Item, Item> GATHERING_PLATFORM = ITEMS.register("gathering_platform",
             () -> new BlockItem(NTBlocks.GATHERING_PLATFORM.get(), new Item.Properties()));
@@ -56,6 +71,8 @@ public class NTItems {
             () -> new BlockItem(NTBlocks.AMBER_BLOCK.get(), new Item.Properties()));
     public static final DeferredHolder<Item, Item> AZURE_FROGLIGHT = ITEMS.register("azure_froglight",
             () -> new BlockItem(NTBlocks.AZURE_FROGLIGHT.get(), new Item.Properties()));
+    public static final DeferredHolder<Item, Item> ALGAL_END_STONE = ITEMS.register("algal_end_stone",
+            () -> new BlockItem(NTBlocks.ALGAL_END_STONE.get(), new Item.Properties()));
     // 食物
     public static final DeferredHolder<Item, Item> BLUEBERRIES = alias("blueberries",
             NTBlocks.BLUEBERRY_BUSH, new Item.Properties().food(Foods.SWEET_BERRIES));
@@ -134,6 +151,22 @@ public class NTItems {
     public static final DeferredHolder<Item, Item> KATANA = ITEMS.register("katana",
             () -> new SwordItem(Tiers.IRON, new Item.Properties().durability(450)
                     .attributes(SwordItem.createAttributes(Tiers.IRON, (7.0F), (-2.4F)))));
+    public static final DeferredHolder<Item, Item> DRAGONCAST_HELMET = ITEMS.register(
+            "dragoncast_steel_helmet", () -> new ArmorItem(ArmorMaterials.NETHERITE, ArmorItem.Type.HELMET,
+                    new Item.Properties().fireResistant().durability(ArmorItem.Type.HELMET.getDurability((37)))
+                            .component(NTDataComponents.CAN_SPAWN_DRAGON_BREATHE, Boolean.TRUE)));
+    public static final DeferredHolder<Item, Item> DRAGONCAST_CHESTPLATE = ITEMS.register(
+            "dragoncast_steel_chestplate", () -> new ArmorItem(ArmorMaterials.NETHERITE, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().fireResistant().durability(ArmorItem.Type.CHESTPLATE.getDurability((37)))
+                            .component(NTDataComponents.CAN_SPAWN_DRAGON_BREATHE, Boolean.TRUE)));
+    public static final DeferredHolder<Item, Item> DRAGONCAST_LEGGINGS = ITEMS.register(
+            "dragoncast_steel_leggings", () -> new ArmorItem(ArmorMaterials.NETHERITE, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().fireResistant().durability(ArmorItem.Type.LEGGINGS.getDurability((37)))
+                            .component(NTDataComponents.CAN_SPAWN_DRAGON_BREATHE, Boolean.TRUE)));
+    public static final DeferredHolder<Item, Item> DRAGONCAST_BOOTS = ITEMS.register(
+            "dragoncast_steel_boots", () ->  new ArmorItem(ArmorMaterials.NETHERITE, ArmorItem.Type.BOOTS,
+                    new Item.Properties().fireResistant().durability(ArmorItem.Type.BOOTS.getDurability((37)))
+                            .component(NTDataComponents.CAN_SPAWN_DRAGON_BREATHE, Boolean.TRUE)));
     // 缚相
     public static final DeferredHolder<Item, Item> H_BADLANDS = fx("h_badlands", List.of(Biomes.BADLANDS));
     public static final DeferredHolder<Item, Item> H_BASALT_DELTAS = fx("h_basalt_deltas", List.of(Biomes.BASALT_DELTAS));
@@ -181,5 +214,7 @@ public class NTItems {
     public static final DeferredHolder<Item, Item> H_WIND = fx("h_wind",
             List.of(Biomes.WINDSWEPT_FOREST, Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_SAVANNA, Biomes.WINDSWEPT_GRAVELLY_HILLS));
     public static final DeferredHolder<Item, Item> H_WOODED_BADLANDS = fx("h_wooded_badlands", List.of(Biomes.WOODED_BADLANDS));
+    //刷怪蛋
+    public static final DeferredHolder<Item, Item> LAVA_AXOLOTL_SPAWN_EGG = spawnEgg("lava_axolotl", NTEntityTypes.LAVA_AXOLOTL, 0x533a37, 0x7d2d00);
 
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "natural_transmute:block/stripped_end_alsophila_log",
+    "side": "natural_transmute:block/stripped_end_alsophila_log"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "natural_transmute:block/end_alsophila_slab"
+    },
+    "type=double": {
+      "model": "natural_transmute:block/end_alsophila_planks"
+    },
+    "type=top": {
+      "model": "natural_transmute:block/end_alsophila_slab_top"
+    }
+  }
+}

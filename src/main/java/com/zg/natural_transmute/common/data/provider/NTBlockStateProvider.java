@@ -1,18 +1,20 @@
 package com.zg.natural_transmute.common.data.provider;
 
 import com.zg.natural_transmute.NaturalTransmute;
+import com.zg.natural_transmute.common.blocks.base.*;
 import com.zg.natural_transmute.common.blocks.state.properties.HCStovePart;
 import com.zg.natural_transmute.common.blocks.HarmoniousChangeStove;
 import com.zg.natural_transmute.common.blocks.Papyrus;
+import com.zg.natural_transmute.common.data.NTBlockFamilies;
 import com.zg.natural_transmute.registry.NTBlocks;
+import com.zg.natural_transmute.utils.NTCommonUtils;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.BlockFamily;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
@@ -44,6 +46,8 @@ public class NTBlockStateProvider extends BlockStateProvider {
         this.simpleBlock(NTBlocks.DEATH_EARTH.get());
         this.simpleBlock(NTBlocks.GRASSLAND_EARTH.get());
         this.simpleBlock(NTBlocks.OCEAN_EARTH.get());
+        this.simpleBlock(NTBlocks.ALGAL_END_STONE.get());
+        this.simpleBlock(NTBlocks.BLUE_NETHER_BRICKS.get());
         this.simpleBlock(NTBlocks.HETEROGENEOUS_STONE_ORE.get());
         this.simpleBlock(NTBlocks.DEEPSLATE_HETEROGENEOUS_STONE_ORE.get());
         this.simpleBlockWithRenderType(NTBlocks.AMBER_BLOCK.get(), TRANSLUCENT);
@@ -72,6 +76,60 @@ public class NTBlockStateProvider extends BlockStateProvider {
         this.registerCropStates(NTBlocks.BLUEBERRY_BUSH.get(), BlockStateProperties.AGE_3);
         this.registerPapyrusStates(NTBlocks.PAPYRUS.get());
         this.registerHarmoniousChangeStoveStates(NTBlocks.HARMONIOUS_CHANGE_STOVE.get());
+        this.simpleBlock(NTBlocks.MINE_WATER.get(), this.models()
+                .getBuilder(NTBlocks.MINE_WATER.getId().getPath())
+                .texture("particle", this.mcLoc("block/water_still")));
+        NTBlockFamilies.getAllFamilies().filter(BlockFamily::shouldGenerateModel)
+                .forEach(blockFamily -> this.simpleBlock(blockFamily.getBaseBlock()));
+        this.logBlock((RotatedPillarBlock) NTBlocks.STRIPPED_END_ALSOPHILA_LOG.get());
+        this.logBlock((RotatedPillarBlock) NTBlocks.END_ALSOPHILA_LOG.get());
+        this.simpleBlock(NTBlocks.END_ALSOPHILA_SAPLING.get(),
+                this.models().cross(this.name(NTBlocks.END_ALSOPHILA_SAPLING.get()),
+                        this.blockTexture(NTBlocks.END_ALSOPHILA_SAPLING.get())).renderType(CUTOUT));
+        this.axisBlock((RotatedPillarBlock) NTBlocks.STRIPPED_END_ALSOPHILA_WOOD.get(),
+                this.modLoc("block/stripped_end_alsophila_log"),
+                this.modLoc("block/stripped_end_alsophila_log"));
+        this.axisBlock((RotatedPillarBlock) NTBlocks.END_ALSOPHILA_WOOD.get(),
+                this.modLoc("block/end_alsophila_log"),
+                this.modLoc("block/end_alsophila_log"));
+        this.simpleBlockWithRenderType(NTBlocks.END_ALSOPHILA_LEAVES.get(), CUTOUT_MIPPED);
+        for (Block block : NTCommonUtils.getKnownBlocks()) {
+            if (block instanceof PressurePlateBlockWithBase pressurePlateBlock) {
+                this.pressurePlateBlock(pressurePlateBlock, this.blockTexture(pressurePlateBlock.getBase()));
+            } else if (block instanceof FenceGateBlockWithBase fenceGateBlock) {
+                this.fenceGateBlockWithRenderType(fenceGateBlock, this.blockTexture(fenceGateBlock.getBase()), CUTOUT);
+            } else if (block instanceof TrapDoorBlockWithBase trapDoorBlock) {
+                ResourceLocation texture = this.blockTexture(trapDoorBlock);
+                this.trapdoorBlockWithRenderType(trapDoorBlock, texture, Boolean.TRUE, CUTOUT);
+                this.simpleBlockItem(trapDoorBlock, this.models().trapdoorBottom(this.name(trapDoorBlock), texture));
+            } else if (block instanceof ButtonBlockWithBase buttonBlock) {
+                String name = this.name(buttonBlock) + "_inventory";
+                ResourceLocation texture = this.blockTexture(buttonBlock.getBase());
+                ModelFile buttonInventory = this.models().buttonInventory(name, texture);
+                this.buttonBlock(buttonBlock, texture);
+                this.simpleBlockItem(buttonBlock, buttonInventory);
+            } else if (block instanceof StairBlockWithBase stairBlock) {
+                this.stairsBlock(stairBlock, this.blockTexture(stairBlock.getBase()));
+            } else if (block instanceof FenceBlockWithBase fenceBlock) {
+                ResourceLocation texture = this.blockTexture(fenceBlock.getBase());
+                this.fenceBlockWithRenderType(fenceBlock, texture, CUTOUT);
+                this.simpleBlockItem(fenceBlock, this.models().fenceInventory(this.name(fenceBlock), texture));
+            } else if (block instanceof DoorBlockWithBase doorBlock) {
+                String name = "block/" + this.name(doorBlock) + "_";
+                this.doorBlockWithRenderType(doorBlock,
+                        this.modLoc(name + "bottom"),
+                        this.modLoc(name + "top"), CUTOUT);
+            } else if (block instanceof SlabBlockWithBase slabBlock) {
+                ResourceLocation texture = this.blockTexture(slabBlock.getBase());
+                this.slabBlock(slabBlock, texture, texture);
+            } else if (block instanceof WallBlockWithBase wallBlock) {
+                ResourceLocation texture = this.blockTexture(wallBlock.getBase());
+                this.wallBlock(wallBlock, texture);
+                this.simpleBlockItem(wallBlock, this.models().wallInventory(this.name(wallBlock), texture));
+            } else if (block instanceof FlowerPotBlock flowerPotBlock) {
+                this.registerPottedPlantStates(flowerPotBlock, flowerPotBlock.getPotted());
+            }
+        }
     }
 
     private void simpleBlockWithRenderType(Block block, ResourceLocation type) {
@@ -116,6 +174,11 @@ public class NTBlockStateProvider extends BlockStateProvider {
             ModelFile modelFile = this.models().singleTexture(name, parent, "cross", texture).renderType(CUTOUT);
             builder.partialState().with(Papyrus.TOP, value).modelForState().modelFile(modelFile).addModel();
         }
+    }
+
+    private void registerPottedPlantStates(Block block, Block content) {
+        this.simpleBlock(block, this.models().withExistingParent(this.name(block), "block/flower_pot_cross")
+                .renderType(CUTOUT).texture("plant", this.blockTexture(content)));
     }
 
     private void registerHarmoniousChangeStoveStates(Block block) {

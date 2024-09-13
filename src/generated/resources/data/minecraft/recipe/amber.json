@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "natural_transmute:amber_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "natural_transmute:amber"
+  }
+}

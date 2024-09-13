@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "natural_transmute:block/end_alsophila_planks",
+    "side": "natural_transmute:block/end_alsophila_planks",
+    "top": "natural_transmute:block/end_alsophila_planks"
+  }
+}
