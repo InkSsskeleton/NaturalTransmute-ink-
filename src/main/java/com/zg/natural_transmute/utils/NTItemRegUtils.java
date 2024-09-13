@@ -6,6 +6,8 @@ import com.zg.natural_transmute.common.items.StrangeDogFood;
 import com.zg.natural_transmute.registry.NTDataComponents;
 import com.zg.natural_transmute.registry.NTItems;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.animal.CatVariant;
 import net.minecraft.world.entity.animal.WolfVariant;
 import net.minecraft.world.food.FoodProperties;
@@ -13,10 +15,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 public class NTItemRegUtils {
 
@@ -26,6 +30,10 @@ public class NTItemRegUtils {
 
     public static DeferredHolder<Item, Item> alias(String name, DeferredHolder<Block, Block> block, Item.Properties properties) {
         return NTItems.ITEMS.register(name, () -> new ItemNameBlockItem(block.get(), properties));
+    }
+
+    public static DeferredHolder<Item, Item> spawnEgg(String name, Supplier<? extends EntityType<? extends Mob>> type, int bgColor, int hlColor) {
+        return NTItems.ITEMS.register(name + "_spawn_egg", () -> new DeferredSpawnEggItem(type, bgColor, hlColor, new Item.Properties()));
     }
 
     public static DeferredHolder<Item, Item> catFood(String name, @Nullable ResourceKey<CatVariant> variant) {
