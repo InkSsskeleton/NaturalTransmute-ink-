@@ -18,6 +18,7 @@ public class NaturalTransmute {
         NTMenus.MENUS.register(modEventBus);
         NTFluids.FLUIDS.register(modEventBus);
         NTFluidTypes.FLUID_TYPES.register(modEventBus);
+        NTMobEffects.MOB_EFFECTS.register(modEventBus);
         NTRecipes.RECIPE_TYPES.register(modEventBus);
         NTRecipes.RECIPE_SERIALIZERS.register(modEventBus);
         NTEntityTypes.ENTITY_TYPES.register(modEventBus);
