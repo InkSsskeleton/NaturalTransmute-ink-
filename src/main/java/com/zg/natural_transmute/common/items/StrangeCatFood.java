@@ -44,9 +44,7 @@ public class StrangeCatFood extends Item {
                     }
                 }
 
-                if (!player.getAbilities().instabuild) {
-                    stack.consume(1, player);
-                }
+                stack.consume(1, player);
             }
 
             return InteractionResult.sidedSuccess(cat.level().isClientSide);
