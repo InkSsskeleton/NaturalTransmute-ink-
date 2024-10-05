@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.Block;
 
 public class NTBlockTags {
 
+    public static final TagKey<Block> PEAT_MOSS_PLACEABLE = create("peat_moss_placeable");
     public static final TagKey<Block> END_ALSOPHILA_LOGS = create("end_alsophila_logs");
     public static final TagKey<Block> END_ALSOPHILA_SAPLING_PLACEABLE = create("end_alsophila_sapling_placeable");
 

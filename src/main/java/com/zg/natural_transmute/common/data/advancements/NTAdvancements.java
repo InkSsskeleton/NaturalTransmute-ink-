@@ -3,6 +3,7 @@ package com.zg.natural_transmute.common.data.advancements;
 import com.zg.natural_transmute.NaturalTransmute;
 import com.zg.natural_transmute.common.data.advancements.critereon.HarmoniousChangeTrigger;
 import com.zg.natural_transmute.common.data.tags.NTItemTags;
+import com.zg.natural_transmute.registry.NTBlocks;
 import com.zg.natural_transmute.registry.NTItems;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
@@ -29,7 +30,7 @@ public class NTAdvancements implements AdvancementSubProvider {
                 .addCriterion("heterogeneous_stone", InventoryChangeTrigger.TriggerInstance
                         .hasItems(NTItems.HETEROGENEOUS_STONE.get()))
                 .save(writer, NaturalTransmute.prefix("heterogeneous_stone").toString());
-        Advancement.Builder.advancement().display(NTItems.GATHERING_PLATFORM.get(),
+        Advancement.Builder.advancement().display(NTBlocks.GATHERING_PLATFORM.get(),
                         text("fu_xiang", "title"),
                         text("fu_xiang", "description"),
                         (null), AdvancementType.TASK, Boolean.TRUE, Boolean.TRUE, Boolean.FALSE)
