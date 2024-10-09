@@ -5,14 +5,12 @@
     "item": "natural_transmute:h_mushroom"
   },
   "input1": {
-    "item": "minecraft:brown_mushroom"
+    "item": "minecraft:grass_block"
   },
-  "input2": {
-    "item": "minecraft:golden_apple"
-  },
+  "input2": [],
   "input3": [],
   "results": {
-    "item": "natural_transmute:ganoderma_lucidum"
+    "item": "minecraft:mycelium"
   },
   "should_consume": true,
   "time": 160

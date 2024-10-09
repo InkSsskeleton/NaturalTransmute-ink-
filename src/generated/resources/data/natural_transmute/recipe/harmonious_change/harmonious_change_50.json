@@ -5,14 +5,16 @@
     "item": "natural_transmute:h_dark_forest"
   },
   "input1": {
-    "item": "minecraft:emerald"
+    "item": "minecraft:lapis_lazuli"
   },
   "input2": {
-    "item": "minecraft:bone"
+    "item": "minecraft:golden_apple"
   },
-  "input3": [],
+  "input3": {
+    "tag": "minecraft:skulls"
+  },
   "results": {
-    "item": "natural_transmute:fangs"
+    "item": "minecraft:totem_of_undying"
   },
   "should_consume": true,
   "time": 160

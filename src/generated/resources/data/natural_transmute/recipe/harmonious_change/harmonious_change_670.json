@@ -1,26 +1,16 @@
 {
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
-  "fu_xiang": [
-    {
-      "item": "natural_transmute:h_mountains"
-    },
-    {
-      "item": "natural_transmute:h_snowy_slopes"
-    }
-  ],
-  "input1": [
-    {
-      "item": "minecraft:cracked_stone_bricks"
-    },
-    {
-      "item": "minecraft:spider_eye"
-    }
-  ],
+  "fu_xiang": {
+    "item": "natural_transmute:h_jungle"
+  },
+  "input1": {
+    "item": "minecraft:oak_sign"
+  },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:infested_cracked_stone_bricks"
+    "item": "minecraft:spruce_sign"
   },
   "should_consume": true,
   "time": 160

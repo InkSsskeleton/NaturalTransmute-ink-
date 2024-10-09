@@ -15,7 +15,8 @@ import net.neoforged.api.distmarker.OnlyIn;
 public class HarmoniousChangeStoveScreen extends AbstractContainerScreen<HarmoniousChangeStoveMenu> {
 
     private static final String PATH = "textures/gui/harmonious_change_stove_";
-    private static final ResourceLocation PROGRESS_BAR = NaturalTransmute.prefix("harmonious_change_bar");
+    private static final ResourceLocation PROGRESS_BAR_0 = NaturalTransmute.prefix("harmonious_change_bar_0");
+    private static final ResourceLocation PROGRESS_BAR_1 = NaturalTransmute.prefix("harmonious_change_bar_1");
 
     public HarmoniousChangeStoveScreen(HarmoniousChangeStoveMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
@@ -35,10 +36,12 @@ public class HarmoniousChangeStoveScreen extends AbstractContainerScreen<Harmoni
     protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
-        int time = Mth.ceil(this.menu.getHarmoniousChangeTime() * 50.0F);
+        int time = Mth.ceil(this.menu.getHarmoniousChangeTime() * 51.0F);
+        int remaining = Mth.ceil(this.menu.getRemaining() * 50.0F);
         ResourceLocation texture = NaturalTransmute.prefix(PATH + this.menu.getCurrentState() + ".png");
         guiGraphics.blit(texture, i, j, 0, 0, this.imageWidth, this.imageHeight);
-        guiGraphics.blitSprite(PROGRESS_BAR, (50), (3), (0), (0), i + 106, j + 22, time, (3));
+        guiGraphics.blitSprite(PROGRESS_BAR_0, (51), (21), (0), (0), i + 47, j + 35, time, (21));
+        guiGraphics.blitSprite(PROGRESS_BAR_1, (50), (3), (0), (0), i + 106, j + 22, remaining, (3));
     }
 
 }

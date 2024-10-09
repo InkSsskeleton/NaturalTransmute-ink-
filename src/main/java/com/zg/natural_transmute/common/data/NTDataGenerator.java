@@ -1,6 +1,7 @@
 package com.zg.natural_transmute.common.data;
 
 import com.zg.natural_transmute.NaturalTransmute;
+import com.zg.natural_transmute.common.data.models.NTModelProvider;
 import com.zg.natural_transmute.common.data.provider.*;
 import com.zg.natural_transmute.common.data.provider.tag.NTBlockTagsProvider;
 import com.zg.natural_transmute.common.data.provider.tag.NTEntityTagsProvider;
@@ -41,6 +42,7 @@ public class NTDataGenerator {
         generator.addProvider(event.includeServer(), new NTLootTableProvider(output, provider));
         generator.addProvider(event.includeServer(), new NTDataMapProvider(output, provider));
         generator.addProvider(event.includeServer(), new NTRecipeProvider(output, provider));
+        generator.getVanillaPack(event.includeServer()).addProvider(NTModelProvider::new);
     }
 
 }

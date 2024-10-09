@@ -30,7 +30,7 @@ public class HarmoniousChangeStoveMenu extends AbstractSimpleMenu {
     }
 
     public HarmoniousChangeStoveMenu(int containerId, Inventory inventory, ContainerLevelAccess access) {
-        this(containerId, inventory, access, new ItemStackHandler(8), new SimpleContainerData(3));
+        this(containerId, inventory, access, new ItemStackHandler(8), new SimpleContainerData(5));
     }
 
     public HarmoniousChangeStoveMenu(int containerId, Inventory inventory, ContainerLevelAccess access, IItemHandler itemHandler, ContainerData containerData) {
@@ -56,6 +56,16 @@ public class HarmoniousChangeStoveMenu extends AbstractSimpleMenu {
 
     public int getCurrentState() {
         return this.containerData.get(2);
+    }
+
+    public float getRemaining() {
+        float i = this.containerData.get(3);
+        int j = this.containerData.get(4);
+        if (j == 0) {
+            j = 320;
+        }
+
+        return Mth.clamp(i / (float)j, 0.0F, 1.0F);
     }
 
     @Override

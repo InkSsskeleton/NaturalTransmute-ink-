@@ -1,24 +1,20 @@
 {
   "type": "natural_transmute:harmonious_change",
-  "amount": 1,
-  "fu_xiang": [
-    {
-      "item": "natural_transmute:h_forest"
-    },
-    {
-      "item": "natural_transmute:h_flower_forest"
-    },
-    {
-      "item": "natural_transmute:h_swamp"
-    }
-  ],
-  "input1": {
-    "item": "minecraft:birch_fence"
+  "amount": 2,
+  "fu_xiang": {
+    "item": "natural_transmute:h_wind"
   },
-  "input2": [],
-  "input3": [],
+  "input1": {
+    "item": "minecraft:bolt_armor_trim_smithing_template"
+  },
+  "input2": {
+    "item": "minecraft:diamond"
+  },
+  "input3": {
+    "item": "minecraft:copper_block"
+  },
   "results": {
-    "item": "minecraft:spruce_fence"
+    "item": "minecraft:bolt_armor_trim_smithing_template"
   },
   "should_consume": true,
   "time": 160

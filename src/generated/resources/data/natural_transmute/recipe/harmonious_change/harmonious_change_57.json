@@ -2,20 +2,15 @@
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
   "fu_xiang": {
-    "item": "natural_transmute:h_swamp"
+    "item": "natural_transmute:h_mushroom"
   },
-  "input1": [
-    {
-      "item": "minecraft:big_dripleaf"
-    },
-    {
-      "item": "minecraft:small_dripleaf"
-    }
-  ],
+  "input1": {
+    "item": "minecraft:bowl"
+  },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:lily_pad"
+    "item": "minecraft:mushroom_stew"
   },
   "should_consume": true,
   "time": 160

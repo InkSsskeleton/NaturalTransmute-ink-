@@ -2,15 +2,15 @@
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
   "fu_xiang": {
-    "item": "natural_transmute:h_birch_forest"
+    "item": "natural_transmute:h_dark_forest"
   },
   "input1": {
-    "item": "minecraft:spruce_planks"
+    "item": "minecraft:mangrove_planks"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:birch_planks"
+    "item": "minecraft:dark_oak_planks"
   },
   "should_consume": true,
   "time": 160

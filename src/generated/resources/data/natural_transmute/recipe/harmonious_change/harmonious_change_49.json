@@ -2,19 +2,19 @@
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
   "fu_xiang": {
-    "item": "natural_transmute:h_dark_forest"
+    "item": "natural_transmute:h_flower_forest"
   },
   "input1": {
-    "item": "minecraft:lapis_lazuli"
+    "item": "natural_transmute:buttercup"
   },
   "input2": {
-    "item": "minecraft:golden_apple"
+    "item": "natural_transmute:buttercup"
   },
   "input3": {
-    "tag": "minecraft:skulls"
+    "item": "minecraft:wheat"
   },
   "results": {
-    "item": "minecraft:totem_of_undying"
+    "item": "natural_transmute:moo_bloom_strange_feed"
   },
   "should_consume": true,
   "time": 160

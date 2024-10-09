@@ -13,12 +13,12 @@
     }
   ],
   "input1": {
-    "item": "minecraft:jungle_pressure_plate"
+    "tag": "minecraft:saplings"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:spruce_pressure_plate"
+    "item": "minecraft:oak_sapling"
   },
   "should_consume": true,
   "time": 160

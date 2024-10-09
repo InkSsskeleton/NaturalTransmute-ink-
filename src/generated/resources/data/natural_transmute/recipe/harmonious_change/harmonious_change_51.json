@@ -2,15 +2,17 @@
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
   "fu_xiang": {
-    "item": "natural_transmute:h_birch_forest"
+    "item": "natural_transmute:h_dark_forest"
   },
   "input1": {
-    "item": "minecraft:dead_bush"
+    "item": "minecraft:emerald"
   },
-  "input2": [],
+  "input2": {
+    "item": "minecraft:bone"
+  },
   "input3": [],
   "results": {
-    "item": "minecraft:birch_sapling"
+    "item": "natural_transmute:fangs"
   },
   "should_consume": true,
   "time": 160

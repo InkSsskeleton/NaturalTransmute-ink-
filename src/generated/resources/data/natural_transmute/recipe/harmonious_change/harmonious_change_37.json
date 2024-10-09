@@ -2,17 +2,17 @@
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
   "fu_xiang": {
-    "item": "natural_transmute:h_snowy_slopes"
+    "item": "natural_transmute:h_meadow"
   },
   "input1": {
-    "item": "minecraft:blue_ice"
+    "item": "minecraft:raw_iron"
   },
   "input2": {
-    "item": "minecraft:firework_rocket"
+    "item": "minecraft:quartz"
   },
   "input3": [],
   "results": {
-    "item": "natural_transmute:refrigerated_rocket"
+    "item": "minecraft:amethyst_shard"
   },
   "should_consume": true,
   "time": 160

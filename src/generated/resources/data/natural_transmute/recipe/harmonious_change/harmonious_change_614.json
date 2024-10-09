@@ -1,27 +1,16 @@
 {
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
-  "fu_xiang": [
-    {
-      "item": "natural_transmute:h_desert"
-    },
-    {
-      "item": "natural_transmute:h_badlands"
-    },
-    {
-      "item": "natural_transmute:h_ice_spikes"
-    },
-    {
-      "item": "natural_transmute:h_snowy_slopes"
-    }
-  ],
+  "fu_xiang": {
+    "item": "natural_transmute:h_jungle"
+  },
   "input1": {
-    "item": "minecraft:mossy_cobblestone_slab"
+    "item": "minecraft:acacia_stairs"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:cobblestone_slab"
+    "item": "minecraft:spruce_stairs"
   },
   "should_consume": true,
   "time": 160

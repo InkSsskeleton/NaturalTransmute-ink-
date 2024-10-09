@@ -19,6 +19,7 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
@@ -42,6 +43,8 @@ public class HarmoniousChangeStoveBlockEntity extends SimpleContainerBlockEntity
     private int time;
     private int totalTime;
     private int currentState;
+    private int litTime;
+    private int litDuration;
     @Nullable
     public BlockPos mainPos;
     private final ContainerData containerData = new Data();
@@ -60,8 +63,13 @@ public class HarmoniousChangeStoveBlockEntity extends SimpleContainerBlockEntity
         if (blockEntity.hasInput()) {
             HarmoniousChangeRecipe recipe = blockEntity.checkHarmoniousChangeRecipe();
             if (recipe != null && blockEntity.canWork(recipe)) {
-                didInventoryChange = blockEntity.processRecipe(recipe);
-                blockEntity.currentState = 1;
+                if (blockEntity.isLit()) {
+                    didInventoryChange = blockEntity.processRecipe(recipe);
+                    blockEntity.currentState = 1;
+                } else {
+                    blockEntity.litTime = getFuel().get(blockEntity.getItem(3).getItem());
+                    blockEntity.litDuration = blockEntity.litTime;
+                }
             } else {
                 blockEntity.time = 0;
                 blockEntity.currentState = 0;
@@ -71,6 +79,10 @@ public class HarmoniousChangeStoveBlockEntity extends SimpleContainerBlockEntity
         }
 
         if (didInventoryChange) {
+            if (blockEntity.litTime > 0) {
+                blockEntity.litTime--;
+            }
+
             setChanged(level, pos, state);
         }
     }
@@ -87,7 +99,7 @@ public class HarmoniousChangeStoveBlockEntity extends SimpleContainerBlockEntity
         }
 
         this.time = 0;
-        ItemStack resultStack = recipe.getResultItemList().getFirst();
+        ItemStack resultStack = recipe.getResultItem(this.level.registryAccess());
         ItemStack outStack = this.handler.getStackInSlot(5);
         ItemStack extraStack = this.handler.getStackInSlot(6);
         ItemStack resultExtraStack = recipe.getResultItemList().size() > 1 ?
@@ -116,8 +128,7 @@ public class HarmoniousChangeStoveBlockEntity extends SimpleContainerBlockEntity
     @Nullable
     private HarmoniousChangeRecipe checkHarmoniousChangeRecipe() {
         if (this.level != null) {
-            RecipeHolder<? extends HarmoniousChangeRecipe> holder =
-                    this.quickCheck.getRecipeFor(this.getRecipeInput(), this.level).orElse(null);
+            RecipeHolder<? extends HarmoniousChangeRecipe> holder = this.quickCheck.getRecipeFor(this.getRecipeInput(), this.level).orElse(null);
             return holder != null ? holder.value() : null;
         }
 
@@ -131,6 +142,13 @@ public class HarmoniousChangeStoveBlockEntity extends SimpleContainerBlockEntity
         ItemStack fuel = this.getItem(3);
         ItemStack fuXiang = this.getItem(4);
         return new HarmoniousChangeRecipeInput(input1, input2, input3, fuel, fuXiang);
+    }
+
+    private boolean isLit() {
+        ItemStack fuel = this.getItem(3);
+        boolean b1 = fuel.is(NTItems.HARMONIOUS_CHANGE_LAVA_BUCKET);
+        boolean b2 = fuel.is(NTItems.ETERNAL_HARMONIOUS_CHANGE_LAVA_BUCKET);
+        return this.litTime > 0 || b1 || b2;
     }
 
     private boolean hasInput() {
@@ -204,6 +222,8 @@ public class HarmoniousChangeStoveBlockEntity extends SimpleContainerBlockEntity
         super.loadAdditional(tag, registries);
         this.time = tag.getInt("Time");
         this.totalTime = tag.getInt("TotalTime");
+        this.litTime = tag.getInt("LitTime");
+        this.litDuration = tag.getInt("LitDuration");
         this.currentState = tag.getInt("CurrentState");
         this.mainPos = NbtUtils.readBlockPos(tag, "MainPos").orElse(null);
     }
@@ -213,6 +233,8 @@ public class HarmoniousChangeStoveBlockEntity extends SimpleContainerBlockEntity
         super.saveAdditional(tag, registries);
         tag.putInt("Time", this.time);
         tag.putInt("TotalTime", this.totalTime);
+        tag.putInt("LitTime", this.litTime);
+        tag.putInt("LitDuration", this.litDuration);
         tag.putInt("CurrentState", this.currentState);
         if (this.mainPos != null) {
             tag.put("MainPos", NbtUtils.writeBlockPos(this.mainPos));
@@ -272,6 +294,14 @@ public class HarmoniousChangeStoveBlockEntity extends SimpleContainerBlockEntity
                 return totalTime;
             } else if (index == 2) {
                 return currentState;
+            } else if (index == 3) {
+                if (litDuration > Short.MAX_VALUE) {
+                    return Mth.floor(((double) litTime / litDuration) * Short.MAX_VALUE);
+                }
+
+                return litTime;
+            } else if (index == 4) {
+                return Math.min(litDuration, Short.MAX_VALUE);
             } else {
                 return 0;
             }
@@ -285,12 +315,16 @@ public class HarmoniousChangeStoveBlockEntity extends SimpleContainerBlockEntity
                 totalTime = value;
             } else if (index == 2) {
                 currentState = value;
+            } else if (index == 3) {
+                litTime = value;
+            } else if (index == 4) {
+                litDuration = value;
             }
         }
 
         @Override
         public int getCount() {
-            return 3;
+            return 5;
         }
 
     }

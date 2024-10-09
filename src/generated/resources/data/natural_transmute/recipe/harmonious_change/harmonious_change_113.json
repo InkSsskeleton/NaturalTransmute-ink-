@@ -1,18 +1,26 @@
 {
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
-  "fu_xiang": {
-    "item": "natural_transmute:h_plains"
-  },
+  "fu_xiang": [
+    {
+      "item": "natural_transmute:h_deepslate"
+    },
+    {
+      "item": "natural_transmute:h_lush_cave"
+    },
+    {
+      "item": "natural_transmute:h_dripstone_caves"
+    }
+  ],
   "input1": {
-    "tag": "natural_transmute:cooked_fish"
+    "item": "minecraft:skeleton_skull"
   },
   "input2": {
-    "item": "minecraft:black_dye"
+    "item": "minecraft:rotten_flesh"
   },
   "input3": [],
   "results": {
-    "item": "natural_transmute:cat_food_tuxedo"
+    "item": "minecraft:zombie_head"
   },
   "should_consume": true,
   "time": 160

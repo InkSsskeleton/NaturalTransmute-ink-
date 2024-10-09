@@ -6,13 +6,18 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.CatVariant;
 import net.minecraft.world.entity.animal.WolfVariants;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -32,27 +37,34 @@ public class NTItems {
     public static final DeferredHolder<Item, Item> DRAGONCAST_STEEL_BILLET = normal("dragoncast_steel_billet");
     public static final DeferredHolder<Item, Item> DRAGONCAST_STEEL_INGOT = normal("dragoncast_steel_ingot");
     public static final DeferredHolder<Item, Item> DRYAS_OCTOPETALA = normal("dryas_octopetala");
-    public static final DeferredHolder<Item, Item> FANGS = normal("fangs");
     public static final DeferredHolder<Item, Item> GANODERMA_LUCIDUM = normal("ganoderma_lucidum");
     public static final DeferredHolder<Item, Item> GREEN_GHOST_CRYSTAL = normal("green_ghost_crystal");
     public static final DeferredHolder<Item, Item> HAIR_CRYSTAL = normal("hair_crystal");
     public static final DeferredHolder<Item, Item> HARMONIOUS_CHANGE_CORE = normal("harmonious_change_core");
     public static final DeferredHolder<Item, Item> HARMONIOUS_CHANGE_FUEL = normal("harmonious_change_fuel");
-    public static final DeferredHolder<Item, Item> HELIODOR = normal("heliodor");
     public static final DeferredHolder<Item, Item> HETEROGENEOUS_STONE = normal("heterogeneous_stone");
+    public static final DeferredHolder<Item, Item> HELIODOR = normal("heliodor");
     public static final DeferredHolder<Item, Item> ICELAND_SPAR = normal("iceland_spar");
     public static final DeferredHolder<Item, Item> MALACHITE = normal("malachite");
-    public static final DeferredHolder<Item, Item> PITAYA = normal("pitaya");
     public static final DeferredHolder<Item, Item> RED_BERYL = normal("red_beryl");
     public static final DeferredHolder<Item, Item> SCULK_BONE = normal("sculk_bone");
-    public static final DeferredHolder<Item, Item> TRANSPARENT_CRYSTAL = normal("transparent_crystal");
     public static final DeferredHolder<Item, Item> TRUFFLE = normal("truffle");
-    public static final DeferredHolder<Item, Item> WARPED_WART = normal("warped_wart");
     public static final DeferredHolder<Item, Item> WHALE_BONE = normal("whale_bone");
+    public static final DeferredHolder<Item, Item> WITHER_BONE = normal("wither_bone");
+    public static final DeferredHolder<Item, Item> TRANSPARENT_CRYSTAL = normal("transparent_crystal");
+    public static final DeferredHolder<Item, Item> FANGS = ITEMS.register("fangs", Fangs::new);
     public static final DeferredHolder<Item, Item> WATER_WAX = ITEMS.register("water_wax", WaterWax::new);
     public static final DeferredHolder<Item, Item> BREEZE_ARROW = ITEMS.register("breeze_arrow", BreezeArrow::new);
-    public static final DeferredHolder<Item, Item> SILVERFISH_PUPA = ITEMS.register("silverfish_pupa", SilverfishPupa::new);
-    public static final DeferredHolder<Item, Item> REFRIGERATED_ROCKET = ITEMS.register("refrigerated_rocket", RefrigeratedRocket::new);
+    public static final DeferredHolder<Item, Item> SILVERFISH_PUPA =
+            ITEMS.register("silverfish_pupa", SilverfishPupa::new);
+    public static final DeferredHolder<Item, Item> REFRIGERATED_ROCKET =
+            ITEMS.register("refrigerated_rocket", RefrigeratedRocket::new);
+    public static final DeferredHolder<Item, Item> MOOSHROOM_STRANGE_FEED =
+            ITEMS.register("mooshroom_strange_feed", MooshroomStrangeFeed::new);
+    public static final DeferredHolder<Item, Item> MOO_BLOOM_STRANGE_FEED =
+            ITEMS.register("moo_bloom_strange_feed", MooBloomStrangeFeed::new);
+    public static final DeferredHolder<Item, Item> ANNIHILATE_ROD = ITEMS.register("annihilate_rod",
+            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON).durability((5))));
     public static final DeferredHolder<Item, Item> MINE_WATER_BUCKET = ITEMS.register("mine_water_bucket",
             () -> new BucketItem(NTFluids.MINE_WATER_STILL.get(), new Item.Properties().stacksTo((1))));
     public static final DeferredHolder<Item, Item> MELODIOUS_DISC = ITEMS.register("melodious_disc",
@@ -60,19 +72,17 @@ public class NTItems {
     public static final DeferredHolder<Item, Item> LAVA_AXOLOTL_BUCKET = ITEMS.register("lava_axolotl_bucket",
             () -> new MobBucketItem(NTEntityTypes.LAVA_AXOLOTL.get(), Fluids.LAVA, SoundEvents.BUCKET_EMPTY_AXOLOTL,
                     new Item.Properties().stacksTo((1)).component(DataComponents.BUCKET_ENTITY_DATA, CustomData.EMPTY)));
+    public static final DeferredHolder<Item, Item> HARMONIOUS_CHANGE_LAVA_BUCKET = ITEMS.register("harmonious_change_lava_bucket",
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE).durability(100).craftRemainder(Items.BUCKET)));
+    public static final DeferredHolder<Item, Item> ETERNAL_HARMONIOUS_CHANGE_LAVA_BUCKET = ITEMS.register("eternal_harmonious_change_lava_bucket",
+            () -> new Item(new Item.Properties().rarity(Rarity.EPIC).component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true)));
+    public static final DeferredHolder<Item, Item> DUCK_EGG = ITEMS.register("duck_egg", DuckEgg::new);
+    public static final DeferredHolder<Item, Item> REED = alias("reed", NTBlocks.REED, new Item.Properties());
+    public static final DeferredHolder<Item, Item> WARPED_WART = alias("warped_wart", NTBlocks.WARPED_WART, new Item.Properties());
     // 方块
-    public static final DeferredHolder<Item, Item> GATHERING_PLATFORM = ITEMS.register("gathering_platform",
-            () -> new BlockItem(NTBlocks.GATHERING_PLATFORM.get(), new Item.Properties()));
-    public static final DeferredHolder<Item, Item> HARMONIOUS_CHANGE_STOVE = ITEMS.register("harmonious_change_stove",
-            () -> new BlockItem(NTBlocks.HARMONIOUS_CHANGE_STOVE.get(), new Item.Properties()));
-    public static final DeferredHolder<Item, Item> CORUNDUM = ITEMS.register("corundum",
-            () -> new BlockItem(NTBlocks.CORUNDUM.get(), new Item.Properties()));
-    public static final DeferredHolder<Item, Item> AMBER_BLOCK = ITEMS.register("amber_block",
-            () -> new BlockItem(NTBlocks.AMBER_BLOCK.get(), new Item.Properties()));
-    public static final DeferredHolder<Item, Item> AZURE_FROGLIGHT = ITEMS.register("azure_froglight",
-            () -> new BlockItem(NTBlocks.AZURE_FROGLIGHT.get(), new Item.Properties()));
-    public static final DeferredHolder<Item, Item> ALGAL_END_STONE = ITEMS.register("algal_end_stone",
-            () -> new BlockItem(NTBlocks.ALGAL_END_STONE.get(), new Item.Properties()));
+    public static final DeferredHolder<Item, Item> PEAT_MOSS = ITEMS.register("peat_moss", () -> new BlockItem(NTBlocks.PEAT_MOSS.get(), new Item.Properties()));
+    public static final DeferredHolder<Item, Item> FLOWERING_BLUE_TARO_VINE = ITEMS.register("flowering_blue_taro_vine",
+            () -> new FloweringBlueTaroVineItem(NTBlocks.BLUE_TARO_VINE.get(), new Item.Properties()));
     // 食物
     public static final DeferredHolder<Item, Item> BLUEBERRIES = alias("blueberries",
             NTBlocks.BLUEBERRY_BUSH, new Item.Properties().food(Foods.SWEET_BERRIES));
@@ -84,11 +94,21 @@ public class NTItems {
                     .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 600), 1.0F).build())));
     public static final DeferredHolder<Item, Item> COCONUT = ITEMS.register("coconut", () -> new Item(new Item.Properties()
             .food(new FoodProperties.Builder().nutrition((2)).saturationModifier((0.5F)).usingConvertsTo(COCONUT_SHELL.get()).build())));
+    public static final DeferredHolder<Item, Item> GOOSE_BARNACLE = ITEMS.register("goose_barnacle",
+            () -> new GooseBarnacle(new Item.Properties().food(new FoodProperties.Builder().nutrition((2)).saturationModifier((0.5F)).build())
+                    .component(DataComponents.SUSPICIOUS_STEW_EFFECTS, FlowerBlock.makeEffectList(MobEffects.WATER_BREATHING, 5.0F))
+                    .attributes(ItemAttributeModifiers.builder().add(Attributes.ATTACK_DAMAGE, new AttributeModifier(Item.BASE_ATTACK_DAMAGE_ID,
+                            4.0F, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build())));
+    public static final DeferredHolder<Item, Item> HONEY_WINE = ITEMS.register("honey_wine", HoneyWine::new);
     public static final DeferredHolder<Item, Item> TRUFFLE_SOUP = ITEMS.register("truffle_soup", () -> new Item(new Item.Properties()
             .food(new FoodProperties.Builder().nutrition((6)).saturationModifier((5.0F)).usingConvertsTo(Items.BOWL)
                     .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 1200, 1), 1.0F).build())));
-    public static final DeferredHolder<Item, Item> PLANTAIN = ITEMS.register("plantain", () -> new Item(new Item.Properties()
-            .food(new FoodProperties.Builder().nutrition((4)).saturationModifier((0.6F)).build())));
+    public static final DeferredHolder<Item, Item> PITAYA = ITEMS.register("pitaya", () -> new ItemNameBlockItem(
+            NTBlocks.PITAYA.get(), new Item.Properties().food(new FoodProperties.Builder().nutrition((4)).saturationModifier((0.2F)).build())));
+    public static final DeferredHolder<Item, Item> PLANTAIN = ITEMS.register("plantain", () -> new ItemNameBlockItem(
+            NTBlocks.PLANTAIN.get(), new Item.Properties().food(new FoodProperties.Builder().nutrition((4)).saturationModifier((0.6F)).build())));
+    public static final DeferredHolder<Item, Item> PINEAPPLE = ITEMS.register("pineapple", () -> new ItemNameBlockItem(
+            NTBlocks.PINEAPPLE.get(), new Item.Properties().food(new FoodProperties.Builder().nutrition((6)).saturationModifier((0.3F)).build())));
     public static final DeferredHolder<Item, Item> DUCK = ITEMS.register("duck", () -> new Item(new Item.Properties().food(Foods.CHICKEN)));
     public static final DeferredHolder<Item, Item> COOKED_DUCK = ITEMS.register("cooked_duck", () -> new Item(new Item.Properties()
             .food(new FoodProperties.Builder().nutrition((6)).saturationModifier((0.6F))
@@ -216,5 +236,7 @@ public class NTItems {
     public static final DeferredHolder<Item, Item> H_WOODED_BADLANDS = fx("h_wooded_badlands", List.of(Biomes.WOODED_BADLANDS));
     //刷怪蛋
     public static final DeferredHolder<Item, Item> LAVA_AXOLOTL_SPAWN_EGG = spawnEgg("lava_axolotl", NTEntityTypes.LAVA_AXOLOTL, 0x533a37, 0x7d2d00);
+    public static final DeferredHolder<Item, Item> MOO_BLOOM_SPAWN_EGG = spawnEgg("moo_bloom", NTEntityTypes.MOO_BLOOM, 0xfaca00, 0xf7edc1);
+    public static final DeferredHolder<Item, Item> DUCK_SPAWN_EGG = spawnEgg("duck", NTEntityTypes.DUCK, 0xa1a1a1, 0xe65626);
 
 }

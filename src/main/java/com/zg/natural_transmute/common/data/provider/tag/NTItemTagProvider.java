@@ -31,6 +31,8 @@ public class NTItemTagProvider extends ItemTagsProvider {
         this.copy(NTBlockTags.END_ALSOPHILA_SAPLING_PLACEABLE,
                 NTItemTags.END_ALSOPHILA_SAPLING_PLACEABLE);
         this.tag(Tags.Items.TOOLS_BOW).add(NTItems.WHALE_BONE_BOW.get());
+        this.tag(ItemTags.DURABILITY_ENCHANTABLE).add(NTItems.WHALE_BONE_BOW.get());
+        this.tag(ItemTags.BOW_ENCHANTABLE).add(NTItems.WHALE_BONE_BOW.get());
         this.tag(ItemTags.ARROWS).add(NTItems.BREEZE_ARROW.get());
         this.tag(NTItemTags.GRASS).add(Items.SHORT_GRASS,
                 Items.TALL_GRASS, Items.FERN, Items.LARGE_FERN);
@@ -38,6 +40,10 @@ public class NTItemTagProvider extends ItemTagsProvider {
                 Items.COOKED_BEEF, Items.COOKED_CHICKEN, Items.COOKED_MUTTON,
                 Items.COOKED_PORKCHOP, Items.COOKED_RABBIT, NTItems.COOKED_DUCK.get());
         this.tag(NTItemTags.COOKED_FISH).add(Items.COOKED_COD, Items.COOKED_SALMON);
+        this.tag(NTItemTags.FRUIT).add(Items.APPLE, Items.MELON_SLICE, Items.SUGAR_CANE,
+                Items.CHORUS_FRUIT, Items.SWEET_BERRIES, Items.GLOW_BERRIES);
+        this.tag(NTItemTags.VEGETABLE).add(Items.CARROT, Items.POTATO, Items.POISONOUS_POTATO,
+                Items.BEETROOT, Items.PUMPKIN, Items.BROWN_MUSHROOM, Items.BROWN_MUSHROOM);
         NTCommonUtils.getKnownItems().forEach(item -> {
             ItemStack stack = item.getDefaultInstance();
             if (stack.has(NTDataComponents.ASSOCIATED_BIOMES)) {

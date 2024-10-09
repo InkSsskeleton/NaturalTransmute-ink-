@@ -1,7 +1,9 @@
 package com.zg.natural_transmute.common.blocks.entity;
 
+import com.google.common.collect.Maps;
 import com.zg.natural_transmute.client.inventory.GatheringPlatformMenu;
 import com.zg.natural_transmute.common.components.AssociatedBiomes;
+import com.zg.natural_transmute.common.event.NTEventFactory;
 import com.zg.natural_transmute.common.items.crafting.GatheringRecipe;
 import com.zg.natural_transmute.common.items.crafting.GatheringRecipeInput;
 import com.zg.natural_transmute.registry.NTBlockEntityTypes;
@@ -13,16 +15,20 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Map;
 
 public class GatheringPlatformBlockEntity extends SimpleContainerBlockEntity {
 
@@ -61,11 +67,25 @@ public class GatheringPlatformBlockEntity extends SimpleContainerBlockEntity {
         }
     }
 
+    private static Map<Item, Boolean> getSpecialFuXiangs(GatheringPlatformBlockEntity blockEntity) {
+        Map<Item, Boolean> map = Maps.newHashMap();
+        BlockPos pos = blockEntity.getBlockPos();
+        Level level = blockEntity.getLevel();
+        if (level != null) {
+            ResourceKey<Level> dimension = level.dimension();
+            map.put(NTItems.H_DEEPSLATE.get(), pos.getY() < 0 && dimension == Level.OVERWORLD);
+            NTEventFactory.onRegisterSpecialFuXiangCraftingCondition(map, blockEntity);
+        }
+
+        return map;
+    }
+
     private void gathering(GatheringRecipe recipe, BlockPos pos, BlockState state) {
         if (this.level != null) {
             AssociatedBiomes biomes = recipe.result.get(NTDataComponents.ASSOCIATED_BIOMES);
-            if (biomes != null && biomes.biomes().contains(this.level.getBiome(pos).getKey())) {
-                ItemStack assemble = recipe.assemble(this.getRecipeInput(), level.registryAccess());
+            boolean flag = getSpecialFuXiangs(this).get(recipe.result.getItem());
+            if (biomes != null && (biomes.biomes().contains(this.level.getBiome(pos).getKey()) || flag)) {
+                ItemStack assemble = recipe.assemble(this.getRecipeInput(), this.level.registryAccess());
                 this.totalGatheringTime = this.gatheringTime;
                 this.gatheringTime++;
                 if (this.gatheringTime > recipe.gatheringTime) {
@@ -83,8 +103,7 @@ public class GatheringPlatformBlockEntity extends SimpleContainerBlockEntity {
     @Nullable
     private GatheringRecipe checkGatheringRecipe() {
         if (this.level != null) {
-            RecipeHolder<? extends GatheringRecipe> holder =
-                    this.quickCheck.getRecipeFor(this.getRecipeInput(), this.level).orElse(null);
+            RecipeHolder<? extends GatheringRecipe> holder = this.quickCheck.getRecipeFor(this.getRecipeInput(), this.level).orElse(null);
             return holder != null ? holder.value() : null;
         }
 

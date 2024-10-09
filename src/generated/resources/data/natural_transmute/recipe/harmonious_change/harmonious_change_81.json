@@ -1,16 +1,23 @@
 {
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
-  "fu_xiang": {
-    "item": "natural_transmute:h_jungle"
-  },
+  "fu_xiang": [
+    {
+      "item": "natural_transmute:h_jungle"
+    },
+    {
+      "item": "natural_transmute:h_giant_tree_taiga"
+    }
+  ],
   "input1": {
-    "tag": "minecraft:flowers"
+    "item": "minecraft:grass_block"
   },
-  "input2": [],
+  "input2": {
+    "item": "minecraft:rotten_flesh"
+  },
   "input3": [],
   "results": {
-    "item": "minecraft:vine"
+    "item": "minecraft:podzol"
   },
   "should_consume": true,
   "time": 160

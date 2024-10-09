@@ -5,12 +5,12 @@
     "item": "natural_transmute:h_birch_forest"
   },
   "input1": {
-    "item": "minecraft:warped_planks"
+    "item": "minecraft:acacia_fence_gate"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:birch_planks"
+    "item": "minecraft:spruce_fence_gate"
   },
   "should_consume": true,
   "time": 160

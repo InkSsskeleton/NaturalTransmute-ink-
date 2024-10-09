@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_flowering_blue_taro_vine": {
+      "conditions": {
+        "items": [
+          {
+            "items": "natural_transmute:flowering_blue_taro_vine"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "natural_transmute:blue_taro_vine_to_light_blue_dye"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_flowering_blue_taro_vine"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "natural_transmute:blue_taro_vine_to_light_blue_dye"
+    ]
+  }
+}

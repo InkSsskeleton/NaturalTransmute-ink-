@@ -1,24 +1,18 @@
 {
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
-  "fu_xiang": [
-    {
-      "item": "natural_transmute:h_forest"
-    },
-    {
-      "item": "natural_transmute:h_flower_forest"
-    },
-    {
-      "item": "natural_transmute:h_swamp"
-    }
-  ],
-  "input1": {
-    "item": "minecraft:dark_oak_door"
+  "fu_xiang": {
+    "item": "natural_transmute:h_meadow"
   },
-  "input2": [],
+  "input1": {
+    "tag": "minecraft:creeper_drop_music_discs"
+  },
+  "input2": {
+    "item": "minecraft:amethyst_shard"
+  },
   "input3": [],
   "results": {
-    "item": "minecraft:spruce_door"
+    "item": "natural_transmute:melodious_disc"
   },
   "should_consume": true,
   "time": 160

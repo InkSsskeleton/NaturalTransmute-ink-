@@ -6,16 +6,16 @@
   },
   "input1": [
     {
-      "item": "minecraft:vine"
+      "item": "minecraft:short_grass"
     },
     {
-      "item": "minecraft:moss_carpet"
+      "item": "minecraft:fern"
     }
   ],
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:glow_lichen"
+    "item": "minecraft:brown_mushroom"
   },
   "should_consume": true,
   "time": 160

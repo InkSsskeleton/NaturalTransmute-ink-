@@ -3,22 +3,19 @@
   "amount": 1,
   "fu_xiang": [
     {
-      "item": "natural_transmute:h_forest"
+      "item": "natural_transmute:h_taiga"
     },
     {
-      "item": "natural_transmute:h_flower_forest"
-    },
-    {
-      "item": "natural_transmute:h_swamp"
+      "item": "natural_transmute:h_giant_tree_taiga"
     }
   ],
   "input1": {
-    "item": "minecraft:jungle_stairs"
+    "tag": "minecraft:saplings"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:spruce_stairs"
+    "item": "minecraft:spruce_sapling"
   },
   "should_consume": true,
   "time": 160

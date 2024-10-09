@@ -1,24 +1,16 @@
 {
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
-  "fu_xiang": [
-    {
-      "item": "natural_transmute:h_forest"
-    },
-    {
-      "item": "natural_transmute:h_flower_forest"
-    },
-    {
-      "item": "natural_transmute:h_swamp"
-    }
-  ],
+  "fu_xiang": {
+    "item": "natural_transmute:h_cherry_grove"
+  },
   "input1": {
-    "item": "minecraft:warped_stairs"
+    "tag": "natural_transmute:grass"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:spruce_stairs"
+    "item": "minecraft:dried_kelp"
   },
   "should_consume": true,
   "time": 160

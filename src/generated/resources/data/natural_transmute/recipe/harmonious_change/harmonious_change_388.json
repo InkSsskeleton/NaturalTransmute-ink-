@@ -1,16 +1,24 @@
 {
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
-  "fu_xiang": {
-    "item": "natural_transmute:h_dark_forest"
-  },
+  "fu_xiang": [
+    {
+      "item": "natural_transmute:h_mountains"
+    },
+    {
+      "item": "natural_transmute:h_taiga"
+    },
+    {
+      "item": "natural_transmute:h_giant_tree_taiga"
+    }
+  ],
   "input1": {
-    "item": "minecraft:warped_pressure_plate"
+    "item": "minecraft:warped_door"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:spruce_pressure_plate"
+    "item": "minecraft:spruce_door"
   },
   "should_consume": true,
   "time": 160

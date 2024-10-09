@@ -12,7 +12,7 @@ public class NTCreativeModeTabs {
 
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, NaturalTransmute.MOD_ID);
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> NORMAL = CREATIVE_MODE_TABS.register("normal", () -> CreativeModeTab
-            .builder().title(Component.translatable("itemGroup." + NaturalTransmute.MOD_ID)).icon(() -> new ItemStack(NTItems.GATHERING_PLATFORM))
+            .builder().title(Component.translatable("itemGroup." + NaturalTransmute.MOD_ID)).icon(() -> new ItemStack(NTBlocks.GATHERING_PLATFORM.get()))
             .displayItems((parameters, output) -> NTItems.ITEMS.getEntries().forEach(holder -> output.accept(holder.get()))).build());
 
 }

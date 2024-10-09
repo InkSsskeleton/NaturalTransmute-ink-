@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "age=0,facing=east": {
+      "model": "natural_transmute:block/pitaya_0",
+      "y": 270
+    },
+    "age=0,facing=north": {
+      "model": "natural_transmute:block/pitaya_0",
+      "y": 180
+    },
+    "age=0,facing=south": {
+      "model": "natural_transmute:block/pitaya_0"
+    },
+    "age=0,facing=west": {
+      "model": "natural_transmute:block/pitaya_0",
+      "y": 90
+    },
+    "age=1,facing=east": {
+      "model": "natural_transmute:block/pitaya_1",
+      "y": 270
+    },
+    "age=1,facing=north": {
+      "model": "natural_transmute:block/pitaya_1",
+      "y": 180
+    },
+    "age=1,facing=south": {
+      "model": "natural_transmute:block/pitaya_1"
+    },
+    "age=1,facing=west": {
+      "model": "natural_transmute:block/pitaya_1",
+      "y": 90
+    },
+    "age=2,facing=east": {
+      "model": "natural_transmute:block/pitaya_2",
+      "y": 270
+    },
+    "age=2,facing=north": {
+      "model": "natural_transmute:block/pitaya_2",
+      "y": 180
+    },
+    "age=2,facing=south": {
+      "model": "natural_transmute:block/pitaya_2"
+    },
+    "age=2,facing=west": {
+      "model": "natural_transmute:block/pitaya_2",
+      "y": 90
+    },
+    "age=3,facing=east": {
+      "model": "natural_transmute:block/pitaya_3",
+      "y": 270
+    },
+    "age=3,facing=north": {
+      "model": "natural_transmute:block/pitaya_3",
+      "y": 180
+    },
+    "age=3,facing=south": {
+      "model": "natural_transmute:block/pitaya_3"
+    },
+    "age=3,facing=west": {
+      "model": "natural_transmute:block/pitaya_3",
+      "y": 90
+    }
+  }
+}

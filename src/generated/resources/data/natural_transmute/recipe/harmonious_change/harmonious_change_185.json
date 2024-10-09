@@ -1,24 +1,24 @@
 {
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
-  "fu_xiang": [
+  "fu_xiang": {
+    "item": "natural_transmute:h_deepslate"
+  },
+  "input1": [
     {
-      "item": "natural_transmute:h_forest"
+      "tag": "natural_transmute:grass"
     },
     {
-      "item": "natural_transmute:h_flower_forest"
+      "tag": "minecraft:saplings"
     },
     {
-      "item": "natural_transmute:h_swamp"
+      "tag": "minecraft:flowers"
     }
   ],
-  "input1": {
-    "item": "minecraft:dark_oak_slab"
-  },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:spruce_slab"
+    "item": "minecraft:glow_lichen"
   },
   "should_consume": true,
   "time": 160

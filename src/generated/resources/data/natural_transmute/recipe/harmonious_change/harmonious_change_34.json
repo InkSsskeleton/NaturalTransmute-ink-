@@ -4,21 +4,15 @@
   "fu_xiang": {
     "item": "natural_transmute:h_mountains"
   },
-  "input1": [
-    {
-      "item": "minecraft:stone_bricks"
-    },
-    {
-      "item": "minecraft:chiseled_stone_bricks"
-    },
-    {
-      "item": "minecraft:mossy_stone_bricks"
-    }
-  ],
-  "input2": [],
+  "input1": {
+    "item": "minecraft:wheat_seeds"
+  },
+  "input2": {
+    "item": "minecraft:wheat"
+  },
   "input3": [],
   "results": {
-    "item": "minecraft:cracked_stone_bricks"
+    "item": "minecraft:potato"
   },
   "should_consume": true,
   "time": 160

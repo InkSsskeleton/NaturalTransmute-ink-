@@ -1,24 +1,18 @@
 {
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
-  "fu_xiang": [
-    {
-      "item": "natural_transmute:h_forest"
-    },
-    {
-      "item": "natural_transmute:h_flower_forest"
-    },
-    {
-      "item": "natural_transmute:h_swamp"
-    }
-  ],
-  "input1": {
-    "item": "minecraft:acacia_pressure_plate"
+  "fu_xiang": {
+    "item": "natural_transmute:h_lush_cave"
   },
-  "input2": [],
+  "input1": {
+    "item": "minecraft:dirt"
+  },
+  "input2": {
+    "tag": "natural_transmute:grass"
+  },
   "input3": [],
   "results": {
-    "item": "minecraft:spruce_pressure_plate"
+    "item": "minecraft:rooted_dirt"
   },
   "should_consume": true,
   "time": 160

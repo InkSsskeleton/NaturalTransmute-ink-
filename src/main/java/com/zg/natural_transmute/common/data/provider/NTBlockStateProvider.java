@@ -15,7 +15,6 @@ import net.minecraft.data.BlockFamily;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
@@ -51,6 +50,8 @@ public class NTBlockStateProvider extends BlockStateProvider {
         this.simpleBlock(NTBlocks.HETEROGENEOUS_STONE_ORE.get());
         this.simpleBlock(NTBlocks.DEEPSLATE_HETEROGENEOUS_STONE_ORE.get());
         this.simpleBlockWithRenderType(NTBlocks.AMBER_BLOCK.get(), TRANSLUCENT);
+        this.simpleBlockWithRenderType(NTBlocks.PLANTAIN_LEAVES.get(), CUTOUT_MIPPED);
+        this.simpleBlockWithRenderType(NTBlocks.END_ALSOPHILA_LEAVES.get(), CUTOUT_MIPPED);
         this.registerCoralBlockStates(NTBlocks.ACTIVATED_TUBE_CORAL_BLOCK.get(), Blocks.TUBE_CORAL_BLOCK);
         this.registerCoralBlockStates(NTBlocks.ACTIVATED_BRAIN_CORAL_BLOCK.get(), Blocks.BRAIN_CORAL_BLOCK);
         this.registerCoralBlockStates(NTBlocks.ACTIVATED_BUBBLE_CORAL_BLOCK.get(), Blocks.BUBBLE_CORAL_BLOCK);
@@ -73,14 +74,24 @@ public class NTBlockStateProvider extends BlockStateProvider {
         this.registerCoralFanStates(NTBlocks.ACTIVATED_HORN_CORAL_WALL_FAN.get(), Blocks.HORN_CORAL_FAN, "coral_wall_fan");
         this.logBlock((RotatedPillarBlock) NTBlocks.CORUNDUM.get());
         this.logBlock((RotatedPillarBlock) NTBlocks.AZURE_FROGLIGHT.get());
-        this.registerCropStates(NTBlocks.BLUEBERRY_BUSH.get(), BlockStateProperties.AGE_3);
-        this.registerPapyrusStates(NTBlocks.PAPYRUS.get());
+        this.registerCropStates(NTBlocks.BLUEBERRY_BUSH.get(), SweetBerryBushBlock.AGE);
+        this.registerCropStates(NTBlocks.WARPED_WART.get(), NetherWartBlock.AGE);
+        this.registerPlantStates(NTBlocks.BUTTERCUP.get());
+        this.registerDoublePlantStates(NTBlocks.REED.get());
         this.registerHarmoniousChangeStoveStates(NTBlocks.HARMONIOUS_CHANGE_STOVE.get());
-        this.simpleBlock(NTBlocks.MINE_WATER.get(), this.models()
-                .getBuilder(NTBlocks.MINE_WATER.getId().getPath())
+        this.registerPapyrusStates(NTBlocks.PAPYRUS.get());
+        this.simpleBlock(NTBlocks.MINE_WATER.get(),
+                this.models().getBuilder(NTBlocks.MINE_WATER.getId().getPath())
                 .texture("particle", this.mcLoc("block/water_still")));
+        this.simpleBlock(NTBlocks.PEAT_MOSS.get(),
+                this.models().carpet(this.name(NTBlocks.PEAT_MOSS.get()),
+                        this.blockTexture(NTBlocks.PEAT_MOSS.get())));
         NTBlockFamilies.getAllFamilies().filter(BlockFamily::shouldGenerateModel)
                 .forEach(blockFamily -> this.simpleBlock(blockFamily.getBaseBlock()));
+        this.logBlock((RotatedPillarBlock) NTBlocks.PLANTAIN_STEM.get());
+        this.simpleBlock(NTBlocks.PLANTAIN_SAPLING.get(),
+                this.models().cross(this.name(NTBlocks.PLANTAIN_SAPLING.get()),
+                        this.blockTexture(NTBlocks.PLANTAIN_SAPLING.get())).renderType(CUTOUT));
         this.logBlock((RotatedPillarBlock) NTBlocks.STRIPPED_END_ALSOPHILA_LOG.get());
         this.logBlock((RotatedPillarBlock) NTBlocks.END_ALSOPHILA_LOG.get());
         this.simpleBlock(NTBlocks.END_ALSOPHILA_SAPLING.get(),
@@ -92,7 +103,6 @@ public class NTBlockStateProvider extends BlockStateProvider {
         this.axisBlock((RotatedPillarBlock) NTBlocks.END_ALSOPHILA_WOOD.get(),
                 this.modLoc("block/end_alsophila_log"),
                 this.modLoc("block/end_alsophila_log"));
-        this.simpleBlockWithRenderType(NTBlocks.END_ALSOPHILA_LEAVES.get(), CUTOUT_MIPPED);
         for (Block block : NTCommonUtils.getKnownBlocks()) {
             if (block instanceof PressurePlateBlockWithBase pressurePlateBlock) {
                 this.pressurePlateBlock(pressurePlateBlock, this.blockTexture(pressurePlateBlock.getBase()));
@@ -179,6 +189,23 @@ public class NTBlockStateProvider extends BlockStateProvider {
     private void registerPottedPlantStates(Block block, Block content) {
         this.simpleBlock(block, this.models().withExistingParent(this.name(block), "block/flower_pot_cross")
                 .renderType(CUTOUT).texture("plant", this.blockTexture(content)));
+    }
+
+    private void registerPlantStates(Block block) {
+        this.simpleBlock(block, this.models().cross(this.name(block), this.blockTexture(block)).renderType(CUTOUT));
+    }
+
+    private void registerDoublePlantStates(Block block) {
+        VariantBlockStateBuilder builder = this.getVariantBuilder(block);
+        for (DoubleBlockHalf half : DoublePlantBlock.HALF.getPossibleValues()) {
+            String name = this.name(block) + "_" + half.toString();
+            ResourceLocation parent = this.mcLoc("block/tinted_cross");
+            ResourceLocation texture = this.modLoc("block/" + name);
+            ModelFile modelFile = this.models().withExistingParent(name, parent)
+                    .texture("cross", texture).renderType(CUTOUT);
+            builder.partialState().with(DoublePlantBlock.HALF, half)
+                    .modelForState().modelFile(modelFile).addModel();
+        }
     }
 
     private void registerHarmoniousChangeStoveStates(Block block) {

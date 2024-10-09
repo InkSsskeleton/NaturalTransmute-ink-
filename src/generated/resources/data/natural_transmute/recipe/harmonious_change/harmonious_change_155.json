@@ -1,24 +1,18 @@
 {
   "type": "natural_transmute:harmonious_change",
-  "amount": 1,
-  "fu_xiang": [
-    {
-      "item": "natural_transmute:h_forest"
-    },
-    {
-      "item": "natural_transmute:h_flower_forest"
-    },
-    {
-      "item": "natural_transmute:h_swamp"
-    }
-  ],
-  "input1": {
-    "item": "minecraft:crimson_slab"
+  "amount": 2,
+  "fu_xiang": {
+    "item": "natural_transmute:h_lush_cave"
   },
-  "input2": [],
+  "input1": {
+    "tag": "minecraft:flowers"
+  },
+  "input2": {
+    "tag": "minecraft:leaves"
+  },
   "input3": [],
   "results": {
-    "item": "minecraft:spruce_slab"
+    "item": "minecraft:flowering_azalea_leaves"
   },
   "should_consume": true,
   "time": 160

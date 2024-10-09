@@ -2,17 +2,15 @@
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
   "fu_xiang": {
-    "item": "natural_transmute:h_birch_forest"
+    "item": "natural_transmute:h_deepslate"
   },
   "input1": {
-    "tag": "natural_transmute:cooked_fish"
+    "item": "minecraft:cobbled_deepslate"
   },
-  "input2": {
-    "item": "minecraft:orange_dye"
-  },
+  "input2": [],
   "input3": [],
   "results": {
-    "item": "natural_transmute:cat_food_red"
+    "item": "minecraft:gravel"
   },
   "should_consume": true,
   "time": 160

@@ -2,15 +2,15 @@
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
   "fu_xiang": {
-    "item": "natural_transmute:h_jungle"
+    "item": "natural_transmute:h_birch_forest"
   },
   "input1": {
-    "item": "minecraft:acacia_fence_gate"
+    "item": "minecraft:acacia_stairs"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:spruce_fence_gate"
+    "item": "minecraft:spruce_stairs"
   },
   "should_consume": true,
   "time": 160

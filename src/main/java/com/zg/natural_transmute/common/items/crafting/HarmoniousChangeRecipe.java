@@ -1,7 +1,7 @@
 package com.zg.natural_transmute.common.items.crafting;
 
 import com.zg.natural_transmute.common.blocks.entity.HarmoniousChangeStoveBlockEntity;
-import com.zg.natural_transmute.registry.NTItems;
+import com.zg.natural_transmute.registry.NTBlocks;
 import com.zg.natural_transmute.registry.NTRecipes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
@@ -83,6 +83,10 @@ public class HarmoniousChangeRecipe implements Recipe<HarmoniousChangeRecipeInpu
         return true;
     }
 
+    public Ingredient getInput2() {
+        return this.input2;
+    }
+
     public NonNullList<ItemStack> getResultItemList() {
         NonNullList<ItemStack> nonNullList = NonNullList.create();
         nonNullList.addAll(Arrays.stream(this.results.getItems()).toList());
@@ -96,12 +100,12 @@ public class HarmoniousChangeRecipe implements Recipe<HarmoniousChangeRecipeInpu
 
     @Override
     public ItemStack getResultItem(HolderLookup.Provider registries) {
-        return this.results.getItems()[0];
+        return this.getResultItemList().getFirst();
     }
 
     @Override
     public ItemStack getToastSymbol() {
-        return new ItemStack(NTItems.HARMONIOUS_CHANGE_STOVE);
+        return new ItemStack(NTBlocks.HARMONIOUS_CHANGE_STOVE.get());
     }
 
     @Override

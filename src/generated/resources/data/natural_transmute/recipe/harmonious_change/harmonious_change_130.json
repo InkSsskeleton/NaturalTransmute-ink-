@@ -1,24 +1,16 @@
 {
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
-  "fu_xiang": [
-    {
-      "item": "natural_transmute:h_forest"
-    },
-    {
-      "item": "natural_transmute:h_flower_forest"
-    },
-    {
-      "item": "natural_transmute:h_swamp"
-    }
-  ],
+  "fu_xiang": {
+    "item": "natural_transmute:h_deep_dark"
+  },
   "input1": {
-    "item": "minecraft:cherry_pressure_plate"
+    "item": "minecraft:bone"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:spruce_pressure_plate"
+    "item": "natural_transmute:sculk_bone"
   },
   "should_consume": true,
   "time": 160

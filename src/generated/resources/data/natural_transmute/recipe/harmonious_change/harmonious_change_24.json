@@ -10,6 +10,15 @@
     },
     {
       "item": "natural_transmute:h_snowy_slopes"
+    },
+    {
+      "item": "natural_transmute:h_frozen_ocean"
+    },
+    {
+      "item": "natural_transmute:h_warm_ocean"
+    },
+    {
+      "item": "natural_transmute:h_dripstone_caves"
     }
   ],
   "input1": {

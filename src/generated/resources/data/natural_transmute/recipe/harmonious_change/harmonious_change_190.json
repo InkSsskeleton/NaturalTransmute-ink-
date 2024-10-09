@@ -3,22 +3,19 @@
   "amount": 1,
   "fu_xiang": [
     {
-      "item": "natural_transmute:h_forest"
+      "item": "natural_transmute:h_deepslate"
     },
     {
-      "item": "natural_transmute:h_flower_forest"
-    },
-    {
-      "item": "natural_transmute:h_swamp"
+      "item": "natural_transmute:h_lush_cave"
     }
   ],
   "input1": {
-    "item": "minecraft:warped_pressure_plate"
+    "tag": "minecraft:coals"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:spruce_pressure_plate"
+    "item": "natural_transmute:amber"
   },
   "should_consume": true,
   "time": 160

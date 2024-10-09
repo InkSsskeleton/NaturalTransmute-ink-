@@ -2,15 +2,19 @@
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
   "fu_xiang": {
-    "item": "natural_transmute:h_mangrove_swamp"
+    "item": "natural_transmute:h_mushroom"
   },
   "input1": {
-    "item": "minecraft:magma_block"
+    "item": "minecraft:wheat"
   },
-  "input2": [],
-  "input3": [],
+  "input2": {
+    "item": "minecraft:fermented_spider_eye"
+  },
+  "input3": {
+    "item": "minecraft:sugar"
+  },
   "results": {
-    "item": "minecraft:ochre_froglight"
+    "item": "natural_transmute:mooshroom_strange_feed"
   },
   "should_consume": true,
   "time": 160

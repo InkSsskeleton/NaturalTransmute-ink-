@@ -2,15 +2,15 @@
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
   "fu_xiang": {
-    "item": "natural_transmute:h_forest"
+    "item": "natural_transmute:h_jungle"
   },
   "input1": {
-    "item": "minecraft:oak_door"
+    "item": "minecraft:cherry_button"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:birch_door"
+    "item": "minecraft:spruce_button"
   },
   "should_consume": true,
   "time": 160

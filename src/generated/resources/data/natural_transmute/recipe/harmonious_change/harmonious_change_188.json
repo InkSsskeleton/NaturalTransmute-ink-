@@ -3,22 +3,19 @@
   "amount": 1,
   "fu_xiang": [
     {
-      "item": "natural_transmute:h_forest"
+      "item": "natural_transmute:h_river"
     },
     {
-      "item": "natural_transmute:h_flower_forest"
-    },
-    {
-      "item": "natural_transmute:h_swamp"
+      "item": "natural_transmute:h_stone_shore"
     }
   ],
   "input1": {
-    "item": "minecraft:dark_oak_stairs"
+    "tag": "minecraft:banners"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:spruce_stairs"
+    "item": "minecraft:white_banner"
   },
   "should_consume": true,
   "time": 160

@@ -2,23 +2,15 @@
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
   "fu_xiang": {
-    "item": "natural_transmute:h_savanna"
+    "item": "natural_transmute:h_beach"
   },
-  "input1": [
-    {
-      "tag": "natural_transmute:grass"
-    },
-    {
-      "tag": "minecraft:saplings"
-    },
-    {
-      "tag": "minecraft:flowers"
-    }
-  ],
+  "input1": {
+    "item": "minecraft:quartz"
+  },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:vine"
+    "item": "natural_transmute:transparent_crystal"
   },
   "should_consume": true,
   "time": 160

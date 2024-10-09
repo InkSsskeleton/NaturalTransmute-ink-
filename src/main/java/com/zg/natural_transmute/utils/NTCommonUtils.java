@@ -11,8 +11,13 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class NTCommonUtils {
+
+    public static Stream<Block> getKnownBlockStream() {
+        return NTBlocks.BLOCKS.getEntries().stream().map(DeferredHolder::get);
+    }
 
     public static Iterable<Block> getKnownBlocks() {
         return NTBlocks.BLOCKS.getEntries().stream().map(DeferredHolder::get).collect(Collectors.toList());

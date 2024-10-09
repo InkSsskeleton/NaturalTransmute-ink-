@@ -5,12 +5,14 @@
     "item": "natural_transmute:h_snowy_slopes"
   },
   "input1": {
-    "item": "minecraft:powder_snow_bucket"
+    "item": "minecraft:blue_ice"
   },
-  "input2": [],
+  "input2": {
+    "item": "minecraft:firework_rocket"
+  },
   "input3": [],
   "results": {
-    "item": "minecraft:ice"
+    "item": "natural_transmute:refrigerated_rocket"
   },
   "should_consume": true,
   "time": 160

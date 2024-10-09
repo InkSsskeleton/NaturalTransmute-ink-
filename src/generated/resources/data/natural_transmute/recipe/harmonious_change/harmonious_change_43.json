@@ -3,25 +3,23 @@
   "amount": 1,
   "fu_xiang": [
     {
-      "item": "natural_transmute:h_mountains"
+      "item": "natural_transmute:h_forest"
     },
     {
       "item": "natural_transmute:h_flower_forest"
+    },
+    {
+      "item": "natural_transmute:h_swamp"
     }
   ],
   "input1": {
-    "item": "minecraft:honey_bottle"
+    "item": "minecraft:dead_bush"
   },
   "input2": [],
   "input3": [],
-  "results": [
-    {
-      "item": "minecraft:honeycomb"
-    },
-    {
-      "item": "minecraft:glass_bottle"
-    }
-  ],
+  "results": {
+    "item": "minecraft:oak_sapling"
+  },
   "should_consume": true,
   "time": 160
 }

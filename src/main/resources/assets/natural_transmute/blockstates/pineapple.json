@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "age=0": {
+            "model": "natural_transmute:block/pineapple_0"
+        },
+        "age=1": {
+            "model": "natural_transmute:block/pineapple_1"
+        },
+        "age=2": {
+            "model": "natural_transmute:block/pineapple_2"
+        },
+        "age=3": {
+            "model": "natural_transmute:block/pineapple_3"
+        }
+    }
+}

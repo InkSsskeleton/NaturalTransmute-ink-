@@ -2,15 +2,17 @@
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
   "fu_xiang": {
-    "item": "natural_transmute:h_desert"
+    "item": "natural_transmute:h_warm_ocean"
   },
   "input1": {
-    "tag": "natural_transmute:cooked_fish"
+    "item": "minecraft:honeycomb"
   },
-  "input2": [],
+  "input2": {
+    "item": "minecraft:pufferfish"
+  },
   "input3": [],
   "results": {
-    "item": "natural_transmute:cat_food_persian"
+    "item": "natural_transmute:water_wax"
   },
   "should_consume": true,
   "time": 160

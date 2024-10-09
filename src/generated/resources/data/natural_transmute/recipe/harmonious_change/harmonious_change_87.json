@@ -2,15 +2,15 @@
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
   "fu_xiang": {
-    "item": "natural_transmute:h_dark_forest"
+    "item": "natural_transmute:h_river"
   },
   "input1": {
-    "tag": "minecraft:saplings"
+    "item": "minecraft:coarse_dirt"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:birch_sapling"
+    "item": "minecraft:dirt"
   },
   "should_consume": true,
   "time": 160

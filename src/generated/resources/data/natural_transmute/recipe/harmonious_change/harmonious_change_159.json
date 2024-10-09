@@ -3,22 +3,19 @@
   "amount": 1,
   "fu_xiang": [
     {
-      "item": "natural_transmute:h_forest"
+      "item": "natural_transmute:h_desert"
     },
     {
-      "item": "natural_transmute:h_flower_forest"
-    },
-    {
-      "item": "natural_transmute:h_swamp"
+      "item": "natural_transmute:h_badlands"
     }
   ],
   "input1": {
-    "item": "minecraft:jungle_fence_gate"
+    "tag": "minecraft:saplings"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:spruce_fence_gate"
+    "item": "minecraft:dead_bush"
   },
   "should_consume": true,
   "time": 160

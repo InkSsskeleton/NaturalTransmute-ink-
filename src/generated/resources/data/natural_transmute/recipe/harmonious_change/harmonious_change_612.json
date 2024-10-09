@@ -5,12 +5,12 @@
     "item": "natural_transmute:h_jungle"
   },
   "input1": {
-    "item": "minecraft:warped_planks"
+    "item": "minecraft:acacia_fence_gate"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:jungle_planks"
+    "item": "minecraft:spruce_fence_gate"
   },
   "should_consume": true,
   "time": 160

@@ -1,21 +1,16 @@
 {
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
-  "fu_xiang": [
-    {
-      "item": "natural_transmute:h_desert"
-    },
-    {
-      "item": "natural_transmute:h_badlands"
-    }
-  ],
+  "fu_xiang": {
+    "item": "natural_transmute:h_jungle"
+  },
   "input1": {
-    "item": "minecraft:gray_glazed_terracotta"
+    "item": "minecraft:crimson_trapdoor"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:gray_terracotta"
+    "item": "minecraft:spruce_trapdoor"
   },
   "should_consume": true,
   "time": 160

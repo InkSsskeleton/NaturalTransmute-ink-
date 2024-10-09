@@ -1,19 +1,16 @@
 {
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
-  "fu_xiang": [
-    {
-      "item": "natural_transmute:h_desert"
-    },
-    {
-      "item": "natural_transmute:h_badlands"
-    }
-  ],
-  "input1": [],
+  "fu_xiang": {
+    "item": "natural_transmute:h_cherry_grove"
+  },
+  "input1": {
+    "item": "minecraft:acacia_stairs"
+  },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:dead_tube_coral_fan"
+    "item": "minecraft:spruce_stairs"
   },
   "should_consume": true,
   "time": 160

@@ -1,24 +1,18 @@
 {
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
-  "fu_xiang": [
-    {
-      "item": "natural_transmute:h_forest"
-    },
-    {
-      "item": "natural_transmute:h_flower_forest"
-    },
-    {
-      "item": "natural_transmute:h_swamp"
-    }
-  ],
-  "input1": {
-    "item": "minecraft:mangrove_button"
+  "fu_xiang": {
+    "item": "natural_transmute:h_forest"
   },
-  "input2": [],
+  "input1": {
+    "tag": "natural_transmute:cooked_fish"
+  },
+  "input2": {
+    "item": "minecraft:white_dye"
+  },
   "input3": [],
   "results": {
-    "item": "minecraft:spruce_button"
+    "item": "natural_transmute:cat_food_white"
   },
   "should_consume": true,
   "time": 160

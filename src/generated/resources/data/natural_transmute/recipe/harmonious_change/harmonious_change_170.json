@@ -13,12 +13,12 @@
     }
   ],
   "input1": {
-    "item": "minecraft:oak_pressure_plate"
+    "tag": "minecraft:leaves"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:spruce_pressure_plate"
+    "item": "minecraft:oak_leaves"
   },
   "should_consume": true,
   "time": 160

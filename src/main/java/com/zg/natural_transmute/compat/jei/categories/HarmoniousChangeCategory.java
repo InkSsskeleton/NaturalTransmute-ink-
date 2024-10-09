@@ -12,6 +12,8 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -65,11 +67,16 @@ public class HarmoniousChangeCategory implements IRecipeCategory<HarmoniousChang
         Set<Item> items = HarmoniousChangeStoveBlockEntity.getFuel().keySet();
         List<ItemStack> fuelList = new ArrayList<>(items.stream().map(ItemStack::new).toList());
         builder.addSlot(RecipeIngredientRole.INPUT, 5, 12).addIngredients(recipe.input1);
-        builder.addSlot(RecipeIngredientRole.INPUT, 23, 12).addIngredients(recipe.input2);
+        builder.addSlot(RecipeIngredientRole.INPUT, 23, 12).addIngredients(recipe.getInput2());
         builder.addSlot(RecipeIngredientRole.INPUT, 41, 12).addIngredients(recipe.input3);
         builder.addSlot(RecipeIngredientRole.INPUT, 26, 42).addItemStacks(fuelList);
         builder.addSlot(RecipeIngredientRole.INPUT, 65, 19).addIngredients(recipe.fuXiang);
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 102, 38).addItemStack(resultItemList.getFirst());
+        if (resultItemList.size() == 1) {
+            ClientLevel level = Minecraft.getInstance().level;
+            ItemStack resultItem = level != null ? recipe.getResultItem(level.registryAccess()) : resultItemList.getFirst();
+            builder.addSlot(RecipeIngredientRole.OUTPUT, 102, 38).addItemStack(resultItem);
+        }
+
         if (resultItemList.size() == 2) {
             builder.addSlot(RecipeIngredientRole.OUTPUT, 120, 38).addItemStack(resultItemList.get(1));
         }

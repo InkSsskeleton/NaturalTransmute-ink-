@@ -2,15 +2,17 @@
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
   "fu_xiang": {
-    "item": "natural_transmute:h_mangrove_swamp"
+    "item": "natural_transmute:h_mushroom"
   },
   "input1": {
-    "item": "minecraft:dead_bush"
+    "item": "minecraft:brown_mushroom"
   },
-  "input2": [],
+  "input2": {
+    "item": "minecraft:golden_apple"
+  },
   "input3": [],
   "results": {
-    "item": "minecraft:mangrove_propagule"
+    "item": "natural_transmute:ganoderma_lucidum"
   },
   "should_consume": true,
   "time": 160

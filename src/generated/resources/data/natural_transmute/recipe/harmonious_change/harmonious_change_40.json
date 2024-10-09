@@ -10,12 +10,12 @@
     }
   ],
   "input1": {
-    "item": "minecraft:honeycomb_block"
+    "item": "minecraft:honey_block"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:honey_block"
+    "item": "minecraft:honeycomb_block"
   },
   "should_consume": true,
   "time": 160

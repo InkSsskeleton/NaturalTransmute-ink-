@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "natural_transmute:block/reed_lower"
+    },
+    "half=upper": {
+      "model": "natural_transmute:block/reed_upper"
+    }
+  }
+}

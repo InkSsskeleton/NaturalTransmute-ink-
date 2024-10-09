@@ -5,12 +5,12 @@
     "item": "natural_transmute:h_mangrove_swamp"
   },
   "input1": {
-    "item": "minecraft:dirt"
+    "item": "minecraft:dead_bush"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:mud"
+    "item": "minecraft:mangrove_propagule"
   },
   "should_consume": true,
   "time": 160

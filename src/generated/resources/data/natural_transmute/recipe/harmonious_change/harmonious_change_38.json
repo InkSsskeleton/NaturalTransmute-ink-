@@ -5,14 +5,14 @@
     "item": "natural_transmute:h_meadow"
   },
   "input1": {
-    "item": "minecraft:raw_iron"
+    "item": "minecraft:bone"
   },
   "input2": {
-    "item": "minecraft:quartz"
+    "item": "minecraft:stone"
   },
   "input3": [],
   "results": {
-    "item": "minecraft:amethyst_shard"
+    "item": "minecraft:calcite"
   },
   "should_consume": true,
   "time": 160

@@ -3,22 +3,21 @@
   "amount": 1,
   "fu_xiang": [
     {
-      "item": "natural_transmute:h_forest"
+      "item": "natural_transmute:h_meadow"
     },
     {
-      "item": "natural_transmute:h_flower_forest"
-    },
-    {
-      "item": "natural_transmute:h_swamp"
+      "item": "natural_transmute:h_plains"
     }
   ],
   "input1": {
-    "item": "minecraft:dark_oak_fence"
+    "tag": "natural_transmute:grass"
   },
-  "input2": [],
+  "input2": {
+    "item": "minecraft:dirt"
+  },
   "input3": [],
   "results": {
-    "item": "minecraft:spruce_fence"
+    "item": "minecraft:grass_block"
   },
   "should_consume": true,
   "time": 160

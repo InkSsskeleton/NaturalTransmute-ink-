@@ -5,12 +5,12 @@
     "item": "natural_transmute:h_jungle"
   },
   "input1": {
-    "item": "minecraft:mangrove_planks"
+    "item": "minecraft:acacia_trapdoor"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:jungle_planks"
+    "item": "minecraft:spruce_trapdoor"
   },
   "should_consume": true,
   "time": 160

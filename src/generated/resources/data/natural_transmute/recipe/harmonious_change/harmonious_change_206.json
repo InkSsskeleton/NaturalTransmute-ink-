@@ -6,19 +6,19 @@
       "item": "natural_transmute:h_forest"
     },
     {
-      "item": "natural_transmute:h_flower_forest"
+      "item": "natural_transmute:h_dark_forest"
     },
     {
-      "item": "natural_transmute:h_swamp"
+      "item": "natural_transmute:h_flower_forest"
     }
   ],
   "input1": {
-    "item": "minecraft:mangrove_trapdoor"
+    "tag": "natural_transmute:vegetable"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:spruce_trapdoor"
+    "item": "minecraft:apple"
   },
   "should_consume": true,
   "time": 160

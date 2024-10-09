@@ -1,7 +1,7 @@
 package com.zg.natural_transmute.common.items.crafting;
 
 import com.zg.natural_transmute.registry.NTItems;
-import net.minecraft.core.NonNullList;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
@@ -19,25 +19,26 @@ public class HCGrassToFlowerRecipe extends HarmoniousChangeRecipe {
     }
 
     @Override
-    public NonNullList<ItemStack> getResultItemList() {
-        HashMap<ItemLike, Float> map = new HashMap<>();
-        TreeMap<Float, ItemLike> treeMap = new TreeMap<>();
-        NonNullList<ItemStack> nonNullList = NonNullList.create();
-        map.put(Items.CORNFLOWER, 0.2F);
-        map.put(Items.AZURE_BLUET, 0.2F);
-        map.put(Items.DANDELION, 0.1F);
-        map.put(Items.POPPY, 0.1F);
-        map.put(Items.ALLIUM, 0.2F);
-        map.put(Items.OXEYE_DAISY, 0.2F);
-        float sum = 0.0F;
-        for (Map.Entry<ItemLike, Float> entry : map.entrySet()) {
-            sum += entry.getValue();
-            treeMap.put(sum, entry.getKey());
+    public ItemStack getResultItem(HolderLookup.Provider registries) {
+        HashMap<ItemLike, Integer> map = new HashMap<>();
+        RandomSource random = RandomSource.create();
+        map.put(Items.CORNFLOWER, 2);
+        map.put(Items.AZURE_BLUET, 2);
+        map.put(Items.DANDELION, 1);
+        map.put(Items.POPPY, 1);
+        map.put(Items.ALLIUM, 2);
+        map.put(Items.OXEYE_DAISY, 2);
+        int totalWeight = map.values().stream().mapToInt(i -> i).sum();
+        int randomWeight = random.nextInt(totalWeight) + 1;
+        int currentWeight = 0;
+        for (ItemLike itemLike : map.keySet()) {
+            currentWeight += map.get(itemLike);
+            if (currentWeight > randomWeight) {
+                return new ItemStack(itemLike);
+            }
         }
 
-        float ceilingKey = treeMap.ceilingKey(RandomSource.create().nextFloat());
-        nonNullList.add(treeMap.get(ceilingKey).asItem().getDefaultInstance());
-        return nonNullList;
+        return super.getResultItem(registries);
     }
 
 }

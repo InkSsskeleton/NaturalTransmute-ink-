@@ -1,0 +1,247 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_1"
+      },
+      "when": {
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_1"
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_0"
+      },
+      "when": {
+        "flowering": "false",
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_0"
+      },
+      "when": {
+        "east": "false",
+        "flowering": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_1",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_1",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_0",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "flowering": "false",
+        "east": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_0",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "false",
+        "flowering": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_1",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_1",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_0",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "flowering": "false",
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_0",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "east": "false",
+        "flowering": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_1",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_1",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_0",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "flowering": "false",
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_0",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "east": "false",
+        "flowering": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_1",
+        "uvlock": true,
+        "x": 270
+      },
+      "when": {
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_1",
+        "uvlock": true,
+        "x": 270
+      },
+      "when": {
+        "east": "false",
+        "flowering": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_0",
+        "uvlock": true,
+        "x": 270
+      },
+      "when": {
+        "flowering": "false",
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "natural_transmute:block/blue_taro_vine_0",
+        "uvlock": true,
+        "x": 270
+      },
+      "when": {
+        "east": "false",
+        "flowering": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    }
+  ]
+}

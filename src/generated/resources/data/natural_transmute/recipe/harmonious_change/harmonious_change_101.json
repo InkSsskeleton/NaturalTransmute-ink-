@@ -1,18 +1,18 @@
 {
   "type": "natural_transmute:harmonious_change",
-  "amount": 3,
+  "amount": 1,
   "fu_xiang": {
-    "item": "natural_transmute:h_savanna"
+    "item": "natural_transmute:h_beach"
   },
   "input1": {
-    "tag": "minecraft:wool"
+    "item": "minecraft:sugar_cane"
   },
   "input2": {
-    "item": "minecraft:beef"
+    "tag": "minecraft:logs"
   },
   "input3": [],
   "results": {
-    "item": "minecraft:leather"
+    "item": "natural_transmute:coconut"
   },
   "should_consume": true,
   "time": 160

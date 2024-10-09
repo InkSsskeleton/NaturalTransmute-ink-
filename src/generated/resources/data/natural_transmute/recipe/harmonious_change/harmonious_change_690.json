@@ -1,24 +1,16 @@
 {
   "type": "natural_transmute:harmonious_change",
   "amount": 1,
-  "fu_xiang": [
-    {
-      "item": "natural_transmute:h_mountains"
-    },
-    {
-      "item": "natural_transmute:h_snowy_slopes"
-    },
-    {
-      "item": "natural_transmute:h_meadow"
-    }
-  ],
+  "fu_xiang": {
+    "item": "natural_transmute:h_jungle"
+  },
   "input1": {
-    "item": "minecraft:polished_granite"
+    "item": "minecraft:warped_sign"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:polished_andesite"
+    "item": "minecraft:spruce_sign"
   },
   "should_consume": true,
   "time": 160

@@ -3,21 +3,21 @@
   "amount": 1,
   "fu_xiang": [
     {
-      "item": "natural_transmute:h_meadow"
+      "item": "natural_transmute:h_beach"
     },
     {
-      "item": "natural_transmute:h_plains"
+      "item": "natural_transmute:h_warm_ocean"
     }
   ],
   "input1": {
-    "tag": "natural_transmute:grass"
+    "item": "minecraft:turtle_scute"
   },
   "input2": {
-    "item": "minecraft:dirt"
+    "item": "minecraft:bone"
   },
   "input3": [],
   "results": {
-    "item": "minecraft:grass_block"
+    "item": "minecraft:nautilus_shell"
   },
   "should_consume": true,
   "time": 160

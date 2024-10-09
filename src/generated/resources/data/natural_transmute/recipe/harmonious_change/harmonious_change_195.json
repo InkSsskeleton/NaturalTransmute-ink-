@@ -3,22 +3,19 @@
   "amount": 1,
   "fu_xiang": [
     {
-      "item": "natural_transmute:h_forest"
-    },
-    {
-      "item": "natural_transmute:h_flower_forest"
-    },
-    {
       "item": "natural_transmute:h_swamp"
+    },
+    {
+      "item": "natural_transmute:h_mangrove_swamp"
     }
   ],
   "input1": {
-    "item": "minecraft:warped_slab"
+    "tag": "natural_transmute:grass"
   },
   "input2": [],
   "input3": [],
   "results": {
-    "item": "minecraft:spruce_slab"
+    "item": "minecraft:vine"
   },
   "should_consume": true,
   "time": 160
