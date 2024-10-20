@@ -61,10 +61,12 @@ public class ModBusEventHandler {
 
     @SubscribeEvent
     public static void registerDispenserBehavior(FMLCommonSetupEvent event) {
-        DispenserBlock.registerProjectileBehavior(NTItems.DUCK_EGG.get());
-        DispenserBlock.registerProjectileBehavior(NTItems.BREEZE_ARROW.get());
-        DispenserBlock.registerProjectileBehavior(NTItems.REFRIGERATED_ROCKET.get());
-        DispenserBlock.registerBehavior(NTItems.MINE_WATER_BUCKET.get(), new DispenseBucket());
+        event.enqueueWork(() -> {
+            DispenserBlock.registerProjectileBehavior(NTItems.DUCK_EGG.get());
+            DispenserBlock.registerProjectileBehavior(NTItems.BREEZE_ARROW.get());
+            DispenserBlock.registerProjectileBehavior(NTItems.REFRIGERATED_ROCKET.get());
+            DispenserBlock.registerBehavior(NTItems.MINE_WATER_BUCKET.get(), new DispenseBucket());
+        });
     }
 
     @OnlyIn(Dist.CLIENT)
