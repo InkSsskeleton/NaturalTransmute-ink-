@@ -8,9 +8,7 @@
         "MixinAbstractArrow",
         "MixinBaseCoralPlantTypeBlock",
         "MixinCactusBlock",
-        "MixinCrossbowItem",
-        "MixinJukeboxSong",
-        "MixinPlayer"
+        "MixinJukeboxSong"
     ],
     "client": [
     ],
