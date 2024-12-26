@@ -107,8 +107,7 @@ public class NTRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_papyrus", has(NTItems.PAPYRUS.get()))
                 .save(recipeOutput, NaturalTransmute.prefix("papyrus_to_paper"));
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, Blocks.JUNGLE_PLANKS)
-                .define('#', NTItems.COCONUT_SHELL.get())
-                .pattern("##").pattern("##")
+                .define('#', NTItems.COCONUT_SHELL.get()).pattern("##").pattern("##")
                 .unlockedBy("has_coconut_shell", has(NTItems.COCONUT_SHELL.get()))
                 .save(recipeOutput, NaturalTransmute.prefix("coconut_shell_to_jungle_plank"));
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, NTItems.WHALE_BONE_BOW.get())
