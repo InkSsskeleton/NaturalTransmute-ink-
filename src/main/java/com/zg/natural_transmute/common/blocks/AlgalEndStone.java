@@ -44,11 +44,11 @@ public class AlgalEndStone extends Block {
         Level level = context.getLevel();
         BlockPos clickedPos = context.getClickedPos();
         BlockState state = level.getBlockState(clickedPos);
-        if (state.getValue(WITHERED)) {
+        if (state.hasProperty(WITHERED) && state.getValue(WITHERED)) {
             level.scheduleTick(clickedPos, this, 600 + level.getRandom().nextInt(100));
         }
 
-        return this.defaultBlockState().setValue(WITHERED, Boolean.FALSE);
+        return this.defaultBlockState();
     }
 
     @Override
