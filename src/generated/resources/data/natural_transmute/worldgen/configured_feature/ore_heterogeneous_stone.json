@@ -6,7 +6,7 @@
     "targets": [
       {
         "state": {
-          "Name": "natural_transmute:harmonious_change_stove",
+          "Name": "natural_transmute:heterogeneous_stone_ore",
           "Properties": {
             "facing": "north",
             "half": "lower",

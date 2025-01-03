@@ -43,7 +43,7 @@ public class NTConfiguredFeatures {
         RuleTest ruleTest1 = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest ruleTest2 = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
         List<OreConfiguration.TargetBlockState> lapisOres = List.of(
-                OreConfiguration.target(ruleTest1, NTBlocks.HARMONIOUS_CHANGE_STOVE.get().defaultBlockState()),
+                OreConfiguration.target(ruleTest1, NTBlocks.HETEROGENEOUS_STONE_ORE.get().defaultBlockState()),
                 OreConfiguration.target(ruleTest2, NTBlocks.DEEPSLATE_HETEROGENEOUS_STONE_ORE.get().defaultBlockState()));
         FeatureUtils.register(context, PLANTAIN, Feature.TREE, (new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(NTBlocks.PLANTAIN_STEM.get()), new StraightTrunkPlacer((3), (2), (0)),
