@@ -107,10 +107,12 @@ public class ModBusEventHandler {
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void registerItemProperties(FMLClientSetupEvent event) {
-        ItemProperties.register(NTItems.WHALE_BONE_BOW.get(), NaturalTransmute.prefix("pull"), ((stack, level, entity, seed) ->
-                entity == null || entity.getUseItem() != stack ? 0.0F : (stack.getUseDuration(entity) - entity.getUseItemRemainingTicks()) / 20.0F));
-        ItemProperties.register(NTItems.WHALE_BONE_BOW.get(), NaturalTransmute.prefix("pulling"), ((stack, level, entity, seed) ->
-                entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F));
+        event.enqueueWork(() -> {
+            ItemProperties.register(NTItems.WHALE_BONE_BOW.get(), NaturalTransmute.prefix("pull"), ((stack, level, entity, seed) ->
+                    entity == null || entity.getUseItem() != stack ? 0.0F : (stack.getUseDuration(entity) - entity.getUseItemRemainingTicks()) / 20.0F));
+            ItemProperties.register(NTItems.WHALE_BONE_BOW.get(), NaturalTransmute.prefix("pulling"), ((stack, level, entity, seed) ->
+                    entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F));
+        });
     }
 
     @MethodsReturnNonnullByDefault
